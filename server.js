@@ -10,6 +10,7 @@ require('./config/database');
 const userRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const projectRouter = require('./routes/projects');
+const imageRouter = require('./routes/images');
 
 const cors = require('cors')
 
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/projects', projectRouter);
+app.use('/api/images', imageRouter);
 
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
