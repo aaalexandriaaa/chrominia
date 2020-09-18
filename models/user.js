@@ -1,18 +1,29 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 
 const SALT_ROUNDS = 6;
 
+const recipeSchema = new mongoose.Schema({
+  name: String,
+  description: String,
+  paints: [String],
+  creator: { type: Schema.Types.ObjectId, ref: 'User' },
+});
+
 const userSchema = new mongoose.Schema({
   name: String,
-  email: {type: String, required: true, lowercase: true, unique: true},
-  password: String
+  email: { type: String, required: true, lowercase: true, unique: true },
+  password: String,
+  icon: String,
+  recipes: [recipeSchema],
+  friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 }, {
   timestamps: true
 });
 
 userSchema.set('toJSON', {
-  transform: function(doc, ret) {
+  transform: function (doc, ret) {
     // remove the password property when serializing doc to JSON
     delete ret.password;
     return ret;
