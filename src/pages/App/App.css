@@ -1,0 +1,18 @@
+body {
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  background-color: #4e65afb0;
+}
+
+nav div{
+  margin: 0 5px;
+}
+
+main {
+  text-align: center;
+}
