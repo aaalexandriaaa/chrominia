@@ -1,10 +1,22 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 class Project extends Component {
     state = {}
     render() {
         return (
-            <h1>Projects!</h1>
+            <>
+                <h1>Projects!</h1>
+                <Link to="/addproject">
+                    Add a Project
+                </Link><br />
+                <Link to="/projectdetails">
+                    Project Details
+                </Link><br />
+                <Link to="/editproject">
+                    Edit Project
+                </Link><br />
+            </>
         );
     }
 }
