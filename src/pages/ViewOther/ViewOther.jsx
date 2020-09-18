@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class ViewOther extends Component {
   state = {
@@ -9,6 +10,13 @@ class ViewOther extends Component {
     return (
       <>
         <h1>View Other</h1>
+        <Link
+          to={{
+            pathname: '/addsupply'
+          }}
+        >
+          Add Other Suppply
+        </Link>
       </>
     );
   }
