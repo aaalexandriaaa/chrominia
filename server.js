@@ -13,6 +13,7 @@ const projectRouter = require('./routes/projects');
 const imageRouter = require('./routes/images');
 const supplyRouter = require('./routes/supplies');
 const recipeRouter = require('./routes/recipes');
+const noteRouter = require('./routes/notes')
 
 const cors = require('cors')
 
@@ -30,6 +31,8 @@ app.use('/api/projects', projectRouter);
 app.use('/api/images', imageRouter);
 app.use('/api/supplies', supplyRouter);
 app.use('/api/recipes', recipeRouter);
+app.use('/api/notes', noteRouter);
+
 
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
