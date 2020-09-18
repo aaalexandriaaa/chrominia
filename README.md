@@ -1,3 +1,7 @@
-# react-jwt-template
+# Chrominia
 
-This is a template for a full-stack MERN application with built in user authentication utilizing JWT.
+## A Social App for Miniature Painters
+
+### Not like, painters who are miniature.
+
+#### But, you know, painters who like to paint miniatures.
