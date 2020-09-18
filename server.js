@@ -11,6 +11,7 @@ const userRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const projectRouter = require('./routes/projects');
 const imageRouter = require('./routes/images');
+const supplyRouter = require('./routes/supplies');
 
 const cors = require('cors')
 
@@ -26,6 +27,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/projects', projectRouter);
 app.use('/api/images', imageRouter);
+app.use('/api/supplies', supplyRouter);
 
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
