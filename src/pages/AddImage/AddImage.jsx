@@ -13,17 +13,18 @@ class AddImage extends Component {
 
     formRef = React.createRef()
 
-    handleSubmit = e =>{
+    handleSubmit = e => {
         e.preventDefault();
-        this.props.handleAddImage(this.state.formData)
+        console.log(this.props.location)
+        this.props.location.handleAddImage(this.state.formData)
     }
 
     handleChange = e => {
-       const formData = {...this.state.formData, [e.target.name]: e.target.value};
-       this.setState({
-       formData,
-       invalidForm: !this.formRef.current.checkValidity()
-       });
+        const formData = { ...this.state.formData, [e.target.name]: e.target.value };
+        this.setState({
+            formData,
+            invalidForm: !this.formRef.current.checkValidity()
+        });
     }
 
     render() {
@@ -51,7 +52,7 @@ class AddImage extends Component {
                         disabled={this.state.invalidForm}
                     >
                         Add Image
-                    </button>                           
+                    </button>
                 </form>
             </>
         );
