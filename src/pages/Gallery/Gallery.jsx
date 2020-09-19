@@ -22,6 +22,7 @@ class Gallery extends Component {
                 <Link 
                     to={{
                        pathname: "/addimage",
+                        // handleAddImage: this.handleAddImage
                     }}
                 >
                     Add Image
