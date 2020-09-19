@@ -8,20 +8,21 @@ class Gallery extends Component {
     }
 
     handleAddImage = async newImageData => {
+        console.log("HANDLEADDIMAGE?")
         const newImage = await imageAPI.create(newImageData);
         // newImage.user = this.state.user._id 
         this.setState(state => ({
-          images: [...state.images, newImage]
+            images: [...state.images, newImage]
         }), () => this.props.history.push('/gallery'));
-      }
+    }
 
     render() {
         return (
             <>
                 <h1>Gallery</h1>
-                <Link 
+                <Link
                     to={{
-                       pathname: "/addimage",
+                        pathname: "/addimage",
                         // handleAddImage: this.handleAddImage
                     }}
                 >
