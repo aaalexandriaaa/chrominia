@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import * as imageAPI from '../../services/images-api'
+import ImageCard from '../../components/ImageCard/ImageCard'
 
 class Gallery extends Component {
     state = {
@@ -23,6 +24,12 @@ class Gallery extends Component {
                 >
                     Add Image
                 </Link><br />
+                {this.state.images.map((image, idx) =>
+                        <ImageCard 
+                            key={idx}
+                            image={image}
+                        />
+                    )}
                 {/* <Link to="/wiewimage">
                     View Image
                 </Link><br />
