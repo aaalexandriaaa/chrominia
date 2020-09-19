@@ -11,6 +11,8 @@ export function create(image) {
 }
 
 export function getForUser() {
-  return fetch(BASE_URL, {mode: "cors"})
+  return fetch(BASE_URL, {
+    headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+  }, {mode: "cors"})
   .then(res => res.json())
 }

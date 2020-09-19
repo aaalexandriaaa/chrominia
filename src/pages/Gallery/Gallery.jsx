@@ -7,7 +7,10 @@ class Gallery extends Component {
         images: []
     }
 
-    
+    async componentDidMount() {
+        const images = await imageAPI.getForUser();
+        this.setState({ images })
+      }
 
     render() {
         return (
