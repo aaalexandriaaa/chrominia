@@ -78,7 +78,10 @@ class App extends Component {
           exact
           path="/addimage"
           render={() => (
-            <AddImage />
+            <AddImage 
+              user={this.state.user}
+              // handleAddImage = {this.handleAddImage}
+            />
           )}
           />
           <Route
