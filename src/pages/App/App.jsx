@@ -46,173 +46,175 @@ class App extends Component {
     return (
       <>
         <NavBar user={user} handleLogout={this.handleLogout} />
-        <Route
+        <main>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <LandingPage />
+            )}
+          />
+          <Route
+            exact
+            path="/signup"
+            render={({ history }) => (
+              <Signup
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/login"
+            render={({ history }) => (
+              <Login
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
+            )}
+          />
+          <Route
           exact
-          path="/"
+          path="/addimage"
           render={() => (
-            <LandingPage />
+            <AddImage />
           )}
-        />
-        <Route
+          />
+          <Route
           exact
-          path="/signup"
-          render={({ history }) => (
-            <Signup
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
-            />
+          path="/addproject"
+          render={() => (
+            <AddProject />
           )}
-        />
-        <Route
+          />
+          <Route
           exact
-          path="/login"
-          render={({ history }) => (
-            <Login
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
-            />
+          path="/addsupply"
+          render={() => (
+            <AddSupply />
           )}
-        />
-        <Route
-        exact
-        path="/addimage"
-        render={() => (
-          <AddImage />
-        )}
-        />
-        <Route
-        exact
-        path="/addproject"
-        render={() => (
-          <AddProject />
-        )}
-        />
-        <Route
-        exact
-        path="/addsupply"
-        render={() => (
-          <AddSupply />
-        )}
-        />
-        <Route
-        exact
-        path="/allsupplies"
-        render={() => (
-          <AllSupplies />
-        )}
-        />
-        <Route
-        exact
-        path="/editimage"
-        render={() => (
-          <EditImage />
-        )}
-        />
-        <Route
-        exact
-        path="/editprofile"
-        render={() => (
-          <EditProfile />
-        )}
-        />
-        <Route
-        exact
-        path="/editproject"
-        render={() => (
-          <EditProject />
-        )}
-        />
-        <Route
-        exact
-        path="/gallery"
-        render={() => (
-          <Gallery />
-        )}
-        />
-        <Route
-        exact
-        path="/profile"
-        render={() => (
-          <ProfilePage />
-        )}
-        />
-        <Route
-        exact
-        path="/projectdetails"
-        render={() => (
-          <ProjectDetails />
-        )}
-        />
-        <Route
-        exact
-        path="/projects"
-        render={() => (
-          <Projects />
-        )}
-        />
-        <Route
-        exact
-        path="/viewbrushes"
-        render={() => (
-          <ViewBrushes />
-        )}
-        />
-        <Route
-        exact
-        path="/wiewimage"
-        render={() => (
-          <ViewImage />
-        )}
-        />
-        <Route
-        exact
-        path="/viewmaterials"
-        render={() => (
-          <ViewMaterials />
-        )}
-        />
-        <Route
-        exact
-        path="/viewmodels"
-        render={() => (
-          <ViewModels />
-        )}
-        />
-        <Route
-        exact
-        path="/viewother"
-        render={() => (
-          <ViewOther />
-        )}
-        />
-        <Route
-        exact
-        path="/viewpaintaccs"
-        render={() => (
-          <ViewPaintAccs />
-        )}
-        />
-        <Route
-        exact
-        path="/viewpaints"
-        render={() => (
-          <ViewPaints />
-        )}
-        />
-        <Route
-        exact
-        path="/viewtools"
-        render={() => (
-          <ViewTools />
-        )}
-        />
-        <Route
-        exact
-        path="/viewwishlist"
-        render={() => (
-          <ViewWishList />
-        )}
-        />
+          />
+          <Route
+          exact
+          path="/allsupplies"
+          render={() => (
+            <AllSupplies />
+          )}
+          />
+          <Route
+          exact
+          path="/editimage"
+          render={() => (
+            <EditImage />
+          )}
+          />
+          <Route
+          exact
+          path="/editprofile"
+          render={() => (
+            <EditProfile />
+          )}
+          />
+          <Route
+          exact
+          path="/editproject"
+          render={() => (
+            <EditProject />
+          )}
+          />
+          <Route
+          exact
+          path="/gallery"
+          render={() => (
+            <Gallery />
+          )}
+          />
+          <Route
+          exact
+          path="/profile"
+          render={() => (
+            <ProfilePage />
+          )}
+          />
+          <Route
+          exact
+          path="/projectdetails"
+          render={() => (
+            <ProjectDetails />
+          )}
+          />
+          <Route
+          exact
+          path="/projects"
+          render={() => (
+            <Projects />
+          )}
+          />
+          <Route
+          exact
+          path="/viewbrushes"
+          render={() => (
+            <ViewBrushes />
+          )}
+          />
+          <Route
+          exact
+          path="/wiewimage"
+          render={() => (
+            <ViewImage />
+          )}
+          />
+          <Route
+          exact
+          path="/viewmaterials"
+          render={() => (
+            <ViewMaterials />
+          )}
+          />
+          <Route
+          exact
+          path="/viewmodels"
+          render={() => (
+            <ViewModels />
+          )}
+          />
+          <Route
+          exact
+          path="/viewother"
+          render={() => (
+            <ViewOther />
+          )}
+          />
+          <Route
+          exact
+          path="/viewpaintaccs"
+          render={() => (
+            <ViewPaintAccs />
+          )}
+          />
+          <Route
+          exact
+          path="/viewpaints"
+          render={() => (
+            <ViewPaints />
+          )}
+          />
+          <Route
+          exact
+          path="/viewtools"
+          render={() => (
+            <ViewTools />
+          )}
+          />
+          <Route
+          exact
+          path="/viewwishlist"
+          render={() => (
+            <ViewWishList />
+          )}
+          />
+        </main>
       </>
     );
   }

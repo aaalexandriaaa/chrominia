@@ -2,7 +2,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
 class Gallery extends Component {
-    state = {}
+    state = {
+
+    }
+
+
+
     render() {
         return (
             <>
@@ -10,12 +15,12 @@ class Gallery extends Component {
                 <Link to="/addimage">
                     Add Image
                 </Link><br />
-                <Link to="/wiewimage">
+                {/* <Link to="/wiewimage">
                     View Image
                 </Link><br />
                 <Link to="/editimage">
                     Edit Image
-                </Link><br />
+                </Link><br /> */}
             </>
         );
     }
