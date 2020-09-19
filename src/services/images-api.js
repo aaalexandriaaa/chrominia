@@ -9,3 +9,8 @@ export function create(image) {
   }, { mode: "cors" })
       .then(res => res.json());
 }
+
+export function getForUser() {
+  return fetch(BASE_URL, {mode: "cors"})
+  .then(res => res.json())
+}

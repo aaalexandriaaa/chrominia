@@ -7,13 +7,7 @@ class Gallery extends Component {
         images: []
     }
 
-    handleAddImage = async newImageData => {
-        const newImage = await imageAPI.create(newImageData);
-        // newImage.user = this.state.user._id 
-        this.setState(state => ({
-          images: [...state.images, newImage]
-        }), () => this.props.history.push('/gallery'));
-      }
+    
 
     render() {
         return (
