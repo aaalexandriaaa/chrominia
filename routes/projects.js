@@ -2,12 +2,13 @@ const router = require('express').Router();
 const projectsCtrl = require('../controllers/projects')
 
 // Public Routes
-router.get('/', projectsCtrl.index);
+router.get('/:id', projectsCtrl.projectDetails);
 
 
 // Protected Routes
 router.use(require('../config/auth'));
 router.post('/', checkAuth, projectsCtrl.create);
+router.get('/', checkAuth, projectsCtrl.userProjectIndex);
 // router.delete('/:id', checkAuth, projectsCtrl.delete);
 // router.put('/:id', checkAuth, projectsCtrl.update);
 
