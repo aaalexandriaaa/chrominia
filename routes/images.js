@@ -2,7 +2,7 @@ const router = require('express').Router();
 const imagesCtrl = require('../controllers/images')
 
 // Public Routes
-// router.get('/', imagesCtrl.index);
+router.get('/:id', imagesCtrl.getOne);
 
 
 // Protected Routes

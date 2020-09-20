@@ -188,9 +188,11 @@ class App extends Component {
           />
           <Route
             exact
-            path="/viewimage"
-            render={() => (
-              <ViewImage />
+            path="/viewimage/:id"
+            render={({match}) => (
+              <ViewImage 
+                match={match}
+              />
             )}
           />
           <Route

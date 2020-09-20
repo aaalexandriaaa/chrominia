@@ -25,10 +25,16 @@ class Gallery extends Component {
                     Add Image
                 </Link><br />
                 {this.state.images.map((image, idx) =>
+                    <Link
+                        key={idx}
+                        to={{
+                        pathname: `viewimage/${image._id}`
+                        }}
+                    >
                         <ImageCard 
-                            key={idx}
                             image={image}
                         />
+                    </Link>
                     )}
                 {/* <Link to="/wiewimage">
                     View Image
