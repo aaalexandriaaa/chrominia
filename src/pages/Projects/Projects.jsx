@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
 class Project extends Component {
-    state = {}
+    state = {
+        projects: []
+    }
+
     render() {
         return (
             <>

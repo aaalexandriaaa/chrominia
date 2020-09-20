@@ -88,6 +88,7 @@ class App extends Component {
           />
           <Route
 
+
           exact
           path="/addimage"
           render={({history}) => (
@@ -97,12 +98,18 @@ class App extends Component {
             />
           )}
 
+
           />
           <Route
             exact
             path="/addproject"
-            render={() => (
-              <AddProject />
+
+            render={({ history }) => (
+              <AddProject
+                history={history}
+                user={this.state.user}
+              />
+
             )}
           />
           <Route
@@ -150,6 +157,7 @@ class App extends Component {
           <Route
             exact
             path="/profile"
+
             render={() => authService.getUser() ?
               <ProfilePage
                 user={this.state.user}
@@ -157,6 +165,7 @@ class App extends Component {
               :
               <Redirect to='/login' />
             }
+
           />
           <Route
             exact
