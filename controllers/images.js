@@ -2,7 +2,8 @@ const Image = require('../models/image');
 
 module.exports = {
   index,
-  create
+  create,
+  indexForUser
 }
 
 function index(req, res) {
@@ -16,4 +17,11 @@ function create(req, res) {
   Image.create(req.body)
       .then(image => { res.json(image) })
       .catch(err => { res.json(err) })
+}
+
+function indexForUser(req, res){
+  console.log('HIT CONTROLLER')
+  Image.find({user: req.user._id})
+    .then((images) =>{ res.json(images)})
+    .catch(err => { res.json(err) })
 }

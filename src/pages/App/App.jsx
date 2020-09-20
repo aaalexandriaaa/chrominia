@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import authService from "../../services/authService";
+import userService from '../../services/userService'
 import "./App.css";
 import AddImage from '../AddImage/AddImage'
 import AddProject from '../AddProject/AddProject'
@@ -41,6 +42,17 @@ class App extends Component {
     this.setState({ user: authService.getUser() });
   };
 
+  handleUpdateUser = async updatedUserData => {
+    const updatedUser = await userService.update(updatedUserData);
+    const newUserArray = this.state.user.map(u =>
+      u._id === updatedUser._id ? updatedUser : u
+    );
+    this.setState(
+      { user: newUserArray },
+      () => this.props.history.push('/editprofile')
+    );
+  }
+
   render() {
     const { user } = this.state
     return (
@@ -75,23 +87,29 @@ class App extends Component {
             )}
           />
           <Route
-            exact
-            path="/addimage"
-            render={() => (
-              <AddImage
-                user={this.state.user}
-              // handleAddImage = {this.handleAddImage}
-              />
-            )}
+
+
+          exact
+          path="/addimage"
+          render={({history}) => (
+            <AddImage 
+              user={this.state.user}
+              history={history}
+            />
+          )}
+
+
           />
           <Route
             exact
             path="/addproject"
+
             render={({ history }) => (
               <AddProject
                 history={history}
                 user={this.state.user}
               />
+
             )}
           />
           <Route
@@ -139,9 +157,15 @@ class App extends Component {
           <Route
             exact
             path="/profile"
-            render={() => (
-              <ProfilePage />
-            )}
+
+            render={() => authService.getUser() ?
+              <ProfilePage
+                user={this.state.user}
+              />
+              :
+              <Redirect to='/login' />
+            }
+
           />
           <Route
             exact

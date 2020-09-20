@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import * as imageAPI from '../../services/images-api'
 
 class AddImage extends Component {
     state = {
@@ -13,9 +14,16 @@ class AddImage extends Component {
 
     formRef = React.createRef()
 
+    handleAddImage = async newImageData => {
+        console.log('HANDLED')
+        await imageAPI.create(newImageData)
+        .then(() => this.props.history.push('/gallery'))
+        // newImage.user = this.state.user._id 
+    }
+
     handleSubmit = e =>{
         e.preventDefault();
-        this.props.handleAddImage(this.state.formData)
+        this.handleAddImage(this.state.formData)
     }
 
     handleChange = e => {
@@ -25,6 +33,8 @@ class AddImage extends Component {
        invalidForm: !this.formRef.current.checkValidity()
        });
     }
+
+    
 
     render() {
         return (
