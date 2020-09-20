@@ -2,7 +2,8 @@ const User = require("../models/user");
 
 module.exports = {
   index,
-  update
+  update,
+  show: showProfile
 };
 
 function index(req, res) {
@@ -15,3 +16,13 @@ function update(req, res) {
     .then(user => { res.json(user) })
     .catch(err => { res.json(err) })
 }
+
+function showProfile(req, res) {
+  User.findById(req.user._id)
+    .then((user) => {
+      res.render('users/profile', {
+        user
+      })
+    })
+}
+

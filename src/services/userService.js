@@ -1,5 +1,5 @@
 import tokenService from "../services/tokenService";
-const BASE_URL = "/api/users/";
+const BASE_URL = "/api/users";
 
 export function getAllUsers() {
   return fetch(
@@ -19,6 +19,12 @@ export function update(user) {
   })
     .then(res => res.json())
 }
+
+// export function showProfile(user) {
+//   return fetch(`${BASE_URL}/${user._id}`, {
+//     method: 'SHOW'
+//   })
+// }
 
 export default {
   getAllUsers,

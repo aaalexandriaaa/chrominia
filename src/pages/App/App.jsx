@@ -18,6 +18,7 @@ import LandingPage from '../LandingPage/LandingPage'
 import ProfilePage from '../ProfilePage/ProfilePage'
 import ProjectDetails from '../ProjectDetails/ProjectDetails'
 import Projects from '../Projects/Projects'
+import Users from '../Users/Users'
 import ViewBrushes from '../ViewBrushes/ViewBrushes'
 import ViewImage from '../ViewImage/ViewImage'
 import ViewMaterials from '../ViewMaterials/ViewMaterials'
@@ -42,15 +43,9 @@ class App extends Component {
     this.setState({ user: authService.getUser() });
   };
 
-  handleUpdateUser = async updatedUserData => {
-    const updatedUser = await userService.update(updatedUserData);
-    const newUserArray = this.state.user.map(u =>
-      u._id === updatedUser._id ? updatedUser : u
-    );
-    this.setState(
-      { user: newUserArray },
-      () => this.props.history.push('/editprofile')
-    );
+  handleUpdateUser = async newUserData => {
+    await userService.update(newUserData)
+      .then(() => this.props.history.push('/editprofile'))
   }
 
   render() {
@@ -89,14 +84,14 @@ class App extends Component {
           <Route
 
 
-          exact
-          path="/addimage"
-          render={({history}) => (
-            <AddImage 
-              user={this.state.user}
-              history={history}
-            />
-          )}
+            exact
+            path="/addimage"
+            render={({ history }) => (
+              <AddImage
+                user={this.state.user}
+                history={history}
+              />
+            )}
 
 
           />
@@ -136,8 +131,11 @@ class App extends Component {
           <Route
             exact
             path="/editprofile"
-            render={() => (
-              <EditProfile />
+            render={({ history }) => (
+              <EditProfile
+                history={history}
+                handleUpdateUser={this.handleUpdateUser}
+              />
             )}
           />
           <Route
@@ -190,7 +188,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/wiewimage"
+            path="/viewimage"
             render={() => (
               <ViewImage />
             )}
@@ -242,6 +240,12 @@ class App extends Component {
             path="/viewwishlist"
             render={() => (
               <ViewWishList />
+            )}
+          />
+          <Route
+            path="/users"
+            render={() => (
+              <Users />
             )}
           />
         </main>
