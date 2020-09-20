@@ -189,9 +189,11 @@ class App extends Component {
           <Route
             exact
             path="/viewimage/:id"
-            render={({match}) => (
-              <ViewImage 
+            render={({match, history}) => (
+              <ViewImage
                 match={match}
+                history={history}
+                user={this.state.user}
               />
             )}
           />

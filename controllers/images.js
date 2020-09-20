@@ -4,7 +4,8 @@ module.exports = {
   index,
   create,
   indexForUser,
-  getOne
+  getOne,
+  delete: deleteOne
 }
 
 function index(req, res) {
@@ -30,4 +31,10 @@ function getOne(req, res){
   Image.findById(req.params.id)
     .then((image) =>{ res.json(image)})
     .catch(err => { res.json(err) })
+}
+
+function deleteOne(req, res) {
+  Image.findByIdAndDelete(req.params.id)
+  .then(movie => {res.json(movie)})
+  .catch(err => {res.json(err)})
 }
