@@ -16,3 +16,8 @@ export function getForUser() {
   }, {mode: "cors"})
   .then(res => res.json())
 }
+
+export function getImage(id){
+  return fetch(`${BASE_URL}/${id}`)
+  .then(res => res.json())
+}
