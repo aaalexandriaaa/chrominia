@@ -42,7 +42,7 @@ class App extends Component {
   };
 
   render() {
-    const {user} = this.state
+    const { user } = this.state
     return (
       <>
         <NavBar user={user} handleLogout={this.handleLogout} />
@@ -75,147 +75,150 @@ class App extends Component {
             )}
           />
           <Route
-          exact
-          path="/addimage"
-          render={() => (
-            <AddImage 
-              user={this.state.user}
+            exact
+            path="/addimage"
+            render={() => (
+              <AddImage
+                user={this.state.user}
               // handleAddImage = {this.handleAddImage}
-            />
-          )}
+              />
+            )}
           />
           <Route
-          exact
-          path="/addproject"
-          render={() => (
-            <AddProject />
-          )}
+            exact
+            path="/addproject"
+            render={({ history }) => (
+              <AddProject
+                history={history}
+                user={this.state.user}
+              />
+            )}
           />
           <Route
-          exact
-          path="/addsupply"
-          render={() => (
-            <AddSupply />
-          )}
+            exact
+            path="/addsupply"
+            render={() => (
+              <AddSupply />
+            )}
           />
           <Route
-          exact
-          path="/allsupplies"
-          render={() => (
-            <AllSupplies />
-          )}
+            exact
+            path="/allsupplies"
+            render={() => (
+              <AllSupplies />
+            )}
           />
           <Route
-          exact
-          path="/editimage"
-          render={() => (
-            <EditImage />
-          )}
+            exact
+            path="/editimage"
+            render={() => (
+              <EditImage />
+            )}
           />
           <Route
-          exact
-          path="/editprofile"
-          render={() => (
-            <EditProfile />
-          )}
+            exact
+            path="/editprofile"
+            render={() => (
+              <EditProfile />
+            )}
           />
           <Route
-          exact
-          path="/editproject"
-          render={() => (
-            <EditProject />
-          )}
+            exact
+            path="/editproject"
+            render={() => (
+              <EditProject />
+            )}
           />
           <Route
-          exact
-          path="/gallery"
-          render={() => (
-            <Gallery />
-          )}
+            exact
+            path="/gallery"
+            render={() => (
+              <Gallery />
+            )}
           />
           <Route
-          exact
-          path="/profile"
-          render={() => (
-            <ProfilePage />
-          )}
+            exact
+            path="/profile"
+            render={() => (
+              <ProfilePage />
+            )}
           />
           <Route
-          exact
-          path="/projectdetails"
-          render={() => (
-            <ProjectDetails />
-          )}
+            exact
+            path="/projectdetails"
+            render={() => (
+              <ProjectDetails />
+            )}
           />
           <Route
-          exact
-          path="/projects"
-          render={() => (
-            <Projects />
-          )}
+            exact
+            path="/projects"
+            render={() => (
+              <Projects />
+            )}
           />
           <Route
-          exact
-          path="/viewbrushes"
-          render={() => (
-            <ViewBrushes />
-          )}
+            exact
+            path="/viewbrushes"
+            render={() => (
+              <ViewBrushes />
+            )}
           />
           <Route
-          exact
-          path="/wiewimage"
-          render={() => (
-            <ViewImage />
-          )}
+            exact
+            path="/wiewimage"
+            render={() => (
+              <ViewImage />
+            )}
           />
           <Route
-          exact
-          path="/viewmaterials"
-          render={() => (
-            <ViewMaterials />
-          )}
+            exact
+            path="/viewmaterials"
+            render={() => (
+              <ViewMaterials />
+            )}
           />
           <Route
-          exact
-          path="/viewmodels"
-          render={() => (
-            <ViewModels />
-          )}
+            exact
+            path="/viewmodels"
+            render={() => (
+              <ViewModels />
+            )}
           />
           <Route
-          exact
-          path="/viewother"
-          render={() => (
-            <ViewOther />
-          )}
+            exact
+            path="/viewother"
+            render={() => (
+              <ViewOther />
+            )}
           />
           <Route
-          exact
-          path="/viewpaintaccs"
-          render={() => (
-            <ViewPaintAccs />
-          )}
+            exact
+            path="/viewpaintaccs"
+            render={() => (
+              <ViewPaintAccs />
+            )}
           />
           <Route
-          exact
-          path="/viewpaints"
-          render={() => (
-            <ViewPaints />
-          )}
+            exact
+            path="/viewpaints"
+            render={() => (
+              <ViewPaints />
+            )}
           />
           <Route
-          exact
-          path="/viewtools"
-          render={() => (
-            <ViewTools />
-          )}
+            exact
+            path="/viewtools"
+            render={() => (
+              <ViewTools />
+            )}
           />
           <Route
-          exact
-          path="/viewwishlist"
-          render={() => (
-            <ViewWishList />
-          )}
+            exact
+            path="/viewwishlist"
+            render={() => (
+              <ViewWishList />
+            )}
           />
         </main>
       </>
