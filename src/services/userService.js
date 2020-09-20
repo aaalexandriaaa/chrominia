@@ -15,18 +15,18 @@ export function update(user) {
   return fetch(`${BASE_URL}/${user._id}`, {
     method: 'PUT',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(user)
+    body: JSON.stringify(user._id)
   })
-    .then(res => res.json())
+    .then((res) => res.json())
 }
 
-// export function showProfile(user) {
-//   return fetch(`${BASE_URL}/${user._id}`, {
-//     method: 'SHOW'
-//   })
-// }
+export function showProfile(id) {
+  return fetch(`${BASE_URL}/${id}`)
+    .then((res) => res.json())
+}
 
 export default {
   getAllUsers,
-  update
+  update,
+  showProfile
 };

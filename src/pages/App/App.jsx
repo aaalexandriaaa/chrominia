@@ -48,6 +48,11 @@ class App extends Component {
       .then(() => this.props.history.push('/editprofile'))
   }
 
+  async componentDidMount() {
+    const users = await userService.getAllUsers();
+    this.setState({ users })
+  }
+
   render() {
     const { user } = this.state
     return (
@@ -154,11 +159,12 @@ class App extends Component {
           />
           <Route
             exact
-            path="/profile"
+            path="/profile/:id"
 
-            render={() => authService.getUser() ?
+            render={({ match }) => authService.getUser() ?
               <ProfilePage
                 user={this.state.user}
+                match={match}
               />
               :
               <Redirect to='/login' />
@@ -189,8 +195,8 @@ class App extends Component {
           <Route
             exact
             path="/viewimage/:id"
-            render={({match}) => (
-              <ViewImage 
+            render={({ match }) => (
+              <ViewImage
                 match={match}
               />
             )}

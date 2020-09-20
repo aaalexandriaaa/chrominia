@@ -7,7 +7,7 @@ class LandingPage extends Component {
     return (
       <>
         <h1>Landing</h1>
-        <Link to="/profile">
+        <Link to="/profile/:id">
           Profile Page
                 </Link><br />
         <Link to="/projects">
