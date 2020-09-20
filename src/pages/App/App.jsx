@@ -124,8 +124,11 @@ class App extends Component {
           <Route
             exact
             path="/editimage"
-            render={() => (
-              <EditImage />
+            render={({location, history}) => (
+              <EditImage 
+                location={location}
+                history={history}
+              />
             )}
           />
           <Route
@@ -189,9 +192,11 @@ class App extends Component {
           <Route
             exact
             path="/viewimage/:id"
-            render={({match}) => (
-              <ViewImage 
+            render={({match, history}) => (
+              <ViewImage
                 match={match}
+                history={history}
+                user={this.state.user}
               />
             )}
           />
