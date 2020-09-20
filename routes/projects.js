@@ -7,7 +7,7 @@ router.get('/', projectsCtrl.index);
 
 // Protected Routes
 router.use(require('../config/auth'));
-// router.post('/', checkAuth, projectsCtrl.create);
+router.post('/', checkAuth, projectsCtrl.create);
 // router.delete('/:id', checkAuth, projectsCtrl.delete);
 // router.put('/:id', checkAuth, projectsCtrl.update);
 
