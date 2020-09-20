@@ -2,11 +2,17 @@ const Project = require('../models/project');
 
 module.exports = {
   index,
-  create
+  userProjectIndex,
 }
 
 function index(req, res) {
   Project.find({})
+    .then(projects => { res.json(projects) })
+    .catch(err => { res.json(err) })
+}
+
+function userProjectIndex(req, res) {
+  Project.find({ user: req.user._id })
     .then(projects => { res.json(projects) })
     .catch(err => { res.json(err) })
 }
