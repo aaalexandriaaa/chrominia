@@ -21,3 +21,8 @@ export function getUserProjects() {
     }, { mode: "cors" })
         .then(res => res.json())
 }
+
+export function projectDetails(id) {
+    return fetch(`${BASE_URL}/${id}`)
+        .then(res => res.json())
+}
