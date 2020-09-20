@@ -167,9 +167,11 @@ class App extends Component {
           />
           <Route
             exact
-            path="/projectdetails"
-            render={() => (
-              <ProjectDetails />
+            path="/projectdetails/:id"
+            render={({ match }) => (
+              <ProjectDetails
+                match={match}
+              />
             )}
           />
           <Route
