@@ -124,8 +124,11 @@ class App extends Component {
           <Route
             exact
             path="/editimage"
-            render={() => (
-              <EditImage />
+            render={({location, history}) => (
+              <EditImage 
+                location={location}
+                history={history}
+              />
             )}
           />
           <Route

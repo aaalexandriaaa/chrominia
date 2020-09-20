@@ -38,7 +38,6 @@ class ViewImage extends Component {
                                 Delete Image
                             </button><br></br>
                             <Link 
-                                className="btn yellow black-text"
                                 to={{
                                     pathname: '/editimage',
                                     state: {image}
