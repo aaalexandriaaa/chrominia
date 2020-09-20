@@ -9,7 +9,7 @@ class Project extends Component {
     }
 
     async componentDidMount() {
-        const projects = await projectAPI.getAll();
+        const projects = await projectAPI.getUserProjects();
         this.setState({ projects })
     }
 
@@ -27,10 +27,16 @@ class Project extends Component {
                     Edit Project
                 </Link><br />
                 {this.state.projects.map((project, idx) =>
-                    <ProjectCard
+                    <Link
                         key={idx}
-                        project={project}
-                    />
+                        to={{
+                            pathname: `/projectdetails/${project._id}`
+                        }}
+                    >
+                        <ProjectCard
+                            project={project}
+                        />
+                    </Link>
                 )}
             </>
         );
