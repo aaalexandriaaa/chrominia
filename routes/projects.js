@@ -2,7 +2,7 @@ const router = require('express').Router();
 const projectsCtrl = require('../controllers/projects')
 
 // Public Routes
-router.get('/', projectsCtrl.index);
+router.get('/:id', projectsCtrl.projectDetails);
 
 
 // Protected Routes
