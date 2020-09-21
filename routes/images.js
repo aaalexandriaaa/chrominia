@@ -9,8 +9,8 @@ router.get('/:id', imagesCtrl.getOne);
 router.use(require('../config/auth'));
 router.post('/', checkAuth, imagesCtrl.create);
 router.get('/', checkAuth, imagesCtrl.indexForUser)
-// router.delete('/:id', checkAuth, imagesCtrl.delete);
-// router.put('/:id', checkAuth, imagesCtrl.update);
+router.delete('/:id', checkAuth, imagesCtrl.delete);
+router.put('/:id', checkAuth, imagesCtrl.update);
 
 function checkAuth(req, res, next) {
   if (req.user) return next();

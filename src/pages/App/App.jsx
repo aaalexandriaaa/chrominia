@@ -115,8 +115,10 @@ class App extends Component {
           <Route
             exact
             path="/addsupply"
-            render={() => (
-              <AddSupply />
+            render={({history}) => (
+              <AddSupply 
+                history={history}
+              />
             )}
           />
           <Route
@@ -129,8 +131,11 @@ class App extends Component {
           <Route
             exact
             path="/editimage"
-            render={() => (
-              <EditImage />
+            render={({location, history}) => (
+              <EditImage 
+                location={location}
+                history={history}
+              />
             )}
           />
           <Route
@@ -173,9 +178,11 @@ class App extends Component {
           />
           <Route
             exact
-            path="/projectdetails"
-            render={() => (
-              <ProjectDetails />
+            path="/projectdetails/:id"
+            render={({ match }) => (
+              <ProjectDetails
+                match={match}
+              />
             )}
           />
           <Route
@@ -195,9 +202,13 @@ class App extends Component {
           <Route
             exact
             path="/viewimage/:id"
-            render={({ match }) => (
+
+            render={({match, history}) => (
+
               <ViewImage
                 match={match}
+                history={history}
+                user={this.state.user}
               />
             )}
           />
