@@ -9,8 +9,8 @@ router.get('/:id', projectsCtrl.projectDetails);
 router.use(require('../config/auth'));
 router.post('/', checkAuth, projectsCtrl.create);
 router.get('/', checkAuth, projectsCtrl.userProjectIndex);
-// router.delete('/:id', checkAuth, projectsCtrl.delete);
-// router.put('/:id', checkAuth, projectsCtrl.update);
+router.delete('/:id', checkAuth, projectsCtrl.delete);
+router.put('/:id', checkAuth, projectsCtrl.update);
 
 function checkAuth(req, res, next) {
   if (req.user) return next();

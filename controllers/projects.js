@@ -4,7 +4,9 @@ module.exports = {
   index,
   userProjectIndex,
   create,
-  projectDetails
+  projectDetails,
+  update,
+  delete: deleteProject
 }
 
 function index(req, res) {
@@ -29,5 +31,17 @@ function create(req, res) {
 function projectDetails(req, res) {
   Project.findById(req.params.id)
     .then((project) => { res.json(project) })
+    .catch(err => { res.json(err) })
+}
+
+function update(req, res) {
+  Project.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then(project => { res.json(project) })
+    .catch(err => { res.json(err) })
+}
+
+function deleteProject(req, res) {
+  Project.findByIdAndDelete(req.params.id)
+    .then(project => { res.json(project) })
     .catch(err => { res.json(err) })
 }
