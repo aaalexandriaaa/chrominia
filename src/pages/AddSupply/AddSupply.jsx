@@ -50,7 +50,7 @@ class AddSupply extends Component {
                           <option value="paint">Paint</option>
                           <option value="tool">Tool</option>
                           <option value="brush">Brush</option>
-                          <option value="paintAcc">Paint Accessory</option>
+                          <option value="paintacc">Paint Accessory</option>
                           <option value="material">Material</option>
                           <option value="model">Model</option>
                           <option value="other">Other</option>

@@ -80,12 +80,12 @@ class AllSupplies extends Component {
           </Link>
           <Link
             to={{
-              pathname: '/supplydetails/paintAcc'
+              pathname: '/supplydetails/paintacc'
             }}
           >
             <h3>Paint Accessories</h3>
             <SuppliesCard 
-              supplies = {this.pullSupply('paintAcc')}
+              supplies = {this.pullSupply('paintacc')}
             /> 
           </Link>
           <Link
