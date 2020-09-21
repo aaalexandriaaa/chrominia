@@ -1,16 +1,28 @@
 body {
   height: 100vh;
+  background-color: #C0B9DD
+}
+
+a {
+  text-decoration: none;
+  color: #2E2532;
 }
 
 nav {
+  text-decoration: none;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   padding: 20px;
-  background-color: #4e65afb0;
+  background-color: #6153CC;
+}
+
+nav:hover {
+  
 }
 
 nav div{
-  margin: 0 5px;
+  margin: 0 10px;
 }
 
 main {

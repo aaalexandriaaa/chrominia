@@ -1,0 +1,40 @@
+.addProject, h1 {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  padding-left: 20px;
+}
+
+a.addProjectButton {
+width: 15%;
+background-color:#70f88a;
+border: 1px solid #70f88a;
+border-radius: 2px;
+color: #2E2532;
+box-shadow: 5px 5px black;
+}
+
+a.addProjectButton:hover{
+  border-color: black;
+  transform: scale(1.1);
+  background-color: #21c226
+}
+
+.addProject {
+  border-bottom: 1px solid #2E2532;
+  width: 80%;
+  margin-left: 20px;
+  padding-bottom: 16px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 20px;
+}
+
+
+
+
