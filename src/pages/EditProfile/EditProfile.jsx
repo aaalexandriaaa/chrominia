@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 class EditProfile extends Component {
   state = {
+    users: [],
     invalidForm: false,
     formData: {
       name: '',
@@ -57,9 +58,12 @@ class EditProfile extends Component {
               Update User
                     </button>
             <br />
-            <Link to="/profile">
+
+            <Link
+              to='/profile/:id'>
               CANCEL
                 </Link>
+
           </form>
         </div>
       </>
