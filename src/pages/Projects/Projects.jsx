@@ -20,12 +20,6 @@ class Project extends Component {
                 <Link to="/addproject">
                     Add a Project
                 </Link><br />
-                <Link to="/projectdetails">
-                    Project Details
-                </Link><br />
-                <Link to="/editproject">
-                    Edit Project
-                </Link><br />
                 {this.state.projects.map((project, idx) =>
                     <Link
                         key={idx}

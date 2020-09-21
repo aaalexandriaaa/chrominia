@@ -131,8 +131,8 @@ class App extends Component {
           <Route
             exact
             path="/editimage"
-            render={({location, history}) => (
-              <EditImage 
+            render={({ location, history }) => (
+              <EditImage
                 location={location}
                 history={history}
               />
@@ -151,8 +151,11 @@ class App extends Component {
           <Route
             exact
             path="/editproject"
-            render={() => (
-              <EditProject />
+            render={({ history, location }) => (
+              <EditProject
+                history={history}
+                location={location}
+              />
             )}
           />
           <Route
@@ -179,9 +182,11 @@ class App extends Component {
           <Route
             exact
             path="/projectdetails/:id"
-            render={({ match }) => (
+            render={({ match, history }) => (
               <ProjectDetails
                 match={match}
+                history={history}
+                user={this.state.user}
               />
             )}
           />
@@ -204,6 +209,7 @@ class App extends Component {
             path="/viewimage/:id"
 
             render={({match, history}) => (
+
 
               <ViewImage
                 match={match}
