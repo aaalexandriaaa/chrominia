@@ -4,7 +4,6 @@ import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import authService from "../../services/authService";
-import userService from '../../services/userService'
 import "./App.css";
 import AddImage from '../AddImage/AddImage'
 import AddProject from '../AddProject/AddProject'
@@ -42,16 +41,6 @@ class App extends Component {
   handleSignupOrLogin = () => {
     this.setState({ user: authService.getUser() });
   };
-
-  handleUpdateUser = async newUserData => {
-    await userService.update(newUserData)
-      .then(() => this.props.history.push('/editprofile'))
-  }
-
-  async componentDidMount() {
-    const users = await userService.getAllUsers();
-    this.setState({ users })
-  }
 
   render() {
     const { user } = this.state
@@ -115,8 +104,8 @@ class App extends Component {
           <Route
             exact
             path="/addsupply"
-            render={({history}) => (
-              <AddSupply 
+            render={({ history }) => (
+              <AddSupply
                 history={history}
               />
             )}
@@ -208,7 +197,7 @@ class App extends Component {
             exact
             path="/viewimage/:id"
 
-            render={({match, history}) => (
+            render={({ match, history }) => (
 
 
               <ViewImage

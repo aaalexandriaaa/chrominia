@@ -20,7 +20,7 @@ class Users extends Component {
           <Link
             key={user.id}
             to={{
-              pathname: `profile/:id`,
+              pathname: `profile/${user._id}`,
             }}
           ><p>{user.name}</p></Link>
         ))}
