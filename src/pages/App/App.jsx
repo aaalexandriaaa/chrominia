@@ -110,8 +110,10 @@ class App extends Component {
           <Route
             exact
             path="/addsupply"
-            render={() => (
-              <AddSupply />
+            render={({history}) => (
+              <AddSupply 
+                history={history}
+              />
             )}
           />
           <Route
