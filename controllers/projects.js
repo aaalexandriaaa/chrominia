@@ -6,7 +6,8 @@ module.exports = {
   create,
   projectDetails,
   update,
-  delete: deleteProject
+  delete: deleteProject,
+  addImage
 }
 
 function index(req, res) {
@@ -30,6 +31,7 @@ function create(req, res) {
 
 function projectDetails(req, res) {
   Project.findById(req.params.id)
+    // use populate to get the image URLs and then just map over them
     .then((project) => { res.json(project) })
     .catch(err => { res.json(err) })
 }
@@ -43,5 +45,15 @@ function update(req, res) {
 function deleteProject(req, res) {
   Project.findByIdAndDelete(req.params.id)
     .then(project => { res.json(project) })
+    .catch(err => { res.json(err) })
+}
+
+function addImage(req, res) {
+  Project.findById(req.params.id)
+    .then(project => {
+      project.images.push(req.body.boop)
+      project.save()
+      res.json(project)
+    })
     .catch(err => { res.json(err) })
 }

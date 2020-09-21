@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import * as projectAPI from '../../services/projects-api'
+import * as imageAPI from '../../services/images-api'
+import ImageCard from '../../components/ImageCard/ImageCard'
 
 class EditProject extends Component {
     state = {
         invalidForm: false,
-        formData: this.props.location.state.project
+        formData: this.props.location.state.project,
+        images: []
     }
 
     formRef = React.createRef()
@@ -14,6 +17,12 @@ class EditProject extends Component {
         await projectAPI.update(projectUpdate)
             .then(() => this.props.history.push(`projectdetails/${projectUpdate._id}`))
     }
+
+    async componentDidMount() {
+        const images = await imageAPI.getForUser();
+        this.setState({ images })
+    }
+
     handleSubmit = e => {
         e.preventDefault();
         this.handleUpdateProject(this.state.formData)
@@ -27,7 +36,14 @@ class EditProject extends Component {
         });
     }
 
+    async handleAttachImage(id, project) {
+        const imageID = { boop: id }
+        await projectAPI.attachImage(imageID, project)
+            .then(() => this.props.history.push(`projectdetails/${project}`))
+    }
+
     render() {
+        const projectID = this.state.formData._id
         return (
             <>
 
@@ -77,6 +93,23 @@ class EditProject extends Component {
                         Update Project
                     </button><br /><br /><br /><br />
                 </form>
+
+                {this.state.images.map((image, idx) =>
+                    <Link
+                        key={idx}
+                    // to={{
+                    //     pathname: `viewimage/${image._id}`
+                    // }}
+                    >
+                        <ImageCard
+                            image={image}
+                        />
+                        <button type="submit" onClick={() => this.handleAttachImage(image._id, projectID)}>
+                            Add Image to Project
+                            </button>
+
+                    </Link>
+                )}
             </>
         );
     }

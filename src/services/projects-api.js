@@ -43,3 +43,12 @@ export function deleteProject(id) {
     }, { mode: "cors" })
         .then(res => res.json());
 }
+
+export function attachImage(id, project) {
+    return fetch(`${BASE_URL}image/${project}`, {
+        method: "PUT",
+        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+        body: JSON.stringify(id)
+    }, { mode: "cors" })
+        .then(res => res.json());
+}
