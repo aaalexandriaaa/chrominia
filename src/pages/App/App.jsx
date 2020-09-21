@@ -27,6 +27,7 @@ import ViewPaintAccs from '../ViewPaintAccs/ViewPaintAccs'
 import ViewPaints from '../ViewPaints/ViewPaints'
 import ViewTools from '../ViewTools/ViewTools'
 import ViewWishList from '../ViewWishList/ViewWishList'
+import SupplyDetails from '../SupplyDetails/SupplyDetails'
 
 class App extends Component {
   state = {
@@ -184,6 +185,15 @@ class App extends Component {
             path="/projects"
             render={() => (
               <Projects />
+            )}
+          />
+          <Route
+            exact
+            path="/supplydetails/:supply"
+            render={({match}) => (
+              <SupplyDetails 
+                match={match}
+              />
             )}
           />
           <Route

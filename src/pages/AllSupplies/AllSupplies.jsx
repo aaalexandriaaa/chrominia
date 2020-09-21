@@ -40,7 +40,7 @@ class AllSupplies extends Component {
         <div className="supply-card-container">
           <Link
             to={{
-              pathname: '/viewbrushes'
+              pathname: '/supplydetails/brush'
             }}
           >
             <h3>Brushes</h3>
@@ -50,7 +50,7 @@ class AllSupplies extends Component {
           </Link>
           <Link
             to={{
-              pathname: '/viewmaterials'
+              pathname: '/supplydetails/material'
             }}
           >
             <h3>Materials</h3>
@@ -60,7 +60,7 @@ class AllSupplies extends Component {
           </Link>
           <Link
             to={{
-              pathname: '/viewmodels'
+              pathname: '/supplydetails/model'
             }}
           >
             <h3>Models</h3>
@@ -70,7 +70,7 @@ class AllSupplies extends Component {
           </Link>
           <Link
             to={{
-              pathname: '/viewother'
+              pathname: '/supplydetails/other'
             }}
           >
             <h3>Other</h3>
@@ -80,7 +80,7 @@ class AllSupplies extends Component {
           </Link>
           <Link
             to={{
-              pathname: '/viewpaintaccs'
+              pathname: '/supplydetails/paintAcc'
             }}
           >
             <h3>Paint Accessories</h3>
@@ -90,7 +90,7 @@ class AllSupplies extends Component {
           </Link>
           <Link
             to={{
-              pathname: '/viewpaints'
+              pathname: '/supplydetails/paint'
             }}
           >
             <h3>View All Paints</h3>
@@ -100,7 +100,7 @@ class AllSupplies extends Component {
           </Link>
           <Link
             to={{
-              pathname: '/viewtools'
+              pathname: '/supplydetails/tool'
             }}
           >
             <h3>Tools</h3>
