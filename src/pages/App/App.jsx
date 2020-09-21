@@ -4,7 +4,6 @@ import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import authService from "../../services/authService";
-import userService from '../../services/userService'
 import "./App.css";
 import AddImage from '../AddImage/AddImage'
 import AddProject from '../AddProject/AddProject'
@@ -42,11 +41,6 @@ class App extends Component {
   handleSignupOrLogin = () => {
     this.setState({ user: authService.getUser() });
   };
-
-  handleUpdateUser = async newUserData => {
-    await userService.update(newUserData)
-      .then(() => this.props.history.push('/editprofile'))
-  }
 
   render() {
     const { user } = this.state
@@ -110,8 +104,10 @@ class App extends Component {
           <Route
             exact
             path="/addsupply"
-            render={() => (
-              <AddSupply />
+            render={({ history }) => (
+              <AddSupply
+                history={history}
+              />
             )}
           />
           <Route
@@ -160,11 +156,12 @@ class App extends Component {
           />
           <Route
             exact
-            path="/profile"
+            path="/profile/:id"
 
-            render={() => authService.getUser() ?
+            render={({ match }) => authService.getUser() ?
               <ProfilePage
                 user={this.state.user}
+                match={match}
               />
               :
               <Redirect to='/login' />
@@ -199,7 +196,10 @@ class App extends Component {
           <Route
             exact
             path="/viewimage/:id"
+
             render={({ match, history }) => (
+
+
               <ViewImage
                 match={match}
                 history={history}

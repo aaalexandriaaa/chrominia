@@ -15,10 +15,8 @@ class AddImage extends Component {
     formRef = React.createRef()
 
     handleAddImage = async newImageData => {
-        console.log('HANDLED')
         await imageAPI.create(newImageData)
         .then(() => this.props.history.push('/gallery'))
-        // newImage.user = this.state.user._id 
     }
 
     handleSubmit = e =>{
@@ -34,8 +32,6 @@ class AddImage extends Component {
        });
     }
 
-    
-
     render() {
         return (
             <>
@@ -43,7 +39,7 @@ class AddImage extends Component {
                 <Link to="/gallery">
                     Back to Gallery
                 </Link><br />
-                <form className="col s12" ref={this.formRef} onSubmit={this.handleSubmit}>
+                <form ref={this.formRef} onSubmit={this.handleSubmit}>
                     <div>
                         <label >Image Title</label><br></br>
                         <input name="title" type="text" value={this.state.formData.title} onChange={this.handleChange} required />

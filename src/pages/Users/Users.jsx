@@ -18,6 +18,7 @@ class Users extends Component {
         <h1>Hello. This is a list of all the users.</h1>
         {this.state.users.map((user) => (
           <Link
+            key={user.id}
             to={{
               pathname: `profile/${user._id}`,
             }}

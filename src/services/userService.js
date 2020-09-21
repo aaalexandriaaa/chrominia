@@ -1,5 +1,5 @@
 import tokenService from "../services/tokenService";
-const BASE_URL = "/api/users";
+const BASE_URL = "/api/users/";
 
 export function getAllUsers() {
   return fetch(
@@ -12,21 +12,21 @@ export function getAllUsers() {
 }
 
 export function update(user) {
-  return fetch(`${BASE_URL}/${user._id}`, {
+  return fetch(`${BASE_URL}${user._id}`, {
     method: 'PUT',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
     body: JSON.stringify(user)
-  })
-    .then(res => res.json())
+  }, { mode: "cors" })
+    .then((res) => res.json())
 }
 
-// export function showProfile(user) {
-//   return fetch(`${BASE_URL}/${user._id}`, {
-//     method: 'SHOW'
-//   })
-// }
+export function showProfile(id) {
+  return fetch(`${BASE_URL}${id}`)
+    .then((res) => res.json())
+}
 
 export default {
   getAllUsers,
-  update
+  update,
+  showProfile
 };

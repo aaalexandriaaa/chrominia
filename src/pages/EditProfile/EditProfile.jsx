@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import userService from '../../services/userService';
 
 class EditProfile extends Component {
   state = {
+    users: [],
     invalidForm: false,
     formData: {
       name: '',
@@ -12,9 +14,14 @@ class EditProfile extends Component {
 
   formRef = React.createRef();
 
+  handleUpdateUser = async updatedUserData => {
+    await userService.update(updatedUserData)
+      .then(() => this.props.history.push(`profile/${updatedUserData._id}`))
+  }
+
   handleSubmit = e => {
     e.preventDefault();
-    this.props.handleUpdateUser(this.state.formData);
+    this.handleUpdateUser(this.state.formData);
   };
 
   handleChange = e => {
@@ -57,9 +64,12 @@ class EditProfile extends Component {
               Update User
                     </button>
             <br />
-            <Link to="/profile">
+
+            <Link
+              to='/profile/:id'>
               CANCEL
                 </Link>
+
           </form>
         </div>
       </>

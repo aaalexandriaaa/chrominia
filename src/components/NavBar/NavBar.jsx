@@ -5,7 +5,7 @@ const NavBar = ({ user, handleLogout }) => {
     <>
       {user ?
         <nav>
-          <div><a href="/profile" >Welcome, {user.name}</a></div>
+          <div><a href={'/profile/' + user._id} >Welcome, {user.name}</a></div>
           <div><a href="/">Home</a></div>
           <div><a href="/projects">Projects</a></div>
           <div><a href="/gallery">Gallery</a></div>
