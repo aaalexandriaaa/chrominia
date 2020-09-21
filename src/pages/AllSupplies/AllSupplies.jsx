@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import * as supplyAPI from '../../services/supplies-api'
+
 class AllSupplies extends Component {
   state = {
+    supplies: []
+  }
 
+  async componentDidMount() {
+    const supplies = await supplyAPI.getForUser();
+    this.setState({ supplies })
   }
 
   render() { 
