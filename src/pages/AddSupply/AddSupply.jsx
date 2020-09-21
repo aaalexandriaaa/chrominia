@@ -45,8 +45,19 @@ class AddSupply extends Component {
                     </div><br></br>
                     <div>
                         <label >Type</label><br></br>
-                        <input name="type" type="text" value={this.state.formData.type} onChange={this.handleChange} required />
+                        <select name="type" onChange={this.handleChange} value={this.state.formData.type} required>
+                          <option value=""></option>
+                          <option value="paint">Paint</option>
+                          <option value="tool">Tool</option>
+                          <option value="brush">Brush</option>
+                          <option value="paintAcc">Paint Accessory</option>
+                          <option value="material">Material</option>
+                          <option value="model">Model</option>
+                          <option value="other">Other</option>
+                        </select>
                     </div><br></br>
+                    {(this.state.formData.type==="paint") ? 
+                      <>
                     <div>
                         <label >Type of Paint</label><br></br>
                         <input name="paintType" type="text" value={this.state.formData.paintType} onChange={this.handleChange} />
@@ -55,7 +66,11 @@ class AddSupply extends Component {
                         <label >Color</label><br></br>
                         <input name="color" type="text" value={this.state.formData.color} onChange={this.handleChange} />
                     </div><br></br>
-                    <div>
+                    
+                      </>
+                      : <> </>
+                      }
+                      <div>
                         <label >Size</label><br></br>
                         <input name="size" type="text" value={this.state.formData.size} onChange={this.handleChange} />
                     </div><br></br>
