@@ -1,35 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
 const ProfilePage = (props) => {
   return (
-    <div>
-      <h1>{props.user.name}'s profile</h1>
-      <Link to="/editprofile">Edit Profile</Link>
-      <br />
-      <Link to="/projects">Projects</Link>
-      <br />
-      <Link to="/allsupplies">Supplies</Link>
-    </div>
-  )
+    <>
+      <div>
+        {/* {props.users.map(user =>
+          <ProfileCard
+            key={user._id}
+            user={props.user}
+          />
+        )} */}
+        <h1>Welcome, {props.user.name}</h1>
+        <ul>
+          <li>Email: {props.user.email}</li>
+          <li>Created at: {props.user.createdAt}</li>
+        </ul>
+        <Link to="/editprofile">Edit Profile</Link>
+        <br />
+        <Link to="/projects">Projects</Link>
+        <br />
+        <Link to="/allsupplies">Supplies</Link>
+        <br />
+      </div>
+    </>
+  );
 }
-
-
-// class ProfilePage extends Component {
-//   state = {
-//     name: '',
-//     email: ''
-//   }
-//   render() {
-//     return (
-//       <>
-//         <h1>Profile Page of {this.state.user.name}</h1>
-//         <Link to="/editprofile">
-//           Edit Profile
-//                 </Link><br />
-//       </>
-//     );
-//   }
-// }
 
 export default ProfilePage;
