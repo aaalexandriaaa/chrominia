@@ -93,13 +93,18 @@ class EditProject extends Component {
                         Update Project
                     </button><br /><br /><br /><br />
                 </form>
+                <div>
+                    <h2>Project Images</h2>
+                    {/* <div>
+                        {projectImages.map((image, idx) =>
+                            <img key={idx} width="100" src={this.state.project.images[idx].url} alt="" />
+                        )}
+                    </div> */}
+                </div>
 
                 {this.state.images.map((image, idx) =>
                     <Link
                         key={idx}
-                    // to={{
-                    //     pathname: `viewimage/${image._id}`
-                    // }}
                     >
                         <ImageCard
                             image={image}
