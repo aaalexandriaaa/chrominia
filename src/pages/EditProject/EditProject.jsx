@@ -8,7 +8,8 @@ class EditProject extends Component {
     state = {
         invalidForm: false,
         formData: this.props.location.state.project,
-        images: []
+        images: [],
+        project: this.props.location.state.project
     }
 
     formRef = React.createRef()
@@ -95,26 +96,30 @@ class EditProject extends Component {
                 </form>
                 <div>
                     <h2>Project Images</h2>
-                    {/* <div>
-                        {projectImages.map((image, idx) =>
-                            <img key={idx} width="100" src={this.state.project.images[idx].url} alt="" />
+                    <div>
+                        {this.props.location.state.project.images.map((image, idx) =>
+                            <img key={idx} width="100" src={image.url} alt="" />
                         )}
-                    </div> */}
+                    </div>
                 </div>
+                <div>
+                    <h2>User's Images</h2>
 
-                {this.state.images.map((image, idx) =>
-                    <Link
-                        key={idx}
-                    >
-                        <ImageCard
-                            image={image}
-                        />
-                        <button type="submit" onClick={() => this.handleAttachImage(image._id, projectID)}>
-                            Add Image to Project
+
+                    {this.state.images.map((image, idx) =>
+                        <Link
+                            key={idx}
+                        >
+                            <ImageCard
+                                image={image}
+                            />
+                            <button type="submit" onClick={() => this.handleAttachImage(image._id, projectID)}>
+                                Add Image to Project
                             </button>
 
-                    </Link>
-                )}
+                        </Link>
+                    )}
+                </div>
             </>
         );
     }
