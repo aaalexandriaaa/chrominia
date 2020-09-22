@@ -9,7 +9,7 @@ class Gallery extends Component {
     }
 
     async componentDidMount() {
-        const images = await imageAPI.getForUser();
+        const images = await imageAPI.getForUser(this.props.match.params.id);
         this.setState({ images })
     }
 
@@ -28,7 +28,7 @@ class Gallery extends Component {
                     <Link
                         key={idx}
                         to={{
-                        pathname: `viewimage/${image._id}`
+                        pathname: `/viewimage/${image._id}`
                         }}
                     >
                         <ImageCard 
