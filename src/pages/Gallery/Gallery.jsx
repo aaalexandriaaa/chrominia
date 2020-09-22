@@ -9,14 +9,17 @@ class Gallery extends Component {
     }
 
     async componentDidMount() {
-        const images = await imageAPI.getForUser();
+        const images = await imageAPI.getForUser(this.props.match.params.id);
         this.setState({ images })
     }
 
     render() {
+        const user = this.props.user
         return (
             <>
                 <h1>Gallery</h1>
+                {user && (user._id === this.props.match.params.id) &&
+                <>
                 <Link 
                     to={{
                        pathname: "/addimage",
@@ -24,11 +27,12 @@ class Gallery extends Component {
                 >
                     Add Image
                 </Link><br />
+                </>}
                 {this.state.images.map((image, idx) =>
                     <Link
                         key={idx}
                         to={{
-                        pathname: `viewimage/${image._id}`
+                        pathname: `/viewimage/${image._id}`
                         }}
                     >
                         <ImageCard 

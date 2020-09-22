@@ -23,7 +23,7 @@ function create(req, res) {
 }
 
 function indexForUser(req, res){
-  Image.find({user: req.user._id})
+  Image.find({user: req.params.id})
     .then((images) =>{ res.json(images)})
     .catch(err => { res.json(err) })
 }

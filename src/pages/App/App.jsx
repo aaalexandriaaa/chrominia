@@ -28,6 +28,7 @@ import ViewPaints from '../ViewPaints/ViewPaints'
 import ViewTools from '../ViewTools/ViewTools'
 import ViewWishList from '../ViewWishList/ViewWishList'
 import SupplyDetails from '../SupplyDetails/SupplyDetails'
+import AddWishList from '../AddWishList/AddWishList'
 
 class App extends Component {
   state = {
@@ -113,6 +114,15 @@ class App extends Component {
           />
           <Route
             exact
+            path="/addwishlist"
+            render={({ history }) => (
+              <AddWishList
+                history={history}
+              />
+            )}
+          />
+          <Route
+            exact
             path="/allsupplies"
             render={() => (
               <AllSupplies />
@@ -152,9 +162,12 @@ class App extends Component {
           />
           <Route
             exact
-            path="/gallery"
-            render={() => (
-              <Gallery />
+            path="/gallery/:id"
+            render={({match}) => (
+              <Gallery 
+                match={match}
+                user={this.state.user}
+              />
             )}
           />
           <Route

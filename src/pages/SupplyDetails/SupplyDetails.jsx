@@ -49,13 +49,10 @@ class SupplyDetails extends Component {
          <thead>
            <tr>
             <th>Name</th>
-            {this.props.match.params.supply === 'paint' ?
+            {this.props.match.params.supply === 'paint' &&
               <>
               <th>Paint Type</th>
               <th>Color</th>
-              </>
-            :
-              <>
               </>
             }
             <th>Size</th>
@@ -68,13 +65,10 @@ class SupplyDetails extends Component {
           {this.state.supplies.map((supply, idx) =>
             <tr key={idx}>
               <td>{supply.name}</td>
-              {this.props.match.params.supply === 'paint' ?
+              {this.props.match.params.supply === 'paint' &&
                 <>
                 <td>{supply.paintType}</td>
                 <td>{supply.color}</td>
-                </>
-              :
-                <>
                 </>
               }
               <td>{supply.size}</td>
