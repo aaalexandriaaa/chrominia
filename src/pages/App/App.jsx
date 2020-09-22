@@ -154,6 +154,7 @@ class App extends Component {
             render={({match}) => (
               <Gallery 
                 match={match}
+                user={this.state.user}
               />
             )}
           />
