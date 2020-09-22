@@ -48,7 +48,7 @@ class ViewImage extends Component {
                         </>
                         }
                         <br></br>
-                <Link to="/gallery">
+                <Link to={`/gallery/${image.user}`}>
                     Back to Gallery
                 </Link><br />
                 </div>
