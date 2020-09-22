@@ -5,7 +5,7 @@ import authService from '../../services/authService'
 
 class ProjectDetails extends Component {
     state = {
-        project: {}
+        project: { images: [] }
     }
 
     async componentDidMount() {
@@ -27,12 +27,18 @@ class ProjectDetails extends Component {
         const user = this.props.user
         return (
             <>
-
                 <div>
                     <h1>{project.name}</h1>
                     <p>Description: {project.description}</p>
                     <p>Hobby: {project.hobby}</p>
                     <p>Date Started: {project.dateStarted}</p>
+                </div>
+                <div>
+                    <h2>Project Images</h2>
+                    {this.state.project.images.map((images, idx) =>
+                        <img key={idx} width="100" src={this.state.project.images[idx].url} alt="" />
+                    )
+                    }
                 </div>
 
 
@@ -41,7 +47,7 @@ class ProjectDetails extends Component {
                         <Link
                             to={{
                                 pathname: '/editproject',
-                                state: { project }
+                                state: { project },
                             }}
                         >
                             Edit Project
