@@ -21,7 +21,9 @@ export function update(user) {
 }
 
 export function showProfile(id) {
-  return fetch(`${BASE_URL}${id}`)
+  return fetch(`${BASE_URL}${id}`, {
+    headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() }
+  })
     .then((res) => res.json())
 }
 
