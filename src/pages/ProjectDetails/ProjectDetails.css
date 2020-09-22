@@ -1,17 +1,28 @@
 .deleteProjectButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 100px;
   background-color: #FF3364;
-  box-shadow: 5px 5px black;
+  border: 1px solid rgb(0, 0, 0, .25);
+  border-radius: 2px;
   color: #2E2532;
+  box-shadow: 2px 2px rgb(0, 0, 0, .75);
 }
 
 .editProjectButton {
-width: 8%;
-background-color:#6153CC;
-border: 1px solid black;
-border-radius: 1px;
-color: #2E2532;
-box-shadow: 5px 5px black;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 100px;
+  background-color:#6153CC;
+  border: 1px solid rgb(0, 0, 0, .25);
+  border-radius: 2px;
+  color: #2E2532;
+  box-shadow: 2px 2px rgb(0, 0, 0, .75);
+  }
 
 .editProjectButton:hover{
   border-color: black;
