@@ -26,8 +26,24 @@ export function getForUser() {
   .then(res => res.json())
 }
 
+export function getWishList() {
+  return fetch(`${BASE_URL}wishlist`, {
+    headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+  }, {mode: "cors"})
+  .then(res => res.json())
+}
+
 export function wishList(supply) {
   return fetch(`${BASE_URL}wishlist/${supply._id}`, {
+    method: "PUT",
+    headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
+    body: JSON.stringify(supply)
+}, {mode: "cors"})
+.then(res => res.json());
+}
+
+export function ownSupply(supply) {
+  return fetch(`${BASE_URL}own/${supply._id}`, {
     method: "PUT",
     headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
     body: JSON.stringify(supply)
