@@ -7,6 +7,7 @@ module.exports = {
   indexForUser,
   getWishList,
   wishList,
+  ownSupply,
   delete: deleteOne
 }
 
@@ -46,6 +47,13 @@ function getWishList(req, res){
 
 function wishList(req, res){
   req.body.own = false
+  Supply.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then((supply) => { res.json(supply)})
+  .catch(err => {res.json(err)})
+}
+
+function ownSupply(req, res){
+  req.body.own = true
   Supply.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then((supply) => { res.json(supply)})
   .catch(err => {res.json(err)})

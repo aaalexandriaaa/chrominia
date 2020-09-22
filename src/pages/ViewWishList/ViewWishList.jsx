@@ -12,10 +12,24 @@ class ViewWishList extends Component {
     this.setState({ wishList })
   }
 
+  handleOwnSupply = async supply => {
+    await supplyAPI.ownSupply(supply)
+    this.setState(state => ({
+      wishList: state.wishList.filter(s => s._id !== supply._id)
+    }))
+  }
+
+  handleDeleteSupply = async supply => {
+    await supplyAPI.deleteOne(supply)
+    this.setState(state => ({
+      wishList: state.wishList.filter(s => s._id !== supply._id)
+    }))
+  }
+
   render() { 
     return (
       <>
-        <h1>View Wish List</h1>
+        <h1>Supply Wish List</h1>
         <Link
           to={{
             pathname: '/addwishlist'
@@ -32,7 +46,7 @@ class ViewWishList extends Component {
             <th>Color</th>
             <th>Size</th>
             <th>Brand</th>
-            <th>Wish Lish?</th>
+            <th>Own?</th>
             <th>Remove?</th>
           </tr>
          </thead>
@@ -45,7 +59,7 @@ class ViewWishList extends Component {
               <td>{supply.color}</td>
               <td>{supply.size}</td>
               <td>{supply.brand}</td>
-              <td><button onClick={() => this.handleOwnSupply(supply)}>Wish List</button></td>
+              <td><button onClick={() => this.handleOwnSupply(supply)}>Own Supply</button></td>
               <td><button onClick={() => this.handleDeleteSupply(supply)}>Remove</button></td>
             </tr>
           )}

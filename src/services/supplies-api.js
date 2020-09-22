@@ -42,6 +42,15 @@ export function wishList(supply) {
 .then(res => res.json());
 }
 
+export function ownSupply(supply) {
+  return fetch(`${BASE_URL}own/${supply._id}`, {
+    method: "PUT",
+    headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
+    body: JSON.stringify(supply)
+}, {mode: "cors"})
+.then(res => res.json());
+}
+
 export function deleteOne(supply) {
   return fetch(`${BASE_URL}${supply._id}`, {
     method: 'DELETE',
