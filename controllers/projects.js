@@ -31,7 +31,7 @@ function create(req, res) {
 
 function projectDetails(req, res) {
   Project.findById(req.params.id)
-    // use populate to get the image URLs and then just map over them
+    .populate('images')
     .then((project) => { res.json(project) })
     .catch(err => { res.json(err) })
 }
