@@ -7,7 +7,7 @@
 .editProjectButton {
 width: 8%;
 background-color:#6153CC;
-border: 1px solid #6153CC;
+border: 1px solid black;
 border-radius: 1px;
 color: #2E2532;
 box-shadow: 5px 5px black;
@@ -15,12 +15,12 @@ box-shadow: 5px 5px black;
 
 .editProjectButton:hover{
   border-color: black;
-  background-color: #5140d0;
+  background-color: #6153ccde;
 }
 
 .deleteProjectButton:hover{
   border-color: black;
-  background-color: #a7072c;
+  background-color: #ff3363de;
 }
 
 .editProject-container {

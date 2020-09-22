@@ -17,7 +17,7 @@ box-shadow: 5px 5px black;
 a.addProjectButton:hover{
   border-color: black;
   transform: scale(1.1);
-  background-color: #21c226
+  background-color:#70f889b3
 }
 
 .addProject {
