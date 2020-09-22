@@ -3,7 +3,9 @@ const Supply = require('../models/supply');
 module.exports = {
   index,
   create,
-  indexForUser
+  indexForUser,
+  wishlist,
+  delete: deleteOne
 }
 
 function index(req, res) {
@@ -21,7 +23,20 @@ function create(req, res){
 }
 
 function indexForUser(req, res){
-  Supply.find({user: req.user._id})
+  Supply.find({user: req.user._id} && {own: true})
     .then((supplies) => { res.json(supplies)})
     .catch(err => {res.json(err)})
+}
+
+function wishlist(req, res){
+  req.body.own = false
+  Supply.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then((supply) => { res.json(supply)})
+  .catch(err => {res.json(err)})
+}
+
+function deleteOne(req, res){
+  Supply.findByIdAndDelete(req.params.id)
+  .then(movie => {res.json(movie)})
+  .catch(err => {res.json(err)})
 }

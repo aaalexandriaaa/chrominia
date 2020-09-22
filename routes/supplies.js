@@ -9,8 +9,8 @@ const suppliesCtrl = require('../controllers/supplies')
 router.use(require('../config/auth'));
 router.post('/', checkAuth, suppliesCtrl.create);
 router.get('/', checkAuth, suppliesCtrl.indexForUser)
-// router.delete('/:id', checkAuth, suppliesCtrl.delete);
-// router.put('/:id', checkAuth, suppliesCtrl.update);
+router.delete('/:id', checkAuth, suppliesCtrl.delete);
+router.put('/wishlist/:id', checkAuth, suppliesCtrl.wishlist);
 
 function checkAuth(req, res, next) {
   if (req.user) return next();
