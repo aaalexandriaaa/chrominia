@@ -16,6 +16,20 @@ class SupplyDetails extends Component {
     this.setState({ supplies })
   }
 
+  handleWishListSupply = async supply => {
+    await supplyAPI.wishList(supply)
+    this.setState(state => ({
+      supplies: state.supplies.filter(s => s._id !== supply._id)
+    }))
+  }
+
+  handleDeleteSupply = async supply => {
+    await supplyAPI.deleteOne(supply)
+    this.setState(state => ({
+      supplies: state.supplies.filter(s => s._id !== supply._id)
+    }))
+  }
+
   printType = type => {
     let result
     types.forEach(each => {
@@ -36,13 +50,13 @@ class SupplyDetails extends Component {
            <tr>
             <th>Name</th>
             {this.props.match.params.supply === 'paint' ?
-            <>
-            <th>Paint Type</th>
-            <th>Color</th>
-            </>
+              <>
+              <th>Paint Type</th>
+              <th>Color</th>
+              </>
             :
-            <>
-            </>
+              <>
+              </>
             }
             <th>Size</th>
             <th>Brand</th>
@@ -65,11 +79,11 @@ class SupplyDetails extends Component {
               }
               <td>{supply.size}</td>
               <td>{supply.brand}</td>
-              
+              <td><button onClick={() => this.handleWishListSupply(supply)}>Wish List</button></td>
+              <td><button onClick={() => this.handleDeleteSupply(supply)}>Remove</button></td>
+
             </tr>
           )}
-       
-            
           </tbody>
         </table>
       </>
