@@ -150,9 +150,12 @@ class App extends Component {
           />
           <Route
             exact
-            path="/gallery"
-            render={() => (
-              <Gallery />
+            path="/gallery/:id"
+            render={({match}) => (
+              <Gallery 
+                match={match}
+                user={this.state.user}
+              />
             )}
           />
           <Route

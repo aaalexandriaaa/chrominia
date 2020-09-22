@@ -10,15 +10,15 @@ export function create(image) {
       .then(res => res.json());
 }
 
-export function getForUser() {
-  return fetch(BASE_URL, {
-    headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+export function getForUser(id) {
+  return fetch(`${BASE_URL}user/${id}`, {
+    // headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
   }, {mode: "cors"})
   .then(res => res.json())
 }
 
 export function getImage(id){
-  return fetch(`${BASE_URL}/${id}`)
+  return fetch(`${BASE_URL}${id}`)
   .then(res => res.json())
 }
 
