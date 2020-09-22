@@ -13,6 +13,7 @@ class ProfilePage extends Component {
   }
 
   render() { 
+    const user = this.props.user
     return (
       <>
       <div>
@@ -20,19 +21,23 @@ class ProfilePage extends Component {
         
           <p>Email: {this.props.user.email}</p>
           <p>Created at: {this.props.user.createdAt}</p>
+          <Link to={`/projects/${this.props.user._id}`}>Projects</Link><br></br>
+          <br></br>
+          {user && (user._id === this.state.user._id) &&
+            <Link 
+            to={{
+              pathname: "/editprofile",
+              state: this.props.user
+            }}
+            >
+              Edit Profile
+            </Link>
+          }
         
-        <Link 
-          to={{
-            pathname: "/editprofile",
-            state: this.props.user
-          }}
-        >
-          Edit Profile
-        </Link>
         <br />
-        <Link to="/projects">Projects</Link>
+        
         <br />
-        <Link to="/allsupplies">Supplies</Link>
+        {/* <Link to="/allsupplies">Supplies</Link> */}
         <br />
       </div>
     </>
