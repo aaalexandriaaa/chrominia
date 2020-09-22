@@ -8,9 +8,10 @@ const suppliesCtrl = require('../controllers/supplies')
 // Protected Routes
 router.use(require('../config/auth'));
 router.post('/', checkAuth, suppliesCtrl.create);
+router.post('/wishlist/', checkAuth, suppliesCtrl.addWishList);
 router.get('/', checkAuth, suppliesCtrl.indexForUser)
 router.delete('/:id', checkAuth, suppliesCtrl.delete);
-router.put('/wishlist/:id', checkAuth, suppliesCtrl.wishlist);
+router.put('/wishlist/:id', checkAuth, suppliesCtrl.wishList);
 
 function checkAuth(req, res, next) {
   if (req.user) return next();

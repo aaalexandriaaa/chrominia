@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 class ViewWishList extends Component {
   state = {
-
+    wishList: []
   }
 
   render() { 
@@ -12,7 +12,7 @@ class ViewWishList extends Component {
         <h1>View Wish List</h1>
         <Link
           to={{
-            pathname: '/addsupply'
+            pathname: '/addwishlist'
           }}
         >
           Add to Wish List

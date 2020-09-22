@@ -10,6 +10,15 @@ export function create(supply) {
       .then(res => res.json());
 }
 
+export function wishlist(wishlist) {
+  return fetch(`${BASE_URL}wishlist/`, {
+      method: "POST",
+      headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+      body: JSON.stringify(wishlist)
+  }, { mode: "cors" })
+      .then(res => res.json());
+}
+
 export function getForUser() {
   return fetch(BASE_URL, {
     headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
