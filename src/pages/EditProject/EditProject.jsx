@@ -19,7 +19,7 @@ class EditProject extends Component {
     }
 
     async componentDidMount() {
-        const images = await imageAPI.getForUser();
+        const images = await imageAPI.getForUser(this.props.user._id);
         this.setState({ images })
     }
 
