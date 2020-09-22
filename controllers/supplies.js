@@ -5,6 +5,7 @@ module.exports = {
   create,
   addWishList,
   indexForUser,
+  getWishList,
   wishList,
   delete: deleteOne
 }
@@ -34,6 +35,12 @@ function addWishList(req, res){
 function indexForUser(req, res){
   Supply.find({user: req.user._id} && {own: true})
     .then((supplies) => { res.json(supplies)})
+    .catch(err => {res.json(err)})
+}
+
+function getWishList(req, res){
+  Supply.find({user: req.user._id} && {own: false})
+    .then((wishList) => { res.json(wishList)})
     .catch(err => {res.json(err)})
 }
 

@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import * as supplyAPI from '../../services/supplies-api'
 
 class ViewWishList extends Component {
   state = {
     wishList: []
+  }
+
+  async componentDidMount() {
+    const wishList = await supplyAPI.getWishList();
+    this.setState({ wishList })
   }
 
   render() { 
