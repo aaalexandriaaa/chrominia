@@ -6,12 +6,12 @@
 }
 
 a.addProjectButton {
-width: 15%;
-background-color:#70f88a;
-border: 1px solid #70f88a;
-border-radius: 2px;
-color: #2E2532;
-box-shadow: 5px 5px black;
+  width: 15%;
+  background-color:#70f88a;
+  border: 1px solid rgb(0, 0, 0, .25);
+  border-radius: 2px;
+  color: #2E2532;
+  box-shadow: 2px 2px rgb(0, 0, 0, .75);
 }
 
 a.addProjectButton:hover{
