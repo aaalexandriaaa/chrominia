@@ -1,0 +1,29 @@
+.addImage-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding-left: 20px;
+}
+
+.addImageButton {
+  width: 15%;
+  background-color:#70f88a;
+  border: 1px solid #70f88a;
+  border-radius: 2px;
+  color: #2E2532;
+  box-shadow: 5px 5px black;
+}
+
+.addImageButton:hover{
+  border-color: black;
+  transform: scale(1.1);
+  background-color: #70f889b3
+}
+
+.imageCard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-left: 20px;
+  padding-top: 20px;
+  margin: 20px;
+}
