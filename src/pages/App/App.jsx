@@ -125,6 +125,7 @@ class App extends Component {
               <EditImage
                 location={location}
                 history={history}
+                user={this.state.user}
               />
             )}
           />
@@ -145,6 +146,7 @@ class App extends Component {
               <EditProject
                 history={history}
                 location={location}
+                user={this.state.user}
               />
             )}
           />
@@ -190,8 +192,8 @@ class App extends Component {
           <Route
             exact
             path="/supplydetails/:supply"
-            render={({match}) => (
-              <SupplyDetails 
+            render={({ match }) => (
+              <SupplyDetails
                 match={match}
               />
             )}
