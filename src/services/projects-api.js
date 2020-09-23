@@ -52,3 +52,13 @@ export function attachImage(id, project) {
     }, { mode: "cors" })
         .then(res => res.json());
 }
+
+export function attachSupply(id, project) {
+    return fetch(`${BASE_URL}supply/${project}`, {
+        method: "PUT",
+        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+        body: JSON.stringify(id)
+    }, { mode: "cors" })
+        .then(res => res.json());
+}
+

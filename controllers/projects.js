@@ -7,7 +7,8 @@ module.exports = {
   projectDetails,
   update,
   delete: deleteProject,
-  addImage
+  addImage,
+  addSupply,
 }
 
 function index(req, res) {
@@ -32,6 +33,7 @@ function create(req, res) {
 function projectDetails(req, res) {
   Project.findById(req.params.id)
     .populate('images')
+    .populate('supplies')
     .then((project) => { res.json(project) })
     .catch(err => { res.json(err) })
 }
@@ -57,3 +59,14 @@ function addImage(req, res) {
     })
     .catch(err => { res.json(err) })
 }
+
+function addSupply(req, res) {
+  Project.findById(req.params.id)
+    .then(project => {
+      project.supplies.push(req.body.boop)
+      project.save()
+      res.json(project)
+    })
+    .catch(err => { res.json(err) })
+}
+

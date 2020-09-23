@@ -12,6 +12,7 @@ router.get('/', checkAuth, projectsCtrl.userProjectIndex);
 router.delete('/:id', checkAuth, projectsCtrl.delete);
 router.put('/:id', checkAuth, projectsCtrl.update);
 router.put('/image/:id', checkAuth, projectsCtrl.addImage);
+router.put('/supply/:id', checkAuth, projectsCtrl.addSupply);
 
 function checkAuth(req, res, next) {
   if (req.user) return next();
