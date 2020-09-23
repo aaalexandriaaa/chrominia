@@ -29,11 +29,19 @@ import ViewTools from '../ViewTools/ViewTools'
 import ViewWishList from '../ViewWishList/ViewWishList'
 import SupplyDetails from '../SupplyDetails/SupplyDetails'
 import AddWishList from '../AddWishList/AddWishList'
+import userService from '../../services/userService'
 
 class App extends Component {
   state = {
     user: authService.getUser(),
   };
+
+  handleUpdateUser = async updatedUserData => {
+    await userService.update(updatedUserData)
+    this.setState({ user: authService.getUser() })
+    this.props.history.push(`profile/${updatedUserData._id}`)
+      // .then(() => this.props.history.push(`profile/${updatedUserData._id}`))
+  }
 
   handleLogout = () => {
     authService.logout();
