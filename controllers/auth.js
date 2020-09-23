@@ -7,6 +7,7 @@ module.exports = {
 };
 
 async function signup(req, res) {
+  req.body.icon = 'https://i.imgur.com/8UsXLUp.png'
   const user = new User(req.body);
   try {
     await user.save();
