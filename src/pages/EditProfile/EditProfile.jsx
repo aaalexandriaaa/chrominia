@@ -10,14 +10,9 @@ class EditProfile extends Component {
 
   formRef = React.createRef();
 
-  handleUpdateUser = async updatedUserData => {
-    await userService.update(updatedUserData)
-      .then(() => this.props.history.push(`profile/${updatedUserData._id}`))
-  }
-
   handleSubmit = e => {
     e.preventDefault();
-    this.handleUpdateUser(this.state.formData);
+    this.props.handleUpdateUser(this.state.formData);
   };
 
   handleChange = e => {
