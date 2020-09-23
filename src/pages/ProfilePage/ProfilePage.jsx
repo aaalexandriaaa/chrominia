@@ -19,10 +19,10 @@ class ProfilePage extends Component {
       <div>
         {/* <h1>Welcome, {this.props.user.name}</h1> */}
         
-          <img src={this.props.user.icon} alt="User Icon" width="150"></img>
-          <p>Name: {this.props.user.name}</p>
-          <p>Member Since: {this.props.user.createdAt}</p>
-          <Link to={`/projects/${this.props.user._id}`}>Projects</Link><br></br>
+          <img src={this.state.user.icon} alt="User Icon" width="150"></img>
+          <p>Name: {this.state.user.name}</p>
+          <p>Member Since: {this.state.user.createdAt}</p>
+          <Link to={`/projects/${this.state.user._id}`}>Projects</Link><br></br>
           <br></br>
           {user && (user._id === this.state.user._id) &&
             <Link 
