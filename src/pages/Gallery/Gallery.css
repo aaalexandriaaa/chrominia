@@ -12,23 +12,28 @@
   border-radius: 2px;
   color: #2E2532;
   box-shadow: 2px 2px rgb(0, 0, 0, .75);
+  font-size: 20px;
 }
 
 .addImageButton:hover{
   border-color: black;
-  transform: scale(1.1);
+  transform: scale(1.05);
   background-color: #70f889b3;
+  text-decoration: none;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(2, 2fr);
-  border: 1px solid black;
-  padding-left: 40px;
-  padding-top: 40px;
-  margin: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  padding-top: 20px;
+  margin: 20px 100px;
 }
 
-.ImageCard {
-  border: 1px solid black;
+.col {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 40px;
+  padding: 10px;
 }

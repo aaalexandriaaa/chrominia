@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as imageAPI from '../../services/images-api'
 import authService from '../../services/authService'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 import './ViewImage.css'
+import { CloseButton } from 'react-bootstrap';
 
 class ViewImage extends Component {
   state = {
@@ -28,32 +31,38 @@ class ViewImage extends Component {
     const user = this.props.user
     return (
       <>
-        <h1>{image.title}</h1>
-        <Link to={`/gallery/${image.user}`}>
-          Back to Gallery
-                </Link><br />
+        <div className='backButton-div'>
+          <Button href={`/gallery/${image.user}`} className='backButton'>
+            Back to Gallery
+                </Button>
+        </div>
+
 
         {user && (user._id === image.user) &&
-          <>
-            <div className='edit-delete-container'>
-              <p>Description: {image.description}</p>
-              <button type="submit" onClick={() => this.handleDeleteImage(image._id)} className='deleteImgButton'>
-                Delete Image
-                            </button>
-              <Link
-                className='editImgButton'
-                to={{
-                  pathname: '/editimage',
-                  state: { image }
-                }}
-              >
-                Edit Image
+          <div className='card-container'>
+            <Card style={{ width: '28rem' }} className='imgCard'>
+              <Card.Img variant="top" src={image.url} width="300" alt={image.description}></Card.Img>
+              <Card.Body>
+                <Card.Title>{image.title}</Card.Title>
+                <Card.Text><p>{image.description}</p></Card.Text>
+                <div className='button-divs'>
+                  <Button type="submit" onClick={() => this.handleDeleteImage(image._id)} className='deleteImgButton'>
+                    Delete Image
+                            </Button>
+
+                  <Link
+                    className='editImgButton'
+                    to={{
+                      pathname: '/editimage',
+                      state: { image }
+                    }}
+                  >
+                    Edit Image
                             </Link>
-            </div>
-            <div className='container-img'>
-              <img src={image.url} width="600" alt={image.description}></img>
-            </div>
-          </>
+                </div>
+              </Card.Body>
+            </Card>
+          </div>
         }
       </>
     );
