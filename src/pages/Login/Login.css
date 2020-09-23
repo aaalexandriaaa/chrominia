@@ -1,7 +1,14 @@
-.LoginPage {
+.Login {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+#login-h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }

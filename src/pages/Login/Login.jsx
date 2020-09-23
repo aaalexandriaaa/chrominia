@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import authService from "../../services/authService"
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
 
 class LoginPage extends Component {
   state = {
@@ -32,73 +35,45 @@ class LoginPage extends Component {
   render() {
     const { email, pw } = this.state
     return (
-      <main className="Login">
-        <h3>Log In</h3>
-        <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            autoComplete="off"
-            id="email"
-            value={email}
-            name="email"
-            onChange={this.handleChange}
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            type="password"
-            autoComplete="off"
-            id="password"
-            value={pw}
-            name="pw"
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <button className="btn green">Log In</button>&nbsp;&nbsp;&nbsp;
+      <>
+        <h1 id='login-h1'>Log In</h1>
+        <main className="Login">
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group autoComplete='off' controlId="email">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                autoComplete="off"
+                value={email}
+                name="email"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+
+            <Form.Group autoComplete='off' controlId='password'>
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                autoComplete="off"
+                value={pw}
+                name="pw"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Log In
+  </Button>&nbsp;&nbsp;&nbsp;
           <Link className="btn red" to="/">
-            Cancel
+              Cancel
           </Link>
-        </form>
-      </main>
+          </Form>
+        </main>
+      </>
     );
   }
 }
 
 export default LoginPage;
-
-{/* <Form>
-          <Form.Group autoComplete='off' controlId="formBasicEmail" onSubmit={this.handleSubmit}>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              autoComplete="off"
-              id="email"
-              value={email}
-              name="email"
-              onChange={this.handleChange}
-            />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-    </Form.Text>
-          </Form.Group>
-
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              autoComplete="off"
-              id="password"
-              value={pw}
-              name="pw"
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Login
-  </Button>&nbsp;&nbsp;&nbsp;
-          <Link className="btn red" to="/">
-            Cancel
-          </Link>
-        </Form> */}
 

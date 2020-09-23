@@ -8,7 +8,7 @@ class Signup extends Component {
   }
 
   updateMessage = (msg) => {
-    this.setState({message: msg});
+    this.setState({ message: msg });
   }
 
   render() {
