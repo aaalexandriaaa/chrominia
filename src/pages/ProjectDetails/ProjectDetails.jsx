@@ -22,11 +22,7 @@ class ProjectDetails extends Component {
             this.props.history.push('/login')
         }
     }
-<<<<<<< HEAD
-
-=======
     
->>>>>>> 120ab9e47a681e9e0e5209eaa1d2311f8fefcca1
     render() {
         const project = this.state.project
         const user = this.props.user
@@ -45,11 +41,6 @@ class ProjectDetails extends Component {
                     )
                     }
                 </div>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 120ab9e47a681e9e0e5209eaa1d2311f8fefcca1
                 {user && (user._id === project.user) &&
                     <div className="edit-delete-container">
                         <Link
@@ -68,10 +59,6 @@ class ProjectDetails extends Component {
             </>
         );
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 120ab9e47a681e9e0e5209eaa1d2311f8fefcca1
 }
 
 export default ProjectDetails;
