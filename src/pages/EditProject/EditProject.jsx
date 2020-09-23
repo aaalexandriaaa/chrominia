@@ -58,15 +58,12 @@ class EditProject extends Component {
         const projectID = this.state.formData._id
         return (
             <>
-
-                <Link to="/projects">
-                    Projects
-                </Link><br />
+                <h1>Edit Project</h1>
                 <div>
                     <form className="col s12" ref={this.formRef} onSubmit={this.handleSubmit}>
                         <div>
                             <label >Project Name</label><br></br>
-                            <input name="name" type="text" defaultValue={this.state.formData.name || ""} onChange={this.handleChange} required />
+                            <input name="name" type="text" value={this.state.formData.name} onChange={this.handleChange} required />
                         </div><br />
                         <div>
                             <label >Project Description</label><br></br>
@@ -76,28 +73,27 @@ class EditProject extends Component {
                         </div><br />
                         <div>
                             <label >Mini Type <br /> (e.g., Games Workshop, Boardgame Mini, etc)</label><br></br>
-                            <input name="hobby" type="text" defaultValue={this.state.formData.hobby || ""} onChange={this.handleChange} required />
+                            <input name="hobby" type="text" value={this.state.formData.hobby} onChange={this.handleChange} required />
                         </div><br />
                         <div>
                             <label >Date Started</label><br></br>
-                            <input name="dateStarted" type="date" defaultValue={this.state.formData.dateStarted} onChange={this.handleChange} required />
-
+                            <input name="dateStarted" type="date" value={this.state.formData.dateStarted} onChange={this.handleChange} required />
                         </div><br />
                         <div>
                             <label >Target Due Date</label><br></br>
-                            <input name="targetDate" type="date" defaultValue={this.state.formData.targetDate} onChange={this.handleChange} required />
+                            <input name="targetDate" type="date" value={this.state.formData.targetDate} onChange={this.handleChange} required />
                         </div><br />
                         <div>
-                            <label >Completed?</label><br></br>
-                            <textarea name="stuff" rows="5" cols="30">
-                                i think i want a button here for mark as completed??
-                        </textarea>
-                        </div>
+                            <select name="public" onChange={this.handleChange} value={this.state.formData.public} required>
+                                <option value="true">Public</option>
+                                <option value="false">Private</option>
+                            </select>
+                        </div><br />
                         <div>
-                            <label >Private?</label><br></br>
-                            <textarea name="stuff" rows="5" cols="30">
-                                i think we need button for making the project private
-                        </textarea>
+                            <select name="completed" onChange={this.handleChange} value={this.state.formData.completed} required>
+                                <option value="true">Complete</option>
+                                <option value="false">In Progress</option>
+                            </select>
                         </div><br />
                         <button
                             type="submit"
@@ -106,6 +102,8 @@ class EditProject extends Component {
                             Update Project
                     </button><br /><br /><br /><br />
                     </form>
+
+
                 </div>
                 {/* <div>
                     <h2>Project Images</h2>

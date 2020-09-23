@@ -69,13 +69,13 @@ class AddProject extends Component {
                             <option value="true">Public</option>
                             <option value="false">Private</option>
                         </select>
-                    </div>
+                    </div><br />
                     <div>
                         <select name="completed" onChange={this.handleChange} value={this.state.formData.completed} required>
                             <option value="true">Complete</option>
                             <option value="false">In Progress</option>
                         </select>
-                    </div>
+                    </div><br />
                     <button
                         type="submit"
                         disabled={this.state.invalidForm}
