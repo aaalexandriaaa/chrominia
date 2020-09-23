@@ -4,6 +4,10 @@ import * as imageAPI from '../../services/images-api'
 import * as suppliesAPI from '../../services/supplies-api'
 import ImageCard from '../../components/ImageCard/ImageCard'
 
+const types = [
+    ['paint', 'Paint'], ['brush', 'Brush'], ['model', 'Model'], ['paintacc', 'Paint Accessory'], ['other', 'Other Supply'], ['tool', 'Tool'], ['material', 'Material']
+]
+
 class EditProject extends Component {
     state = {
         invalidForm: false,
@@ -61,6 +65,11 @@ class EditProject extends Component {
             }
         })
         return result
+    }
+
+    pullSupply = supply => {
+        const list = this.state.supplies.filter(each => each.type === supply)
+        return list
     }
 
     render() {
@@ -125,10 +134,12 @@ class EditProject extends Component {
                 <div>
                     <h2>User's Supplies</h2>
                     <div>
+                    {/* Iterate over types, for each make this table, putting up the header, pulling only the supplies for that table */}
                     <table>
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Type</th>
                                 <th>Paint Type</th>
                                 <th>Color</th>
                                 <th>Size</th>
@@ -141,13 +152,14 @@ class EditProject extends Component {
                             {this.state.supplies.map((supply, idx) =>
                                 <tr key={idx}>
                                     <td>{supply.name}</td>
+                                    <td>{supply.type}</td>
                                     <td>{supply.paintType}</td>
                                     <td>{supply.color}</td>
                                     <td>{supply.size}</td>
                                     <td>{supply.brand}</td>
                                     <td>{supply.own ? '' : 'Y'}</td>
                                     <td>{this.hasSupply(this.state.project.supplies, supply._id) ? 
-                                                ""
+                                                "Attatched"
                                             :
                                                 <button onClick={() => this.handleAttachSupply(supply._id, projectID)}>Attach</button>
                                         }</td>
