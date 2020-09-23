@@ -18,14 +18,7 @@ import ProfilePage from '../ProfilePage/ProfilePage'
 import ProjectDetails from '../ProjectDetails/ProjectDetails'
 import Projects from '../Projects/Projects'
 import Users from '../Users/Users'
-import ViewBrushes from '../ViewBrushes/ViewBrushes'
 import ViewImage from '../ViewImage/ViewImage'
-import ViewMaterials from '../ViewMaterials/ViewMaterials'
-import ViewModels from '../ViewModels/ViewModels'
-import ViewOther from '../ViewOther/ViewOther'
-import ViewPaintAccs from '../ViewPaintAccs/ViewPaintAccs'
-import ViewPaints from '../ViewPaints/ViewPaints'
-import ViewTools from '../ViewTools/ViewTools'
 import ViewWishList from '../ViewWishList/ViewWishList'
 import SupplyDetails from '../SupplyDetails/SupplyDetails'
 import AddWishList from '../AddWishList/AddWishList'
@@ -224,13 +217,6 @@ class App extends Component {
           />
           <Route
             exact
-            path="/viewbrushes"
-            render={() => (
-              <ViewBrushes />
-            )}
-          />
-          <Route
-            exact
             path="/viewimage/:id"
 
             render={({ match, history }) => (
@@ -243,48 +229,7 @@ class App extends Component {
               />
             )}
           />
-          <Route
-            exact
-            path="/viewmaterials"
-            render={() => (
-              <ViewMaterials />
-            )}
-          />
-          <Route
-            exact
-            path="/viewmodels"
-            render={() => (
-              <ViewModels />
-            )}
-          />
-          <Route
-            exact
-            path="/viewother"
-            render={() => (
-              <ViewOther />
-            )}
-          />
-          <Route
-            exact
-            path="/viewpaintaccs"
-            render={() => (
-              <ViewPaintAccs />
-            )}
-          />
-          <Route
-            exact
-            path="/viewpaints"
-            render={() => (
-              <ViewPaints />
-            )}
-          />
-          <Route
-            exact
-            path="/viewtools"
-            render={() => (
-              <ViewTools />
-            )}
-          />
+          
           <Route
             exact
             path="/viewwishlist"

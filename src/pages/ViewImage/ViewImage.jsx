@@ -5,7 +5,6 @@ import authService from '../../services/authService'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import './ViewImage.css'
-import { CloseButton } from 'react-bootstrap';
 
 class ViewImage extends Component {
   state = {

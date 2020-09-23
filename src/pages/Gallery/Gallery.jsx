@@ -36,9 +36,8 @@ class Gallery extends Component {
           </>}
         <Container>
           {this.state.images.map((image, idx) =>
-            <Col>
+            <Col key={image.idx}>
               <Link
-                key={image.idx}
                 to={{
                   pathname: `/viewimage/${image._id}`
                 }}
