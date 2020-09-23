@@ -81,6 +81,7 @@ class EditProject extends Component {
                         <div>
                             <label >Date Started</label><br></br>
                             <input name="dateStarted" type="date" defaultValue={this.state.formData.dateStarted} onChange={this.handleChange} required />
+
                         </div><br />
                         <div>
                             <label >Target Due Date</label><br></br>
@@ -106,14 +107,14 @@ class EditProject extends Component {
                     </button><br /><br /><br /><br />
                     </form>
                 </div>
-                <div>
+                {/* <div>
                     <h2>Project Images</h2>
                     <div>
                         {this.props.location.state.project.images.map((image, idx) =>
                             <img key={idx} width="100" src={image.url} alt="" />
                         )}
                     </div>
-                </div>
+                </div> */}
                 <div>
                     <h2>User's Supplies</h2>
                     <div>
