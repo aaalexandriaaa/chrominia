@@ -1,31 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-// import ProfileCard from '../../components/ProfileCard/ProfileCard'
+import * as userAPI from '../../services/userService'
 
-const ProfilePage = (props) => {
-  return (
-    <>
+class ProfilePage extends Component {
+  state = { 
+    user: {}
+  }
+
+  async componentDidMount() {
+    const user = await userAPI.showProfile(this.props.match.params.id);
+    this.setState({ user })
+  }
+
+  render() { 
+    const user = this.props.user
+    return (
+      <>
       <div>
-        {/* {props.users.map(user =>
-          <ProfileCard
-            key={user._id}
-            user={props.user}
-          />
-        )} */}
-        <h1>Welcome, {props.user.name}</h1>
-        <ul>
-          <li>Email: {props.user.email}</li>
-          <li>Created at: {props.user.createdAt}</li>
-        </ul>
-        <Link to="/editprofile">Edit Profile</Link>
+        {/* <h1>Welcome, {this.props.user.name}</h1> */}
+        
+          <img src={this.props.user.icon} alt="User Icon" width="150"></img>
+          <p>Name: {this.props.user.name}</p>
+          <p>Member Since: {this.props.user.createdAt}</p>
+          <Link to={`/projects/${this.props.user._id}`}>Projects</Link><br></br>
+          <br></br>
+          {user && (user._id === this.state.user._id) &&
+            <Link 
+            to={{
+              pathname: "/editprofile",
+              state: this.props.user
+            }}
+            >
+              Edit Profile
+            </Link>
+          }
+        
         <br />
-        <Link to="/projects">Projects</Link>
+        
         <br />
-        <Link to="/allsupplies">Supplies</Link>
+        {/* <Link to="/allsupplies">Supplies</Link> */}
         <br />
       </div>
     </>
-  );
+    );
+  }
 }
-
+ 
 export default ProfilePage;

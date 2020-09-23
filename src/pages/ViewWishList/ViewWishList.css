@@ -1,22 +1,15 @@
-.supply-card-container {
+.wish-button-div {
   display: flex;
-  justify-content: space-evenly;
-  padding: 20px;
-}
-
-.supply-card-container:hover {
-  text-decoration: none;
-}
-
-.supply-header {
-  display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   margin: 20px;
 }
 
-.addSupplyButton {
+.addWishButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 25px;
-  width: 125px;
+  width: 130px;
   background-color:#70f88a;
   border: 1px solid rgb(0, 0, 0, .25);
   border-radius: 2px;
@@ -24,26 +17,32 @@
   box-shadow: 2px 2px rgb(0, 0, 0, .75);
 }
 
-.addSupplyButton:hover{
+.addWishButton:hover {
   border-color: black;
   transform: scale(1.03);
   background-color:#70f889b3;
   text-decoration: none;
 }
 
-.viewWishlistButton {
-  height: 25px;
-  width: 125px;
-  background-color:#E2C044;
+.ownButton {
   border: 1px solid rgb(0, 0, 0, .25);
   border-radius: 2px;
   color: #2E2532;
   box-shadow: 2px 2px rgb(0, 0, 0, .75);
+  cursor: pointer;
 }
 
-.viewWishlistButton:hover {
-  border-color: black;
-  transform: scale(1.03);
-  background-color:#e2c044b3;
-  text-decoration: none;
+.removeButton {
+  background-color: #FF3364;
+  border: 1px solid rgb(0, 0, 0, .25);
+  border-radius: 2px;
+  color: #2E2532;
+  box-shadow: 2px 2px rgb(0, 0, 0, .75);
+  cursor: pointer;
 }
+
+.removeButton:hover {
+  border-color: black;
+  background-color: #ff3363de;
+}
+

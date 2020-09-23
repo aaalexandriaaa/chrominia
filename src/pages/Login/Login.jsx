@@ -30,7 +30,7 @@ class LoginPage extends Component {
   };
 
   render() {
-    const {email, pw} = this.state
+    const { email, pw } = this.state
     return (
       <main className="Login">
         <h3>Log In</h3>
@@ -64,3 +64,41 @@ class LoginPage extends Component {
 }
 
 export default LoginPage;
+
+{/* <Form>
+          <Form.Group autoComplete='off' controlId="formBasicEmail" onSubmit={this.handleSubmit}>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              autoComplete="off"
+              id="email"
+              value={email}
+              name="email"
+              onChange={this.handleChange}
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+    </Form.Text>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              autoComplete="off"
+              id="password"
+              value={pw}
+              name="pw"
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Login
+  </Button>&nbsp;&nbsp;&nbsp;
+          <Link className="btn red" to="/">
+            Cancel
+          </Link>
+        </Form> */}
+

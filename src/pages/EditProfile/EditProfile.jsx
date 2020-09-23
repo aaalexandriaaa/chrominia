@@ -4,12 +4,8 @@ import userService from '../../services/userService';
 
 class EditProfile extends Component {
   state = {
-    users: [],
     invalidForm: false,
-    formData: {
-      name: '',
-      icon: '',
-    }
+    formData: this.props.location.state
   }
 
   formRef = React.createRef();
@@ -66,9 +62,9 @@ class EditProfile extends Component {
             <br />
 
             <Link
-              to='/profile/:id'>
+              to={`/profile/${this.props.location.state._id}`}>
               CANCEL
-                </Link>
+            </Link>
 
           </form>
         </div>

@@ -1,0 +1,51 @@
+.container-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-delete-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+.deleteImgButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 120px;
+  background-color: #FF3364;
+  border: 1px solid rgb(0, 0, 0, .25);
+  border-radius: 2px;
+  color: #2E2532;
+  box-shadow: 2px 2px rgb(0, 0, 0, .75);
+}
+
+.editImgButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 120px;
+  background-color:#6153CC;
+  border: 1px solid rgb(0, 0, 0, .25);
+  border-radius: 2px;
+  color: #2E2532;
+  box-shadow: 2px 2px rgb(0, 0, 0, .75);
+  text-decoration: none;
+}
+
+.editImgButton:hover {
+  border-color: black;
+  background-color: #6153ccde;
+}
+
+.deleteImgButton:hover {
+  border-color: black;
+  background-color: #ff3363de;
+}
+
+

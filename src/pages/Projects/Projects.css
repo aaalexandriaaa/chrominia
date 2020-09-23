@@ -17,7 +17,7 @@ a.addProjectButton {
 a.addProjectButton:hover{
   border-color: black;
   transform: scale(1.1);
-  background-color:#70f889b3
+  background-color:#70f889b3;
 }
 
 .addProject {

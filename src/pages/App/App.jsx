@@ -142,9 +142,10 @@ class App extends Component {
           <Route
             exact
             path="/editprofile"
-            render={({ history }) => (
+            render={({ location, history }) => (
               <EditProfile
                 history={history}
+                location={location}
                 handleUpdateUser={this.handleUpdateUser}
               />
             )}
