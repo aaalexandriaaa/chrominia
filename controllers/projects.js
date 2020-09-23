@@ -8,7 +8,7 @@ module.exports = {
   update,
   delete: deleteProject,
   addImage,
-  addSupply,
+  addSupply
 }
 
 function index(req, res) {
@@ -18,13 +18,15 @@ function index(req, res) {
 }
 
 function userProjectIndex(req, res) {
-  Project.find({ user: req.user._id })
+  Project.find({ user: req.params.id })
     .then(projects => { res.json(projects) })
     .catch(err => { res.json(err) })
 }
 
 function create(req, res) {
   req.body.user = req.user._id
+  req.body.completed = (req.body.completed === 'true')
+  req.body.public = (req.body.public === 'true')
   Project.create(req.body)
     .then(project => { res.json(project) })
     .catch(err => { res.json(err) })

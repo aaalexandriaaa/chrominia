@@ -15,15 +15,15 @@ export function getAll() {
         .then(res => res.json())
 }
 
-export function getUserProjects() {
-    return fetch(BASE_URL, {
+export function getUserProjects(id) {
+    return fetch(`${BASE_URL}${id}`, {
         headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
     }, { mode: "cors" })
         .then(res => res.json())
 }
 
 export function projectDetails(id) {
-    return fetch(`${BASE_URL}/${id}`)
+    return fetch(`${BASE_URL}project/${id}`)
         .then(res => res.json())
 }
 

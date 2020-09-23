@@ -23,7 +23,7 @@ class EditProject extends Component {
 
     async componentDidMount() {
         const images = await imageAPI.getForUser(this.props.user._id);
-        const supplies = await suppliesAPI.getForUser();
+        const supplies = await suppliesAPI.getAllForUser();
         // I don't think the API uses the user id, but if it does - this.props.user._id
         this.setState({ images, supplies })
     }
@@ -81,6 +81,7 @@ class EditProject extends Component {
                         <div>
                             <label >Date Started</label><br></br>
                             <input name="dateStarted" type="date" defaultValue={this.state.formData.dateStarted} onChange={this.handleChange} required />
+
                         </div><br />
                         <div>
                             <label >Target Due Date</label><br></br>
@@ -106,14 +107,14 @@ class EditProject extends Component {
                     </button><br /><br /><br /><br />
                     </form>
                 </div>
-                <div>
+                {/* <div>
                     <h2>Project Images</h2>
                     <div>
                         {this.props.location.state.project.images.map((image, idx) =>
                             <img key={idx} width="100" src={image.url} alt="" />
                         )}
                     </div>
-                </div>
+                </div> */}
                 <div>
                     <h2>User's Supplies</h2>
                     <div>
@@ -132,9 +133,7 @@ class EditProject extends Component {
                 <div>
                     <h2>User's Images</h2>
                     {this.state.images.map((image, idx) =>
-                        <Link
-                            key={idx}
-                        >
+                        <div key={idx}>
                             <ImageCard
                                 image={image}
                             />
@@ -142,7 +141,7 @@ class EditProject extends Component {
                                 Add Image to Project
                             </button>
 
-                        </Link>
+                        </div>
                     )}
                 </div>
 

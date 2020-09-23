@@ -8,10 +8,11 @@ class AddProject extends Component {
         formData: {
             name: '',
             hobby: '',
-            public: false,
+            public: 'true',
             description: '',
-            completed: false
-
+            completed: 'false',
+            dateStarted: '',
+            targetDate: ''
         }
     }
     formRef = React.createRef()
@@ -19,7 +20,7 @@ class AddProject extends Component {
     handleAddProject = async newProjectData => {
         console.log("ADDPROJECT")
         await projectAPI.create(newProjectData)
-            .then(() => this.props.history.push('/projects'))
+            .then(() => this.props.history.push(`/projects/${this.props.user._id}`))
         console.log("PROJECTADDED")
     }
 
@@ -43,38 +44,38 @@ class AddProject extends Component {
                 <form className="col s12" ref={this.formRef} onSubmit={this.handleSubmit}>
                     <div>
                         <label >Project Name</label><br></br>
-                        <input name="name" type="text" defaultValue={this.state.formData.name || ""} onChange={this.handleChange} required />
+                        <input name="name" type="text" value={this.state.formData.name} onChange={this.handleChange} required />
                     </div><br />
-                    {/* <div>
+                    <div>
                         <label >Project Description</label><br></br>
                         <textarea name="description" rows="5" cols="30" value={this.state.formData.description} onChange={this.handleChange} >
                             Project description...
                         </textarea>
-                    </div><br /> */}
+                    </div><br />
                     <div>
                         <label >Mini Type <br /> (e.g., Games Workshop, Boardgame Mini, etc)</label><br></br>
-                        <input name="hobby" type="text" defaultValue={this.state.formData.hobby || ""} onChange={this.handleChange} required />
+                        <input name="hobby" type="text" value={this.state.formData.hobby} onChange={this.handleChange} required />
                     </div><br />
                     <div>
                         <label >Date Started</label><br></br>
-                        <input name="dateStarted" type="date" defaultValue={this.state.formData.dateStarted} onChange={this.handleChange} required />
+                        <input name="dateStarted" type="date" value={this.state.formData.dateStarted} onChange={this.handleChange} required />
                     </div><br />
                     <div>
                         <label >Target Due Date</label><br></br>
-                        <input name="targetDate" type="date" defaultValue={this.state.formData.targetDate} onChange={this.handleChange} required />
+                        <input name="targetDate" type="date" value={this.state.formData.targetDate} onChange={this.handleChange} required />
                     </div><br />
-                    {/* <div>
-                        <label >Completed?</label><br></br>
-                        <textarea name="stuff" rows="5" cols="30">
-                            i think i want a button here for mark as completed??
-                        </textarea>
+                    <div>
+                        <select name="public" onChange={this.handleChange} value={this.state.formData.public} required>
+                            <option value="true">Public</option>
+                            <option value="false">Private</option>
+                        </select>
                     </div>
                     <div>
-                        <label >Private?</label><br></br>
-                        <textarea name="stuff" rows="5" cols="30">
-                            i think we need button for making the project private
-                        </textarea>
-                    </div><br /> */}
+                        <select name="completed" onChange={this.handleChange} value={this.state.formData.completed} required>
+                            <option value="true">Complete</option>
+                            <option value="false">In Progress</option>
+                        </select>
+                    </div>
                     <button
                         type="submit"
                         disabled={this.state.invalidForm}
@@ -88,3 +89,6 @@ class AddProject extends Component {
 }
 
 export default AddProject;
+
+
+

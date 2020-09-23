@@ -9,6 +9,7 @@ const suppliesCtrl = require('../controllers/supplies')
 router.use(require('../config/auth'));
 router.post('/', checkAuth, suppliesCtrl.create);
 router.post('/wishlist/', checkAuth, suppliesCtrl.addWishList);
+router.get('/all', checkAuth, suppliesCtrl.getAllForUser)
 router.get('/', checkAuth, suppliesCtrl.indexForUser)
 router.get('/wishlist/', checkAuth, suppliesCtrl.getWishList)
 router.delete('/:id', checkAuth, suppliesCtrl.delete);
