@@ -19,24 +19,28 @@ class AllSupplies extends Component {
     return list
   }
 
-  render() { 
+  render() {
     return (
       <>
         <h1>All Supplies</h1>
-        <Link
-          to={{
-            pathname: '/addsupply'
-          }}
-        >
-          Add Supply
+        <div className="supply-header">
+          <Link
+            className="addSupplyButton"
+            to={{
+              pathname: '/addsupply'
+            }}
+          >
+            Add Supply
         </Link>
-        <Link
-          to={{
-            pathname: '/viewwishlist'
-          }}
-        >
-          View Wish List
+          <Link
+            className='viewWishlistButton'
+            to={{
+              pathname: '/viewwishlist'
+            }}
+          >
+            View Wish List
         </Link>
+        </div>
         <div className="supply-card-container">
           <Link
             to={{
@@ -44,9 +48,9 @@ class AllSupplies extends Component {
             }}
           >
             <h3>Brushes</h3>
-            <SuppliesCard 
-              supplies = {this.pullSupply('brush')}
-            />  
+            <SuppliesCard
+              supplies={this.pullSupply('brush')}
+            />
           </Link>
           <Link
             to={{
@@ -54,9 +58,9 @@ class AllSupplies extends Component {
             }}
           >
             <h3>Materials</h3>
-            <SuppliesCard 
-              supplies = {this.pullSupply('material')}
-            />  
+            <SuppliesCard
+              supplies={this.pullSupply('material')}
+            />
           </Link>
           <Link
             to={{
@@ -64,9 +68,9 @@ class AllSupplies extends Component {
             }}
           >
             <h3>Models</h3>
-            <SuppliesCard 
-              supplies = {this.pullSupply('model')}
-            />  
+            <SuppliesCard
+              supplies={this.pullSupply('model')}
+            />
           </Link>
           <Link
             to={{
@@ -74,9 +78,9 @@ class AllSupplies extends Component {
             }}
           >
             <h3>Other</h3>
-            <SuppliesCard 
-              supplies = {this.pullSupply('other')}
-            />  
+            <SuppliesCard
+              supplies={this.pullSupply('other')}
+            />
           </Link>
           <Link
             to={{
@@ -84,9 +88,9 @@ class AllSupplies extends Component {
             }}
           >
             <h3>Paint Accessories</h3>
-            <SuppliesCard 
-              supplies = {this.pullSupply('paintacc')}
-            /> 
+            <SuppliesCard
+              supplies={this.pullSupply('paintacc')}
+            />
           </Link>
           <Link
             to={{
@@ -94,9 +98,9 @@ class AllSupplies extends Component {
             }}
           >
             <h3>View All Paints</h3>
-            <SuppliesCard 
-              supplies = {this.pullSupply('paint')}
-            /> 
+            <SuppliesCard
+              supplies={this.pullSupply('paint')}
+            />
           </Link>
           <Link
             to={{
@@ -104,16 +108,16 @@ class AllSupplies extends Component {
             }}
           >
             <h3>Tools</h3>
-            <SuppliesCard 
-              supplies = {this.pullSupply('tool')}
-            /> 
+            <SuppliesCard
+              supplies={this.pullSupply('tool')}
+            />
           </Link>
         </div>
-        
-        
+
+
       </>
     );
   }
 }
- 
+
 export default AllSupplies;

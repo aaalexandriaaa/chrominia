@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import * as imageAPI from '../../services/images-api'
 import ImageCard from '../../components/ImageCard/ImageCard'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import './Gallery.css'
 
 class Gallery extends Component {
@@ -32,20 +35,25 @@ class Gallery extends Component {
                 </Link><br />
             </div>
           </>}
-        <div className="imageCard">
+        <Container>
           {this.state.images.map((image, idx) =>
-            <Link
-              key={idx}
-              to={{
-                pathname: `/viewimage/${image._id}`
-              }}
-            >
-              <ImageCard
-                image={image}
-              />
-            </Link>
+            <Row md={{ span: 4, offset: 4 }}>
+              <Col>
+                <Link
+                  key={idx}
+                  to={{
+                    pathname: `/viewimage/${image._id}`
+                  }}
+                >
+                  <ImageCard
+                    className="card"
+                    image={image}
+                  />
+                </Link>
+              </Col>
+            </Row>
           )}
-        </div>
+        </Container>
         {/* <Link to="/wiewimage">
                     View Image
                 </Link><br />
