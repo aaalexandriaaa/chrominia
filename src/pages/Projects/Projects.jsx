@@ -10,7 +10,7 @@ class Project extends Component {
   }
 
   async componentDidMount() {
-    const projects = await projectAPI.getUserProjects();
+    const projects = await projectAPI.getUserProjects(this.props.match.params.id);
     this.setState({ projects })
   }
 

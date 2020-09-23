@@ -133,9 +133,7 @@ class EditProject extends Component {
                 <div>
                     <h2>User's Images</h2>
                     {this.state.images.map((image, idx) =>
-                        <Link
-                            key={idx}
-                        >
+                        <div key={idx}>
                             <ImageCard
                                 image={image}
                             />
@@ -143,7 +141,7 @@ class EditProject extends Component {
                                 Add Image to Project
                             </button>
 
-                        </Link>
+                        </div>
                     )}
                 </div>
 
