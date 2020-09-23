@@ -17,13 +17,18 @@
 .addImageButton:hover{
   border-color: black;
   transform: scale(1.1);
-  background-color: #70f889b3
+  background-color: #70f889b3;
 }
 
-.imageCard {
+.container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding-left: 20px;
-  padding-top: 20px;
-  margin: 20px;
+  grid-template-columns: repeat(2, 2fr);
+  border: 1px solid black;
+  padding-left: 40px;
+  padding-top: 40px;
+  margin: 50px;
+}
+
+.ImageCard {
+  border: 1px solid black;
 }

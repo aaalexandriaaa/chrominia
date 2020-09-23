@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from 'react-bootstrap/Navbar'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
@@ -14,10 +15,10 @@ const NavBar = ({ user, handleLogout }) => {
           <div><a href=" " onClick={handleLogout}>Log Out</a></div>
         </nav>
         :
-        <nav>
+        <Navbar className="justify-content-between">
           <div><a href="/login" className="nav-link">Log In</a></div>
           <div><a href="/signup" className="nav-link">Sign Up</a></div>
-        </nav>
+        </Navbar>
       }
     </>
   )
