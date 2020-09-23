@@ -6,7 +6,10 @@ import './ProjectDetails.css'
 
 class ProjectDetails extends Component {
     state = {
-        project: { images: [] }
+        project: {
+            images: [],
+            supplies: []
+        }
     }
 
     async componentDidMount() {
@@ -35,11 +38,20 @@ class ProjectDetails extends Component {
                     <p>Date Started: {project.dateStarted}</p>
                 </div>
                 <div className="editProject-container">
+                    <h2>Project Supplies</h2>
+                    {this.state.project.supplies.map((supply, idx) =>
+                        <div key={idx} className={supply.own ? 'black' : 'grey'} >
+                            <p>Type: {supply.type}< br />
+                                Name: {supply.name}< br />
+                                Brand: {supply.brand}</p>
+                        </div>
+                    )}
+                </div>
+                <div className="editProject-container">
                     <h2>Project Images</h2>
                     {this.state.project.images.map((images, idx) =>
                         <img key={idx} width="100" src={this.state.project.images[idx].url} alt="" />
-                    )
-                    }
+                    )}
                 </div>
                 {user && (user._id === project.user) &&
                     <div className="edit-delete-container">
