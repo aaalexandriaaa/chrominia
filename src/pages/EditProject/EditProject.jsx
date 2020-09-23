@@ -23,7 +23,7 @@ class EditProject extends Component {
 
     async componentDidMount() {
         const images = await imageAPI.getForUser(this.props.user._id);
-        const supplies = await suppliesAPI.getForUser();
+        const supplies = await suppliesAPI.getAllForUser();
         // I don't think the API uses the user id, but if it does - this.props.user._id
         this.setState({ images, supplies })
     }

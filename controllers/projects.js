@@ -8,7 +8,7 @@ module.exports = {
   update,
   delete: deleteProject,
   addImage,
-  addSupply,
+  addSupply
 }
 
 function index(req, res) {

@@ -8,7 +8,8 @@ module.exports = {
   getWishList,
   wishList,
   ownSupply,
-  delete: deleteOne
+  delete: deleteOne,
+  getAllForUser
 }
 
 function index(req, res) {
@@ -17,7 +18,7 @@ function index(req, res) {
     .catch(err => { res.json(err) })
 }
 
-function create(req, res){
+function create(req, res) {
   req.body.user = req.user._id
   req.body.own = true
   Supply.create(req.body)
@@ -25,7 +26,7 @@ function create(req, res){
     .catch(err => { res.json(err) })
 }
 
-function addWishList(req, res){
+function addWishList(req, res) {
   req.body.user = req.user._id
   req.body.own = false
   Supply.create(req.body)
@@ -33,34 +34,40 @@ function addWishList(req, res){
     .catch(err => { res.json(err) })
 }
 
-function indexForUser(req, res){
-  Supply.find({user: req.user._id, own: true})
-    .then((supplies) => { res.json(supplies)})
-    .catch(err => {res.json(err)})
+function indexForUser(req, res) {
+  Supply.find({ user: req.user._id, own: true })
+    .then((supplies) => { res.json(supplies) })
+    .catch(err => { res.json(err) })
 }
 
-function getWishList(req, res){
-  Supply.find({user: req.user._id, own: false})
-    .then((wishList) => { res.json(wishList)})
-    .catch(err => {res.json(err)})
+function getWishList(req, res) {
+  Supply.find({ user: req.user._id, own: false })
+    .then((wishList) => { res.json(wishList) })
+    .catch(err => { res.json(err) })
 }
 
-function wishList(req, res){
+function wishList(req, res) {
   req.body.own = false
-  Supply.findByIdAndUpdate(req.params.id, req.body, {new: true})
-  .then((supply) => { res.json(supply)})
-  .catch(err => {res.json(err)})
+  Supply.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then((supply) => { res.json(supply) })
+    .catch(err => { res.json(err) })
 }
 
-function ownSupply(req, res){
+function ownSupply(req, res) {
   req.body.own = true
-  Supply.findByIdAndUpdate(req.params.id, req.body, {new: true})
-  .then((supply) => { res.json(supply)})
-  .catch(err => {res.json(err)})
+  Supply.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then((supply) => { res.json(supply) })
+    .catch(err => { res.json(err) })
 }
 
-function deleteOne(req, res){
+function deleteOne(req, res) {
   Supply.findByIdAndDelete(req.params.id)
-  .then(movie => {res.json(movie)})
-  .catch(err => {res.json(err)})
+    .then(movie => { res.json(movie) })
+    .catch(err => { res.json(err) })
+}
+
+function getAllForUser(req, res) {
+  Supply.find({ user: req.user._id })
+    .then((wishList) => { res.json(wishList) })
+    .catch(err => { res.json(err) })
 }
