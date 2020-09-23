@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import authService from "../../services/authService";
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 import '../../pages/Signup/Signup.css'
 
 class SignupForm extends Component {
