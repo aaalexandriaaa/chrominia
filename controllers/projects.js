@@ -25,6 +25,8 @@ function userProjectIndex(req, res) {
 
 function create(req, res) {
   req.body.user = req.user._id
+  req.body.completed = (req.body.completed === 'true')
+  req.body.public = (req.body.public === 'true')
   Project.create(req.body)
     .then(project => { res.json(project) })
     .catch(err => { res.json(err) })

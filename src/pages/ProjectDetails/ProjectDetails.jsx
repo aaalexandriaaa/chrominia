@@ -25,7 +25,7 @@ class ProjectDetails extends Component {
             this.props.history.push('/login')
         }
     }
-    
+
     render() {
         const project = this.state.project
         const user = this.props.user
@@ -36,6 +36,7 @@ class ProjectDetails extends Component {
                     <p>Description: {project.description}</p>
                     <p>Hobby: {project.hobby}</p>
                     <p>Date Started: {project.dateStarted}</p>
+                    {/* consider adding a function to turn the date string from 2020-10-03 to 10-03-2020 */}
                 </div>
                 <div className="editProject-container">
                     <h2>Project Supplies</h2>
