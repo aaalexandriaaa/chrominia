@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import SuppliesCard from '../../components/SuppliesCard/SuppliesCard'
 import * as supplyAPI from '../../services/supplies-api'
 import Button from 'react-bootstrap/Button'
 import './AllSupplies.css'
@@ -24,23 +23,6 @@ class AllSupplies extends Component {
     return (
       <>
         <h1>All Supplies</h1>
-        <div className="supply-header">
-          <Button
-            className="greenButton"
-            id='button'
-            href={'/addsupply'}
-          >
-            Add Supply
-        </Button>
-          <Button
-            className='yellowButton'
-            id='button'
-            href='/viewwishlist'
-          >
-            View Wish List
-        </Button>
-        </div>
-
         <div className="supply-card-container">
           <Link
             to={{
@@ -99,6 +81,22 @@ class AllSupplies extends Component {
             <h3>View All Tools</h3>
 
           </Link>
+        </div>
+        <div className="supply-header">
+          <Button
+            className="greenButton"
+            id='button'
+            href={'/addsupply'}
+          >
+            Add Supply
+        </Button>
+          <Button
+            className='yellowButton'
+            id='button'
+            href='/viewwishlist'
+          >
+            View Wish List
+        </Button>
         </div>
       </>
     );
