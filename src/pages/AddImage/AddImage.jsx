@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as imageAPI from '../../services/images-api'
 import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 import './AddImage.css'
 
 class AddImage extends Component {
@@ -44,30 +45,32 @@ class AddImage extends Component {
             Back to Gallery
                 </Button>
         </div>
-        <form ref={this.formRef} onSubmit={this.handleSubmit}>
-          <div>
-            <label >Image Title</label><br></br>
-            <input name="title" type="text" value={this.state.formData.title} onChange={this.handleChange} required />
-          </div><br></br>
-          <div>
-            <label >Image Description</label><br></br>
-            <input name="description" type="text" value={this.state.formData.description} onChange={this.handleChange} required />
-          </div><br></br>
-          <div>
-            <label >Image Url</label><br></br>
-            <input name="url" type="text" value={this.state.formData.url} onChange={this.handleChange} required />
-          </div>
-          <div className='button-div'>
-            <Button
-              className='greenButton'
-              id='button'
-              type="submit"
-              disabled={this.state.invalidForm}
-            >
-              Add Image
+        <div className='form-div'>
+          <Form ref={this.formRef} onSubmit={this.handleSubmit}>
+            <div>
+              <Form.Label style={{ padding: '5px' }}>Image Title</Form.Label>
+              <Form.Control name="title" type="text" value={this.state.formData.title} onChange={this.handleChange} required />
+            </div>
+            <div>
+              <Form.Label style={{ padding: '5px' }}>Image Description</Form.Label>
+              <Form.Control name="description" type="text" value={this.state.formData.description} onChange={this.handleChange} required />
+            </div>
+            <div>
+              <Form.Label style={{ padding: '5px' }}>Image Url</Form.Label>
+              <Form.Control name="url" type="text" value={this.state.formData.url} onChange={this.handleChange} required />
+            </div>
+            <div className='button-div'>
+              <Button
+                className='greenButton'
+                id='button'
+                type="submit"
+                disabled={this.state.invalidForm}
+              >
+                Add Image
                     </Button>
-          </div>
-        </form>
+            </div>
+          </Form>
+        </div>
       </>
     );
   }

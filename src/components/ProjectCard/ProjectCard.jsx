@@ -4,10 +4,16 @@ import Card from 'react-bootstrap/Card'
 const ProjectCard = ({ project }) => {
   return (
     <div>
-      <Card style={{ width: '28rem' }} className='imgCard'>
+      <Card style={{ width: '20rem' }} className='imgCard'>
         <Card.Body>
           <Card.Title> <h3>{project.name}</h3> </Card.Title>
-          {/* <Card.Img variant="top" src={project.image.url} width="300"></Card.Img> */}
+          <Card.Img
+            variant="top"
+            src={project.images.length ? project.images[0].url : 'https://i.imgur.com/NthKWeT.png'}
+            width="200"
+          >
+          </Card.Img>
+
           <Card.Text>
             {/* <p>Description: {project.description}</p>
             <p>Public? {project.public}</p>
