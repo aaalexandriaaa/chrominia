@@ -73,7 +73,12 @@ class EditProject extends Component {
     handleRemoveSupply = async (id, project) => {
         const supplyID = { boop: id }
         await projectAPI.removeSupply(supplyID, project)
-            .then(() => this.props.history.push(`/projectdetails/${project}`))
+        // .then(() => this.props.history.push(`/projectdetails/${project}`))
+        const updatedProject = this.state.project
+        const idx = updatedProject.supplies.findIndex(s=> s._id === id)
+        updatedProject.supplies.splice(idx, 1)
+        console.log(updatedProject)
+        this.setState({ project: updatedProject })
     }
 
     hasSupply = (supplies, supID) => {
