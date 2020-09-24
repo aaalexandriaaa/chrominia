@@ -42,9 +42,8 @@ class EditImage extends Component {
                 </Button>
         </div>
 
-        <div className='edit-image-form'>
+        <div className='form-div'>
           <Form ref={this.formRef} onSubmit={this.handleSubmit}>
-
             <div>
               <Form.Label style={{ padding: '10px' }}>Image Title</Form.Label>
               <Form.Control
