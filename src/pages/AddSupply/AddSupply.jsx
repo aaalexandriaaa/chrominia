@@ -20,7 +20,7 @@ class AddSupply extends Component {
 
   handleAddSupply = async newSupplyData => {
     await supplyAPI.create(newSupplyData)
-      .then(() => this.props.history.push('/allsupplies'))
+      .then(() => this.props.history.push(`/supplydetails/${this.state.formData.type}`))
   }
 
   handleSubmit = e => {
