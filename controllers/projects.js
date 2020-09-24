@@ -21,6 +21,7 @@ function index(req, res) {
 
 function userProjectIndex(req, res) {
   Project.find({ user: req.params.id })
+    .populate('images')
     .then(projects => { res.json(projects) })
     .catch(err => { res.json(err) })
 }
