@@ -4,35 +4,38 @@
 ## Not like, painters who are miniature.
 
 ### But, you know, painters who like to paint miniatures.
-<br/><br/><br/>
-
+<br/>
 
 # About us
 ![Gemjamani](public/images/gemjamani.png)
 Cem Ayteac; Jam Wheat; Alexandria Stephenson
-## About Chrominia
+<br/><br/>
+# About Chrominia
 Chrominia was built in Unit 3 of our Software Engineering Immersive at General Assembly. Unit 3 was primarily focused on learning React and its role in a MERN-stack application. An additional requirement was implementing token-based authentication.
 <br/><br/>
-
+# Getting Started
+[Chrominia is currently hosted by Heroku](https://chrominia.herokuapp.com/) <br />
+[You can view our Trello board](https://trello.com/b/8wIUmzpN/chrominia)
+<br/><br/>
 # Technologies Used
 * React
-* NPM
+* NodeJS
+* MongoDB
+* MongooseJS
+* Express
+* Express Generator
+* MongoDB Atlas
+* Heroku with NodeJS
 * JavaScript
 * HTML
 * CSS
 * Bootstrap
 * Trello
 * Whimsical
-* Heroku
 * Pixelmator
 <br/><br/>
-
-# Getting Started
-[Chrominia is currently hosted by Heroku](https://chrominia.herokuapp.com/) <br />
-[You can view our Trello board](https://trello.com/b/8wIUmzpN/chrominia)
-
 # Screenshots
-
+<br/><br/>
 # Attributions
 Supplies icons were sourced from [The Noun Project](https://thenounproject.com/)<br/>
 - **Model Icon**: warrior by NAMIRUS from the Noun Project <br/>
@@ -42,5 +45,4 @@ Supplies icons were sourced from [The Noun Project](https://thenounproject.com/)
 - **Paint Icon**: paint by iconfield from the Noun Project <br/>
 - **Brushes Icon**: paint by DinosoftLab from the Noun Project <br/>
 - **Tools Icon**: clippers by prasong tadoungsorn from the Noun Project
-
 Color palette was sourced from [Coolers](https://coolors.co/).
