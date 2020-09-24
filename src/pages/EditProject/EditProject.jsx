@@ -49,13 +49,21 @@ class EditProject extends Component {
     handleAttachImage = async (id, project) => {
         const imageID = { boop: id }
         await projectAPI.attachImage(imageID, project)
-            .then(() => this.props.history.push(`projectdetails/${project}`))
+            // .then(() => this.props.history.push(`projectdetails/${project}`))
+        const image = this.state.images.find(i => i._id === id)
+        const updatedProject = this.state.project
+        updatedProject.images.push(image)
+        this.setState({ project: updatedProject })
     }
 
     handleRemoveImage = async (id, project) => {
         const supplyID = { boop: id }
         await projectAPI.removeImage(supplyID, project)
-            .then(() => this.props.history.push(`/projectdetails/${project}`))
+            // .then(() => this.props.history.push(`/projectdetails/${project}`))
+        const updatedProject = this.state.project
+        const idx = updatedProject.images.findIndex(i=> i._id === id)
+        updatedProject.images.splice(idx, 1)
+        this.setState({ project: updatedProject })
     }
 
     handleAttachSupply = async (id, project) =>{
@@ -77,7 +85,6 @@ class EditProject extends Component {
         const updatedProject = this.state.project
         const idx = updatedProject.supplies.findIndex(s=> s._id === id)
         updatedProject.supplies.splice(idx, 1)
-        console.log(updatedProject)
         this.setState({ project: updatedProject })
     }
 
