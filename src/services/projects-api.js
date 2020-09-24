@@ -63,19 +63,19 @@ export function attachSupply(id, project) {
 }
 
 export function removeSupply(id, project) {
-  return fetch(`${BASE_URL}remove/supply/${project}`, {
-      method: "PUT",
-      headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
-      body: JSON.stringify(id)
-  }, { mode: "cors" })
-      .then(res => res.json());
+    return fetch(`${BASE_URL}remove/supply/${project}`, {
+        method: "PUT",
+        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+        body: JSON.stringify(id)
+    }, { mode: "cors" })
+        .then(res => res.json());
 }
 
 export function removeImage(id, project) {
-  return fetch(`${BASE_URL}remove/image/${project}`, {
-      method: "PUT",
-      headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
-      body: JSON.stringify(id)
-  }, { mode: "cors" })
-      .then(res => res.json());
-} 
+    return fetch(`${BASE_URL}remove/image/${project}`, {
+        method: "PUT",
+        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+        body: JSON.stringify(id)
+    }, { mode: "cors" })
+        .then(res => res.json());
+}
