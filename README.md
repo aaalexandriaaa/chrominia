@@ -28,3 +28,15 @@ Chrominia was built as part of our Software Engineering Immersive at General Ass
 ## ERDs
 
 ## Screenshots
+
+## Attributions
+warrior by NAMIRUS from the Noun Project
+grass By coer, RU 
+Solid Ampersand by Kristin Burrows from the Noun Project
+paint by Gregor Cresnar from the Noun Project
+paint by iconfield from the Noun Project
+paint by DinosoftLab from the Noun Project
+mini pliers 
+By ronin design, ID 
+
+clippers by prasong tadoungsorn from the Noun Project

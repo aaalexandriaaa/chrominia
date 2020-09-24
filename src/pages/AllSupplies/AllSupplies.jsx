@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import SuppliesCard from '../../components/SuppliesCard/SuppliesCard'
 import * as supplyAPI from '../../services/supplies-api'
 import Button from 'react-bootstrap/Button'
 import './AllSupplies.css'
@@ -40,80 +39,66 @@ class AllSupplies extends Component {
             View Wish List
         </Button>
         </div>
+
         <div className="supply-card-container">
           <Link
             to={{
               pathname: '/supplydetails/brush'
             }}
           >
-            <h3>Brushes</h3>
-            <SuppliesCard
-              supplies={this.pullSupply('brush')}
-            />
+            <img style={{ width: "100px", height: "100px" }} src="/images/brush.svg" alt="brush logo" />
+            <h4>View All Brushes</h4>
           </Link>
           <Link
             to={{
               pathname: '/supplydetails/material'
             }}
           >
-            <h3>Materials</h3>
-            <SuppliesCard
-              supplies={this.pullSupply('material')}
-            />
+            <img style={{ width: "100px", height: "100px" }} src="/images/material.svg" alt="materials logo" />
+            <h4>View All Materials</h4>
           </Link>
           <Link
             to={{
               pathname: '/supplydetails/model'
             }}
           >
-            <h3>Models</h3>
-            <SuppliesCard
-              supplies={this.pullSupply('model')}
-            />
+            <img style={{ width: "100px", height: "100px" }} src="/images/model.svg" alt="models logo" />
+            <h4>View All Models</h4>
           </Link>
           <Link
             to={{
               pathname: '/supplydetails/other'
             }}
           >
-            <h3>Other</h3>
-            <SuppliesCard
-              supplies={this.pullSupply('other')}
-            />
+            <img style={{ width: "100px", height: "100px" }} src="/images/other.svg" alt="miscellaneous logo" />
+            <h4>View Miscellaneous</h4>
           </Link>
           <Link
             to={{
               pathname: '/supplydetails/paintacc'
             }}
           >
-            <h3>Paint Accessories</h3>
-            <SuppliesCard
-              supplies={this.pullSupply('paintacc')}
-            />
+            <img style={{ width: "100px", height: "100px" }} src="/images/paintacc.svg" alt="paint accessories logo" />
+            <h4>View All Paint Accessories</h4>
           </Link>
           <Link
             to={{
               pathname: '/supplydetails/paint'
             }}
           >
+            <img style={{ width: "100px", height: "100px" }} src="/images/paint.svg" alt="paint logo" />
             <h3>View All Paints</h3>
-            <SuppliesCard
-              supplies={this.pullSupply('paint')}
-            />
           </Link>
           <Link
             to={{
               pathname: '/supplydetails/tool'
             }}
           >
-            <h3>Tools</h3>
-            <SuppliesCard
-              supplies={this.pullSupply('tool')}
-            />
+            <img style={{ width: "100px", height: "100px" }} src="/images/tool.svg" alt="tool logo" />
+            <h3>View All Tools</h3>
+
           </Link>
         </div>
-
-
       </>
     );
   }
