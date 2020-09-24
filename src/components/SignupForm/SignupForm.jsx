@@ -41,7 +41,7 @@ class SignupForm extends Component {
   render() {
     const { name, email, password, passwordConf } = this.state;
     return (
-      <div className='Signup'>
+      <div className='form-div'>
         <h1>Sign Up</h1>
         <Form autoComplete="off" onSubmit={this.handleSubmit}>
           <Form.Label htmlFor="name">Name</Form.Label>
@@ -84,9 +84,11 @@ class SignupForm extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button class="btn btn-primary" disabled={this.isFormInvalid()}>Sign Up</Button>
+          <div className='button-div'>
+            <Button className='greenButton' id='button' disabled={this.isFormInvalid()}>Sign Up</Button>
           &nbsp;&nbsp;
-          <Link to="/">Cancel</Link>
+          <Link to="/" className='redButton' id='button'>Cancel</Link>
+          </div>
         </Form>
       </div>
     );

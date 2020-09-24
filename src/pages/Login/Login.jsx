@@ -62,12 +62,14 @@ class LoginPage extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Log In
+            <div className='button-div'>
+              <Button className='greenButton' id='button' type="submit">
+                Log In
   </Button>&nbsp;&nbsp;&nbsp;
-          <Link className="btn red" to="/">
-              Cancel
+          <Link className='redButton' id='button' to="/">
+                Cancel
           </Link>
+            </div>
           </Form>
         </main>
       </>
