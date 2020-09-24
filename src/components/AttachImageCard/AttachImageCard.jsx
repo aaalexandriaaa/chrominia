@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class AttatchImageCard extends Component {
+class AttachImageCard extends Component {
   state = {
 
   }
@@ -29,4 +29,4 @@ class AttatchImageCard extends Component {
   }
 }
  
-export default AttatchImageCard;
+export default AttachImageCard;

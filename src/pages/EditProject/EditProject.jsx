@@ -3,7 +3,7 @@ import * as projectAPI from '../../services/projects-api'
 import * as imageAPI from '../../services/images-api'
 import * as suppliesAPI from '../../services/supplies-api'
 import SupplyTable from '../../components/SupplyTable/SupplyTable'
-import AttatchImageCard from '../../components/AttatchImageCard/AttatchImageCard'
+import AttachImageCard from '../../components/AttachImageCard/AttachImageCard'
 import './EditProject.css'
 
 const types = [
@@ -154,7 +154,7 @@ class EditProject extends Component {
 
 
                 </div>
-                <h2>Attatch Supplies</h2>
+                <h2>Attach Supplies</h2>
                 <div className="attatch-supplies-container">
                     <div>
                     {types.map((type, idx) => 
@@ -172,10 +172,10 @@ class EditProject extends Component {
                     </div>
                 </div>
                 <div>
-                    <h2>User's Images</h2>
+                    <h2>Attach Images</h2>
                     {this.state.images.map((image, idx) =>
                         <div key={idx}>
-                            <AttatchImageCard
+                            <AttachImageCard
                                 image={image}
                                 projectID={projectID}
                                 project={this.state.project}
