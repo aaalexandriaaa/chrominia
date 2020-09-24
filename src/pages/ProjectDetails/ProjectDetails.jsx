@@ -20,7 +20,7 @@ class ProjectDetails extends Component {
     handleDeleteProject = async id => {
         if (authService.getUser()) {
             await projectAPI.deleteProject(id)
-                .then(() => this.props.history.push('/projects'));
+                .then(() => this.props.history.push(`/projects/${this.props.user._id}`));
         } else {
             this.props.history.push('/login')
         }
