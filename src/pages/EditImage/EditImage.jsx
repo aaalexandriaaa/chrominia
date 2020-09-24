@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as imageAPI from '../../services/images-api'
+import './EditImage.css'
 import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 class EditImage extends Component {
   state = {
@@ -34,31 +36,58 @@ class EditImage extends Component {
     return (
       <>
         <h1>Add an Image</h1>
-        <Button href={`/gallery/${image.user}`} className='yellowButton' id='button'>
-          Back to Gallery
+        <div className='button-div'>
+          <Button href={`/gallery/${image.user}`} className='yellowButton' id='button'>
+            Back to Gallery
                 </Button>
-        <form className="col s12" ref={this.formRef} onSubmit={this.handleSubmit}>
-          <div>
-            <label >Image Title</label><br></br>
-            <input name="title" type="text" value={this.state.formData.title} onChange={this.handleChange} required />
-          </div><br></br>
-          <div>
-            <label >Image Description</label><br></br>
-            <input name="description" type="text" value={this.state.formData.description} onChange={this.handleChange} required />
-          </div><br></br>
-          <div>
-            <label >Image Url</label><br></br>
-            <input name="url" type="text" value={this.state.formData.url} onChange={this.handleChange} required />
-          </div><br></br>
-          <Button
-            className='purpleButton'
-            id='button'
-            type="submit"
-            disabled={this.state.invalidForm}
-          >
-            Update Image
+        </div>
+
+        <div className='edit-image-form'>
+          <Form ref={this.formRef} onSubmit={this.handleSubmit}>
+
+            <div>
+              <Form.Label style={{ padding: '10px' }}>Image Title</Form.Label>
+              <Form.Control
+                size='lg'
+                name="title"
+                type="text"
+                value={this.state.formData.title}
+                onChange={this.handleChange}
+                required
+              />
+            </div>
+            <div>
+              <Form.Label style={{ padding: '10px' }}>Image Description</Form.Label>
+              <Form.Control
+                name="description"
+                type="text"
+                value={this.state.formData.description}
+                onChange={this.handleChange}
+                required
+              />
+            </div>
+            <div>
+              <Form.Label style={{ padding: '10px' }}>Image Url</Form.Label>
+              <Form.Control
+                name="url"
+                type="text"
+                value={this.state.formData.url}
+                onChange={this.handleChange}
+                required
+              />
+            </div>
+            <div className='button-div'>
+              <Button
+                className='purpleButton'
+                id='button'
+                type="submit"
+                disabled={this.state.invalidForm}
+              >
+                Update Image
                     </Button>
-        </form>
+            </div>
+          </Form>
+        </div>
       </>
     );
   }

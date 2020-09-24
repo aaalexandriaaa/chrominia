@@ -1,0 +1,9 @@
+.profile-div {
+  padding-top: 20px;
+}
+
+.profile-button-div {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 20px;
+}

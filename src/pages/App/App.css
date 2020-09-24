@@ -19,7 +19,7 @@ nav {
   display: flex;
   justify-content: flex-start;
   padding: 20px;
-  background-color: #6153ccde;
+  background-color: #6153cc53;
 }
 
 nav div{
@@ -67,7 +67,7 @@ main {
 }
 
 .redButton {
-  background-color: #FF3364;
+  background-color: #ff3363cb;
 }
 
 .redButton:hover {
@@ -83,7 +83,7 @@ main {
 }
 
 .purpleButton {
-  background-color:#6153CC;
+  background-color:#6153cc7c;
 }
 
 .purpleButton:hover {
@@ -106,14 +106,10 @@ main {
   justify-content: center;
 }
 
-#irisbutton-td {
+.button-div {
   display: flex;
-  flex-direction: row;
   justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
 }
-
-/* #redbutton-td {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-} */

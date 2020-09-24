@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import * as userAPI from '../../services/userService'
+import './ProfilePage.css'
 
 class ProfilePage extends Component {
-  state = { 
+  state = {
     user: {}
   }
 
@@ -12,38 +13,41 @@ class ProfilePage extends Component {
     this.setState({ user })
   }
 
-  render() { 
+  render() {
     const user = this.props.user
     return (
       <>
-      <div>
         {/* <h1>Welcome, {this.props.user.name}</h1> */}
-        
+        <div className="profile-div">
           <img src={this.state.user.icon} alt="User Icon" width="150"></img>
           <p>Name: {this.state.user.name}</p>
           <p>Member Since: {this.state.user.createdAt}</p>
-          <Link to={`/projects/${this.state.user._id}`}>Projects</Link><br></br>
-          <br></br>
-          {user && (user._id === this.state.user._id) &&
-            <Link 
-            to={{
-              pathname: "/editprofile",
-              state: this.props.user
-            }}
-            >
-              Edit Profile
+          <div className='profile-button-div'>
+            {user && (user._id === this.state.user._id) &&
+              <Link
+                id='button'
+                className='purpleButton'
+                to={{
+                  pathname: "/editprofile",
+                  state: this.props.user
+                }}
+              >
+                Edit Profile
             </Link>
-          }
-        
+            }
+            <Link to={`/projects/${this.state.user._id}`} className='yellowButton' id='button'>Projects</Link>
+
+          </div>
+        </div>
+
         <br />
-        
+
         <br />
         {/* <Link to="/allsupplies">Supplies</Link> */}
         <br />
-      </div>
-    </>
+      </>
     );
   }
 }
- 
+
 export default ProfilePage;
