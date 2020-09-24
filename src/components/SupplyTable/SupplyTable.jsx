@@ -29,7 +29,8 @@ class SupplyTable extends Component {
           className="table-header"
           onClick={() => this.toggleVisiableClickHandler()}
         >{this.props.type}</h4>
-        <table className={this.state.tableVisible ? '' : 'hidden'}>
+        <div className={this.state.tableVisible ? '' : 'hidden'}>
+        <table >
         <thead>
             <tr>
                 <th>Name</th>
@@ -59,6 +60,7 @@ class SupplyTable extends Component {
             )}
         </tbody>
         </table>
+        </div>
       </div>
     );
   }
