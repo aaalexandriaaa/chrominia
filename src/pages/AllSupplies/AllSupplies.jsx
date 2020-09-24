@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import SuppliesCard from '../../components/SuppliesCard/SuppliesCard'
 import * as supplyAPI from '../../services/supplies-api'
 import Button from 'react-bootstrap/Button'
 import './AllSupplies.css'
