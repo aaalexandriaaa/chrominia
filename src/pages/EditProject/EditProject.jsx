@@ -3,9 +3,10 @@ import * as projectAPI from '../../services/projects-api'
 import * as imageAPI from '../../services/images-api'
 import * as suppliesAPI from '../../services/supplies-api'
 import ImageCard from '../../components/ImageCard/ImageCard'
+import './EditProject.css'
 
 const types = [
-    ['paint', 'Paint'], ['brush', 'Brush'], ['model', 'Model'], ['paintacc', 'Paint Accessory'], ['other', 'Other Supply'], ['tool', 'Tool'], ['material', 'Material']
+    ['paint', 'Paints'], ['brush', 'Brushes'], ['model', 'Modeles'], ['paintacc', 'Paint Accessories'], ['other', 'Other Supplies'], ['tool', 'Tools'], ['material', 'Materials']
 ]
 
 class EditProject extends Component {
@@ -131,15 +132,17 @@ class EditProject extends Component {
                         )}
                     </div>
                 </div> */}
-                <div>
-                    <h2>User's Supplies</h2>
+                <h2>Attatch Supplies</h2>
+                <div className="attatch-supplies-container">
+                    
                     <div>
-                    {/* Iterate over types, for each make this table, putting up the header, pulling only the supplies for that table */}
-                    <table>
+                    {types.map((type, idx) => 
+                        <div key={idx}>
+                        <h3>{type[1]}</h3>
+                        <table>
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Type</th>
                                 <th>Paint Type</th>
                                 <th>Color</th>
                                 <th>Size</th>
@@ -149,10 +152,9 @@ class EditProject extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.supplies.map((supply, idx) =>
-                                <tr key={idx}>
+                            {this.pullSupply(type[0]).map((supply, idx) => 
+                                    <tr key={idx}>
                                     <td>{supply.name}</td>
-                                    <td>{supply.type}</td>
                                     <td>{supply.paintType}</td>
                                     <td>{supply.color}</td>
                                     <td>{supply.size}</td>
@@ -166,7 +168,10 @@ class EditProject extends Component {
                                 </tr>
                             )}
                         </tbody>
-                    </table>
+                       </table>
+                       </div>
+                        )}
+                    
                     </div>
                 </div>
                 <div>
