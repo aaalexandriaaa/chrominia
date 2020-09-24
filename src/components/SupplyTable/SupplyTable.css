@@ -1,0 +1,8 @@
+.hidden{
+  display: none;
+  height: 0px;
+}
+
+.table-header:hover{
+  cursor: pointer;
+}

@@ -3,6 +3,7 @@ import * as projectAPI from '../../services/projects-api'
 import * as imageAPI from '../../services/images-api'
 import * as suppliesAPI from '../../services/supplies-api'
 import ImageCard from '../../components/ImageCard/ImageCard'
+import SupplyTable from '../../components/SupplyTable/SupplyTable'
 import './EditProject.css'
 
 const types = [
@@ -51,7 +52,7 @@ class EditProject extends Component {
             .then(() => this.props.history.push(`projectdetails/${project}`))
     }
 
-    async handleAttachSupply(id, project) {
+    handleAttachSupply = async (id, project) =>{
         const supplyID = { boop: id }
         await projectAPI.attachSupply(supplyID, project)
             .then(() => this.props.history.push(`projectdetails/${project}`))
@@ -142,7 +143,14 @@ class EditProject extends Component {
                     <div>
                     {types.map((type, idx) => 
                         <div key={idx}>
-                        <h3>{type[1]}</h3>
+                            <SupplyTable 
+                                type={type[1]}
+                                supplies={this.pullSupply(type[0])}
+                                projectID={projectID}
+                                project={this.state.project}
+                                handleAttachSupply={this.handleAttachSupply}
+                            />
+                        {/* <h3>{type[1]}</h3>
                         <table>
                         <thead>
                             <tr>
@@ -172,7 +180,7 @@ class EditProject extends Component {
                                 </tr>
                             )}
                         </tbody>
-                       </table>
+                       </table> */}
                        </div>
                         )}
                     
