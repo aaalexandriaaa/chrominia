@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import * as projectAPI from '../../services/projects-api'
 import * as imageAPI from '../../services/images-api'
 import * as suppliesAPI from '../../services/supplies-api'
-import ImageCard from '../../components/ImageCard/ImageCard'
 import SupplyTable from '../../components/SupplyTable/SupplyTable'
+import AttatchImageCard from '../../components/AttatchImageCard/AttatchImageCard'
 import './EditProject.css'
 
 const types = [
@@ -46,13 +46,13 @@ class EditProject extends Component {
         });
     }
 
-    async handleAttachImage(id, project) {
+    handleAttachImage = async (id, project) => {
         const imageID = { boop: id }
         await projectAPI.attachImage(imageID, project)
             .then(() => this.props.history.push(`projectdetails/${project}`))
     }
 
-    async handleRemoveImage(id, project) {
+    handleRemoveImage = async (id, project) => {
         const supplyID = { boop: id }
         await projectAPI.removeImage(supplyID, project)
             .then(() => this.props.history.push(`/projectdetails/${project}`))
@@ -168,12 +168,14 @@ class EditProject extends Component {
                     <h2>User's Images</h2>
                     {this.state.images.map((image, idx) =>
                         <div key={idx}>
-                            <ImageCard
+                            <AttatchImageCard
                                 image={image}
+                                projectID={projectID}
+                                project={this.state.project}
+                                handleAttachImage={this.handleAttachImage}
+                                handleRemoveImage={this.handleRemoveImage}
                             />
-                            <button type="submit" onClick={() => this.handleAttachImage(image._id, projectID)}>
-                                Add Image to Project
-                            </button>
+                            
 
                         </div>
                     )}
