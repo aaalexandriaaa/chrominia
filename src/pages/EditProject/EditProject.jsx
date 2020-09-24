@@ -3,6 +3,11 @@ import * as projectAPI from '../../services/projects-api'
 import * as imageAPI from '../../services/images-api'
 import * as suppliesAPI from '../../services/supplies-api'
 import ImageCard from '../../components/ImageCard/ImageCard'
+import './EditProject.css'
+
+const types = [
+    ['paint', 'Paints'], ['brush', 'Brushes'], ['model', 'Modeles'], ['paintacc', 'Paint Accessories'], ['other', 'Other Supplies'], ['tool', 'Tools'], ['material', 'Materials']
+]
 
 class EditProject extends Component {
     state = {
@@ -48,9 +53,29 @@ class EditProject extends Component {
 
     async handleAttachSupply(id, project) {
         const supplyID = { boop: id }
-        console.log(supplyID)
         await projectAPI.attachSupply(supplyID, project)
             .then(() => this.props.history.push(`projectdetails/${project}`))
+        // rather than redirect, say on this page, but we will need to manually add the supply to the project in state, since componentDidMount will not file again
+        // The following code has been tested to work:
+        // const supply = this.state.supplies.find(s => s._id === id)
+        // const updatedProject = this.state.project
+        // updatedProject.supplies.push(supply)
+        // this.setState({ project: updatedProject })
+    }
+
+    hasSupply = (supplies, supID) => {
+        let result = false
+        supplies.forEach(s =>{
+            if (s._id === supID) {
+                result = true
+            }
+        })
+        return result
+    }
+
+    pullSupply = supply => {
+        const list = this.state.supplies.filter(each => each.type === supply)
+        return list
     }
 
     render() {
@@ -59,7 +84,7 @@ class EditProject extends Component {
             <>
                 <h1>Edit Project</h1>
                 <div>
-                    <form className="col s12" ref={this.formRef} onSubmit={this.handleSubmit}>
+                    <form ref={this.formRef} onSubmit={this.handleSubmit}>
                         <div>
                             <label >Project Name</label><br></br>
                             <input name="name" type="text" value={this.state.formData.name} onChange={this.handleChange} required />
@@ -112,19 +137,45 @@ class EditProject extends Component {
                         )}
                     </div>
                 </div> */}
-                <div>
-                    <h2>User's Supplies</h2>
+                <h2>Attatch Supplies</h2>
+                <div className="attatch-supplies-container">
                     <div>
-                        {this.state.supplies.map((supply, idx) =>
-                            <div key={idx}>
-                                <p>Type: {supply.type}< br />
-                                Name: {supply.name}< br />
-                                Brand: {supply.brand}</p>
-                                <button type="submit" onClick={() => this.handleAttachSupply(supply._id, projectID)}>
-                                    Add Supply to Project
-                                </button>
-                            </div>
+                    {types.map((type, idx) => 
+                        <div key={idx}>
+                        <h3>{type[1]}</h3>
+                        <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Paint Type</th>
+                                <th>Color</th>
+                                <th>Size</th>
+                                <th>Brand</th>
+                                <th>On Wish List?</th>
+                                <th>Attatch to Project?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.pullSupply(type[0]).map((supply, idx) => 
+                                    <tr key={idx}>
+                                    <td>{supply.name}</td>
+                                    <td>{supply.paintType}</td>
+                                    <td>{supply.color}</td>
+                                    <td>{supply.size}</td>
+                                    <td>{supply.brand}</td>
+                                    <td>{supply.own ? '' : 'Y'}</td>
+                                    <td>{this.hasSupply(this.state.project.supplies, supply._id) ? 
+                                                "Attatched"
+                                            :
+                                                <button onClick={() => this.handleAttachSupply(supply._id, projectID)}>Attach</button>
+                                        }</td>
+                                </tr>
+                            )}
+                        </tbody>
+                       </table>
+                       </div>
                         )}
+                    
                     </div>
                 </div>
                 <div>
