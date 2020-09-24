@@ -47,41 +47,42 @@ class SupplyDetails extends Component {
     return (
       <>
         <h1>{type} Details</h1>
-        <Table striped bordered hover size='sm' variant='light'>
-          <thead>
-            <tr>
-              <th>Name</th>
-              {this.props.match.params.supply === 'paint' &&
-                <>
-                  <th>Paint Type</th>
-                  <th>Color</th>
-                </>
-              }
-              <th>Size</th>
-              <th>Brand</th>
-              <th>Wish List?</th>
-              <th>Remove?</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.supplies.map((supply, idx) =>
-              <tr key={idx}>
-                <td>{supply.name}</td>
+        <div className='table-div'>
+          <Table striped bordered hover size='sm' variant='light'>
+            <thead>
+              <tr>
+                <th>Name</th>
                 {this.props.match.params.supply === 'paint' &&
                   <>
-                    <td>{supply.paintType}</td>
-                    <td>{supply.color}</td>
+                    <th>Paint Type</th>
+                    <th>Color</th>
                   </>
                 }
-                <td>{supply.size}</td>
-                <td>{supply.brand}</td>
-                <td><button onClick={() => this.handleWishListSupply(supply)} className='wishlistButton'>Wish List</button></td>
-                <td><button onClick={() => this.handleDeleteSupply(supply)} className='removeButton'>Remove</button></td>
-
+                <th>Size</th>
+                <th>Brand</th>
+                <th>Wish List?</th>
+                <th>Remove?</th>
               </tr>
-            )}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {this.state.supplies.map((supply, idx) =>
+                <tr key={idx}>
+                  <td>{supply.name}</td>
+                  {this.props.match.params.supply === 'paint' &&
+                    <>
+                      <td>{supply.paintType}</td>
+                      <td>{supply.color}</td>
+                    </>
+                  }
+                  <td>{supply.size}</td>
+                  <td>{supply.brand}</td>
+                  <td id='irisbutton-td'><button onClick={() => this.handleWishListSupply(supply)} className='irisButton' id='button'>Wish List</button></td>
+                  <td id='redbutton-td'><button onClick={() => this.handleDeleteSupply(supply)} className='redButton' id='button'>Remove</button></td>
+                </tr>
+              )}
+            </tbody>
+          </Table>
+        </div>
       </>
     );
   }

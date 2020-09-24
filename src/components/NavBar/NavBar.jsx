@@ -12,7 +12,7 @@ const NavBar = ({ user, handleLogout }) => {
           <div><a href={`/gallery/${user._id}`}>Gallery</a></div>
           <div><a href="/allsupplies">Supplies</a></div>
           <div><a href="/viewwishlist">Wish List</a></div>
-          <div><a href=" " onClick={handleLogout}>Log Out</a></div>
+          <div id='logout'><a href=" " onClick={handleLogout}>Log Out</a></div>
         </nav>
         :
         <Navbar className="justify-content-between">

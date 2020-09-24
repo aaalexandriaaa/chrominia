@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import * as supplyAPI from '../../services/supplies-api'
 import Table from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button'
 import './ViewWishList.css'
 
 class ViewWishList extends Component {
@@ -33,43 +33,44 @@ class ViewWishList extends Component {
       <>
         <h1>Supply Wish List</h1>
         <div className="wish-button-div">
-          <Link
-            className="addWishButton"
-            to={{
-              pathname: '/addwishlist'
-            }}
+          <Button
+            className="greenButton"
+            id='button'
+            href={'/addwishlist'}
           >
             Add to Wish List
-        </Link>
+        </Button>
         </div>
-        <Table striped bordered hover size='sm' variant='light'>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Paint Type</th>
-              <th>Color</th>
-              <th>Size</th>
-              <th>Brand</th>
-              <th>Own?</th>
-              <th>Remove?</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.wishList.map((supply, idx) =>
-              <tr key={idx}>
-                <td>{supply.name}</td>
-                <td>{supply.type}</td>
-                <td>{supply.paintType}</td>
-                <td>{supply.color}</td>
-                <td>{supply.size}</td>
-                <td>{supply.brand}</td>
-                <td><button onClick={() => this.handleOwnSupply(supply)} className='ownButton'>Own Supply</button></td>
-                <td><button onClick={() => this.handleDeleteSupply(supply)} className='removeButton'>Remove</button></td>
+        <div className='table-div'>
+          <Table striped bordered hover size='sm' variant='light' className='table'>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Paint Type</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Brand</th>
+                <th>Own?</th>
+                <th>Remove?</th>
               </tr>
-            )}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {this.state.wishList.map((supply, idx) =>
+                <tr key={idx}>
+                  <td>{supply.name}</td>
+                  <td>{supply.type}</td>
+                  <td>{supply.paintType}</td>
+                  <td>{supply.color}</td>
+                  <td>{supply.size}</td>
+                  <td>{supply.brand}</td>
+                  <td id='irisbutton-td'><Button onClick={() => this.handleOwnSupply(supply)} className='irisButton' id='button'>Own Supply</Button></td>
+                  <td id='redbutton-td'><Button onClick={() => this.handleDeleteSupply(supply)} className='redButton' id='button'>Remove</Button></td>
+                </tr>
+              )}
+            </tbody>
+          </Table>
+        </div>
       </>
     );
   }

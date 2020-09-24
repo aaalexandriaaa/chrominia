@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import SuppliesCard from '../../components/SuppliesCard/SuppliesCard'
 import * as supplyAPI from '../../services/supplies-api'
+import Button from 'react-bootstrap/Button'
 import './AllSupplies.css'
 
 class AllSupplies extends Component {
@@ -24,22 +25,20 @@ class AllSupplies extends Component {
       <>
         <h1>All Supplies</h1>
         <div className="supply-header">
-          <Link
-            className="addSupplyButton"
-            to={{
-              pathname: '/addsupply'
-            }}
+          <Button
+            className="greenButton"
+            id='button'
+            href={'/addsupply'}
           >
             Add Supply
-        </Link>
-          <Link
-            className='viewWishlistButton'
-            to={{
-              pathname: '/viewwishlist'
-            }}
+        </Button>
+          <Button
+            className='yellowButton'
+            id='button'
+            href='/viewwishlist'
           >
             View Wish List
-        </Link>
+        </Button>
         </div>
         <div className="supply-card-container">
           <Link
