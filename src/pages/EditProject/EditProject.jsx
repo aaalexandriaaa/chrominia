@@ -53,9 +53,14 @@ class EditProject extends Component {
 
     async handleAttachSupply(id, project) {
         const supplyID = { boop: id }
-        console.log(supplyID)
         await projectAPI.attachSupply(supplyID, project)
             .then(() => this.props.history.push(`projectdetails/${project}`))
+        // rather than redirect, say on this page, but we will need to manually add the supply to the project in state, since componentDidMount will not file again
+        // The following code has been tested to work:
+        // const supply = this.state.supplies.find(s => s._id === id)
+        // const updatedProject = this.state.project
+        // updatedProject.supplies.push(supply)
+        // this.setState({ project: updatedProject })
     }
 
     hasSupply = (supplies, supID) => {
@@ -134,7 +139,6 @@ class EditProject extends Component {
                 </div> */}
                 <h2>Attatch Supplies</h2>
                 <div className="attatch-supplies-container">
-                    
                     <div>
                     {types.map((type, idx) => 
                         <div key={idx}>
