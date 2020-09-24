@@ -8,6 +8,7 @@
 
 # About us
 ![Gemjamani](public/images/gemjamani.png)
+![Gemjamani](public/images/gemjamani2.png)
 Cem Ayteac; Jam Wheat; Alexandria Stephenson
 <br/><br/>
 # About Chrominia
