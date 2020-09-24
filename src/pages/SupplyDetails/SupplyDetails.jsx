@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as supplyAPI from '../../services/supplies-api'
 import './SupplyDetails.css'
+import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 
 const types = [
@@ -47,6 +48,13 @@ class SupplyDetails extends Component {
     return (
       <>
         <h1>{type} Details</h1>
+        <Button
+            className="greenButton"
+            id='button'
+            href={'/addsupply'}
+          >
+            Add Supply
+        </Button>
         <div className='table-div'>
           <Table striped bordered hover size='sm' variant='light'>
             <thead>

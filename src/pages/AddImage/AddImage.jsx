@@ -36,7 +36,6 @@ class AddImage extends Component {
   }
 
   render() {
-    const image = this.state.image
     return (
       <>
         <h1>Add an Image</h1>
