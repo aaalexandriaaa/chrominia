@@ -19,7 +19,7 @@ class AddImage extends Component {
 
   handleAddImage = async newImageData => {
     await imageAPI.create(newImageData)
-      .then(() => this.props.history.push('/gallery'))
+      .then(() => this.props.history.push(`/gallery/${this.props.user._id}`))
   }
 
   handleSubmit = e => {
@@ -41,8 +41,8 @@ class AddImage extends Component {
       <>
         <h1>Add an Image</h1>
         <div className='yellowButton-div'>
-          <Button href={`/gallery/${image.user}`} className='yellowButton' id='button'>
-            Back to Gallery
+          <Button href={`/gallery/${this.props.user._id}`} className='yellowButton' id='button'>
+            Cancel
                 </Button>
         </div>
         <div className='form-div'>

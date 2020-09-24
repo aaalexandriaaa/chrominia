@@ -19,7 +19,7 @@ class ViewImage extends Component {
   handleDeleteImage = async id => {
     if (authService.getUser()) {
       await imageAPI.deleteOne(id)
-        .then(() => this.props.history.push('/gallery'));
+        .then(() => this.props.history.push(`/gallery/${this.state.image.user}`));
     } else {
       this.props.history.push('/login')
     }
