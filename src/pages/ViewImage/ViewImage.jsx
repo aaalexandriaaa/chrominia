@@ -30,8 +30,8 @@ class ViewImage extends Component {
     const user = this.props.user
     return (
       <>
-        <div className='backButton-div'>
-          <Button href={`/gallery/${image.user}`} className='backButton'>
+        <div className='yellowButton-div'>
+          <Button href={`/gallery/${image.user}`} className='yellowButton' id='button'>
             Back to Gallery
                 </Button>
         </div>
@@ -45,12 +45,13 @@ class ViewImage extends Component {
                 <Card.Title>{image.title}</Card.Title>
                 <Card.Text><p>{image.description}</p></Card.Text>
                 <div className='button-divs'>
-                  <Button type="submit" onClick={() => this.handleDeleteImage(image._id)} className='deleteImgButton'>
+                  <Button type="submit" onClick={() => this.handleDeleteImage(image._id)} className='redButton' id='button'>
                     Delete Image
                             </Button>
 
                   <Link
-                    className='editImgButton'
+                    className='purpleButton'
+                    id='button'
                     to={{
                       pathname: '/editimage',
                       state: { image }

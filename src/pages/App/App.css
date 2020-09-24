@@ -3,6 +3,10 @@ body {
   background-color: #C0B9DD
 }
 
+h1 {
+  padding: 10px;
+}
+
 a {
   text-decoration: none;
   color: #2E2532;
@@ -10,11 +14,12 @@ a {
 
 nav {
   text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   padding: 20px;
-  background-color: #6153CC;
+  background-color: #6153ccde;
 }
 
 nav div{
@@ -26,3 +31,89 @@ main {
   flex-direction: column;
   text-align: center;
 }
+
+#button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1em;
+  width: 8em;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 15px;
+  border: 1px solid rgb(0, 0, 0, .25);
+  border-radius: 2px;
+  color: #2E2532;
+  box-shadow: 2px 2px rgb(0, 0, 0, .75);
+  cursor: pointer;
+}
+
+#button:hover {
+  border-color: black;
+  transform: scale(1.03);
+  text-decoration: none;
+}
+
+.greenButton {
+  background-color:#70f88a;
+}
+
+.greenButton:hover {
+  background-color:#70f889b3;
+}
+
+.irisButton {
+  background-color: #c0b9dd;
+}
+
+.redButton {
+  background-color: #FF3364;
+}
+
+.redButton:hover {
+  background-color: #ff3363de;
+}
+
+.yellowButton {
+  background-color:#EAD94C;
+}
+
+.yellowButton:hover {
+  background-color:#EAD94Cde;
+}
+
+.purpleButton {
+  background-color:#6153CC;
+}
+
+.purpleButton:hover {
+  background-color: #6153ccde;
+}
+
+.wish-button-div {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.table {
+  width: 80%;
+  margin: 10px;
+}
+
+.table-div {
+  display: flex;
+  justify-content: center;
+}
+
+#irisbutton-td {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* #redbutton-td {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+} */

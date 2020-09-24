@@ -4,6 +4,7 @@ import * as imageAPI from '../../services/images-api'
 import ImageCard from '../../components/ImageCard/ImageCard'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 import './Gallery.css'
 
 class Gallery extends Component {
@@ -24,14 +25,13 @@ class Gallery extends Component {
         {user && (user._id === this.props.match.params.id) &&
           <>
             <div className="addImage-div">
-              <Link
-                className="addImageButton"
-                to={{
-                  pathname: "/addimage",
-                }}
+              <Button
+                className="greenButton"
+                id='button'
+                href="/addimage"
               >
                 Add Image
-                </Link><br />
+                </Button>
             </div>
           </>}
         <Container>

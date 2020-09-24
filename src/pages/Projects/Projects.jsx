@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import * as projectAPI from '../../services/projects-api'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
+import Button from 'react-bootstrap/Button'
 import './Projects.css';
 
 class Project extends Component {
@@ -19,9 +20,9 @@ class Project extends Component {
       <>
         <h1>My Projects</h1>
         <div className="addProject">
-          <a href="/addproject" className="addProjectButton">
+          <Button href="/addproject" className="greenButton" id='button'>
             Add a Project
-                </a><br />
+                </Button><br />
         </div>
         <div className="project-card">
           {this.state.projects.map((project, idx) =>

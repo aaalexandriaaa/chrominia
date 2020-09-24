@@ -1,92 +1,98 @@
 import React, { Component } from 'react'
 import * as supplyAPI from '../../services/supplies-api'
+import Button from 'react-bootstrap/Button'
+import './AddWishList.css'
 
 class AddWishList extends Component {
   state = {
     invalidForm: true,
     formData: {
-        name: '',
-        type: '',
-        paintType: '',
-        size: '',
-        color: '',
-        brand: '',
+      name: '',
+      type: '',
+      paintType: '',
+      size: '',
+      color: '',
+      brand: '',
     }
   }
 
   formRef = React.createRef()
 
   handleAddSupply = async newWishListData => {
-      await supplyAPI.wishlist(newWishListData)
+    await supplyAPI.wishlist(newWishListData)
       .then(() => this.props.history.push('/viewwishlist'))
   }
 
-  handleSubmit = e =>{
-      e.preventDefault();
-      this.handleAddSupply(this.state.formData)
+  handleSubmit = e => {
+    e.preventDefault();
+    this.handleAddSupply(this.state.formData)
   }
 
   handleChange = e => {
-      const formData = {...this.state.formData, [e.target.name]: e.target.value};
-      this.setState({
+    const formData = { ...this.state.formData, [e.target.name]: e.target.value };
+    this.setState({
       formData,
       invalidForm: !this.formRef.current.checkValidity()
-      });
+    });
   }
 
-  render() { 
+  render() {
     return (
       <>
         <h1>Add to Wish List</h1>
         <form ref={this.formRef} onSubmit={this.handleSubmit}>
-            <div>
-                <label >Name</label><br></br>
-                <input name="name" type="text" value={this.state.formData.name} onChange={this.handleChange} required />
-            </div><br></br>
-            <div>
-                <label >Type</label><br></br>
-                <select name="type" onChange={this.handleChange} value={this.state.formData.type} required>
-                  <option value=""></option>
-                  <option value="paint">Paint</option>
-                  <option value="tool">Tool</option>
-                  <option value="brush">Brush</option>
-                  <option value="paintacc">Paint Accessory</option>
-                  <option value="material">Material</option>
-                  <option value="model">Model</option>
-                  <option value="other">Other</option>
-                </select>
-            </div><br></br>
-            {this.state.formData.type==="paint" && 
-              <>
-            <div>
+          <div>
+            <label >Name</label><br></br>
+            <input name="name" type="text" value={this.state.formData.name} onChange={this.handleChange} required />
+          </div><br></br>
+          <div>
+            <label >Type</label><br></br>
+            <select name="type" onChange={this.handleChange} value={this.state.formData.type} required>
+              <option value=""></option>
+              <option value="paint">Paint</option>
+              <option value="tool">Tool</option>
+              <option value="brush">Brush</option>
+              <option value="paintacc">Paint Accessory</option>
+              <option value="material">Material</option>
+              <option value="model">Model</option>
+              <option value="other">Other</option>
+            </select>
+          </div><br></br>
+          {this.state.formData.type === "paint" &&
+            <>
+              <div>
                 <label >Type of Paint</label><br></br>
                 <input name="paintType" type="text" value={this.state.formData.paintType} onChange={this.handleChange} />
-            </div><br></br>
-            <div>
+              </div><br></br>
+              <div>
                 <label >Color</label><br></br>
                 <input name="color" type="text" value={this.state.formData.color} onChange={this.handleChange} />
-            </div><br></br>
-            
-              </>
-              }
-              <div>
-                <label >Size</label><br></br>
-                <input name="size" type="text" value={this.state.formData.size} onChange={this.handleChange} />
-            </div><br></br>
-            <div>
-                <label >Brand</label><br></br>
-                <input name="brand" type="text" value={this.state.formData.brand} onChange={this.handleChange} />
-            </div><br></br>
-            <button
-                type="submit"
-                disabled={this.state.invalidForm}
+              </div><br></br>
+
+            </>
+          }
+          <div>
+            <label >Size</label><br></br>
+            <input name="size" type="text" value={this.state.formData.size} onChange={this.handleChange} />
+          </div><br></br>
+          <div>
+            <label >Brand</label><br></br>
+            <input name="brand" type="text" value={this.state.formData.brand} onChange={this.handleChange} />
+          </div>
+          <div className='button-div'>
+            <Button
+              className='greenButton'
+              id='button'
+              type="submit"
+              disabled={this.state.invalidForm}
             >
-                Add to Wish List
-            </button>                           
+              Add to Wish List
+            </Button>
+          </div>
         </form>
       </>
     );
   }
 }
- 
+
 export default AddWishList;

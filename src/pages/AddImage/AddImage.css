@@ -1,0 +1,12 @@
+.yellowButton-div {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+}

@@ -31,19 +31,3 @@
   text-decoration: none;
 }
 
-.viewWishlistButton {
-  height: 25px;
-  width: 125px;
-  background-color:#E2C044;
-  border: 1px solid rgb(0, 0, 0, .25);
-  border-radius: 2px;
-  color: #2E2532;
-  box-shadow: 2px 2px rgb(0, 0, 0, .75);
-}
-
-.viewWishlistButton:hover {
-  border-color: black;
-  transform: scale(1.03);
-  background-color:#e2c044b3;
-  text-decoration: none;
-}
