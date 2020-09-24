@@ -150,7 +150,7 @@ class EditProject extends Component {
                                 project={this.state.project}
                                 handleAttachSupply={this.handleAttachSupply}
                             />
-                        <h3>{type[1]}</h3>
+                        {/* <h3>{type[1]}</h3>
                         <table>
                         <thead>
                             <tr>
@@ -180,7 +180,7 @@ class EditProject extends Component {
                                 </tr>
                             )}
                         </tbody>
-                       </table>
+                       </table> */}
                        </div>
                         )}
                     

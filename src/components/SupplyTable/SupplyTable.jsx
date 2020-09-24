@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import './SupplyTable.css'
 
 class SupplyTable extends Component {
   state = {
-
+    tableVisible: false
   }
 
   hasSupply = (supplies, supID) => {
@@ -15,11 +16,20 @@ class SupplyTable extends Component {
     return result
   }
 
+  toggleVisiableClickHandler = () => {
+    this.setState((state) => {
+      return {tableVisible: !state.tableVisible}
+    })
+  }
+
   render() { 
     return (
       <div>
-        <h3>{this.props.type}</h3>
-        <table>
+        <h4
+          className="table-header"
+          onClick={() => this.toggleVisiableClickHandler()}
+        >{this.props.type}</h4>
+        <table className={this.state.tableVisible ? '' : 'hidden'}>
         <thead>
             <tr>
                 <th>Name</th>
