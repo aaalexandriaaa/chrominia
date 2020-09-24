@@ -63,9 +63,10 @@ export function attachSupply(id, project) {
 }
 
 export function removeSupply(id, project) {
-    return fetch(`${BASE_URL}remove/supply/${id}`, {
-        method: 'PUT',
-        headers: { 'Authorization': 'Bearer ' + tokenService.getToken() }
+    return fetch(`${BASE_URL}remove/supply/${project}`, {
+        method: "PUT",
+        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+        body: JSON.stringify(id)
     }, { mode: "cors" })
         .then(res => res.json());
 }
