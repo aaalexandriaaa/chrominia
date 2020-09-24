@@ -52,7 +52,7 @@ class SupplyTable extends Component {
                     <td>{supply.brand}</td>
                     <td>{supply.own ? '' : 'Y'}</td>
                     <td>{this.hasSupply(this.props.project.supplies, supply._id) ? 
-                                "Attatched"
+                                <button onClick={() => this.props.handleRemoveSupply(supply._id, this.props.projectID)}>Detatch</button>
                             :
                                 <button onClick={() => this.props.handleAttachSupply(supply._id, this.props.projectID)}>Attach</button>
                         }</td>

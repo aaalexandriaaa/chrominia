@@ -52,16 +52,28 @@ class EditProject extends Component {
             .then(() => this.props.history.push(`projectdetails/${project}`))
     }
 
+    async handleRemoveImage(id, project) {
+        const supplyID = { boop: id }
+        await projectAPI.removeImage(supplyID, project)
+            .then(() => this.props.history.push(`/projectdetails/${project}`))
+    }
+
     handleAttachSupply = async (id, project) =>{
         const supplyID = { boop: id }
         await projectAPI.attachSupply(supplyID, project)
         //     .then(() => this.props.history.push(`projectdetails/${project}`))
         // rather than redirect, say on this page, but we will need to manually add the supply to the project in state, since componentDidMount will not file again
         // The following code has been tested to work:
-        // const supply = this.state.supplies.find(s => s._id === id)
-        // const updatedProject = this.state.project
-        // updatedProject.supplies.push(supply)
-        // this.setState({ project: updatedProject })
+        const supply = this.state.supplies.find(s => s._id === id)
+        const updatedProject = this.state.project
+        updatedProject.supplies.push(supply)
+        this.setState({ project: updatedProject })
+    }
+
+    handleRemoveSupply = async (id, project) => {
+        const supplyID = { boop: id }
+        await projectAPI.removeSupply(supplyID, project)
+            .then(() => this.props.history.push(`/projectdetails/${project}`))
     }
 
     hasSupply = (supplies, supID) => {
@@ -130,14 +142,6 @@ class EditProject extends Component {
 
 
                 </div>
-                {/* <div>
-                    <h2>Project Images</h2>
-                    <div>
-                        {this.props.location.state.project.images.map((image, idx) =>
-                            <img key={idx} width="100" src={image.url} alt="" />
-                        )}
-                    </div>
-                </div> */}
                 <h2>Attatch Supplies</h2>
                 <div className="attatch-supplies-container">
                     <div>
@@ -149,41 +153,10 @@ class EditProject extends Component {
                                 projectID={projectID}
                                 project={this.state.project}
                                 handleAttachSupply={this.handleAttachSupply}
+                                handleRemoveSupply={this.handleRemoveSupply}
                             />
-                        {/* <h3>{type[1]}</h3>
-                        <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Paint Type</th>
-                                <th>Color</th>
-                                <th>Size</th>
-                                <th>Brand</th>
-                                <th>On Wish List?</th>
-                                <th>Attatch to Project?</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.pullSupply(type[0]).map((supply, idx) => 
-                                    <tr key={idx}>
-                                    <td>{supply.name}</td>
-                                    <td>{supply.paintType}</td>
-                                    <td>{supply.color}</td>
-                                    <td>{supply.size}</td>
-                                    <td>{supply.brand}</td>
-                                    <td>{supply.own ? '' : 'Y'}</td>
-                                    <td>{this.hasSupply(this.state.project.supplies, supply._id) ? 
-                                                "Attatched"
-                                            :
-                                                <button onClick={() => this.handleAttachSupply(supply._id, projectID)}>Attach</button>
-                                        }</td>
-                                </tr>
-                            )}
-                        </tbody>
-                       </table> */}
                        </div>
                         )}
-                    
                     </div>
                 </div>
                 <div>
