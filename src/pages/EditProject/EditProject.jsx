@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import * as projectAPI from '../../services/projects-api'
 import * as imageAPI from '../../services/images-api'
 import * as suppliesAPI from '../../services/supplies-api'
-import ImageCard from '../../components/ImageCard/ImageCard'
 import SupplyTable from '../../components/SupplyTable/SupplyTable'
+import AttachImageCard from '../../components/AttachImageCard/AttachImageCard'
 import './EditProject.css'
 
 const types = [
@@ -46,10 +46,24 @@ class EditProject extends Component {
         });
     }
 
-    async handleAttachImage(id, project) {
+    handleAttachImage = async (id, project) => {
         const imageID = { boop: id }
         await projectAPI.attachImage(imageID, project)
-            .then(() => this.props.history.push(`projectdetails/${project}`))
+            // .then(() => this.props.history.push(`projectdetails/${project}`))
+        const image = this.state.images.find(i => i._id === id)
+        const updatedProject = this.state.project
+        updatedProject.images.push(image)
+        this.setState({ project: updatedProject })
+    }
+
+    handleRemoveImage = async (id, project) => {
+        const supplyID = { boop: id }
+        await projectAPI.removeImage(supplyID, project)
+            // .then(() => this.props.history.push(`/projectdetails/${project}`))
+        const updatedProject = this.state.project
+        const idx = updatedProject.images.findIndex(i=> i._id === id)
+        updatedProject.images.splice(idx, 1)
+        this.setState({ project: updatedProject })
     }
 
     handleAttachSupply = async (id, project) =>{
@@ -58,10 +72,20 @@ class EditProject extends Component {
         //     .then(() => this.props.history.push(`projectdetails/${project}`))
         // rather than redirect, say on this page, but we will need to manually add the supply to the project in state, since componentDidMount will not file again
         // The following code has been tested to work:
-        // const supply = this.state.supplies.find(s => s._id === id)
-        // const updatedProject = this.state.project
-        // updatedProject.supplies.push(supply)
-        // this.setState({ project: updatedProject })
+        const supply = this.state.supplies.find(s => s._id === id)
+        const updatedProject = this.state.project
+        updatedProject.supplies.push(supply)
+        this.setState({ project: updatedProject })
+    }
+
+    handleRemoveSupply = async (id, project) => {
+        const supplyID = { boop: id }
+        await projectAPI.removeSupply(supplyID, project)
+        // .then(() => this.props.history.push(`/projectdetails/${project}`))
+        const updatedProject = this.state.project
+        const idx = updatedProject.supplies.findIndex(s=> s._id === id)
+        updatedProject.supplies.splice(idx, 1)
+        this.setState({ project: updatedProject })
     }
 
     hasSupply = (supplies, supID) => {
@@ -130,15 +154,7 @@ class EditProject extends Component {
 
 
                 </div>
-                {/* <div>
-                    <h2>Project Images</h2>
-                    <div>
-                        {this.props.location.state.project.images.map((image, idx) =>
-                            <img key={idx} width="100" src={image.url} alt="" />
-                        )}
-                    </div>
-                </div> */}
-                <h2>Attatch Supplies</h2>
+                <h2>Attach Supplies</h2>
                 <div className="attatch-supplies-container">
                     <div>
                     {types.map((type, idx) => 
@@ -149,53 +165,24 @@ class EditProject extends Component {
                                 projectID={projectID}
                                 project={this.state.project}
                                 handleAttachSupply={this.handleAttachSupply}
+                                handleRemoveSupply={this.handleRemoveSupply}
                             />
-                        {/* <h3>{type[1]}</h3>
-                        <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Paint Type</th>
-                                <th>Color</th>
-                                <th>Size</th>
-                                <th>Brand</th>
-                                <th>On Wish List?</th>
-                                <th>Attatch to Project?</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.pullSupply(type[0]).map((supply, idx) => 
-                                    <tr key={idx}>
-                                    <td>{supply.name}</td>
-                                    <td>{supply.paintType}</td>
-                                    <td>{supply.color}</td>
-                                    <td>{supply.size}</td>
-                                    <td>{supply.brand}</td>
-                                    <td>{supply.own ? '' : 'Y'}</td>
-                                    <td>{this.hasSupply(this.state.project.supplies, supply._id) ? 
-                                                "Attatched"
-                                            :
-                                                <button onClick={() => this.handleAttachSupply(supply._id, projectID)}>Attach</button>
-                                        }</td>
-                                </tr>
-                            )}
-                        </tbody>
-                       </table> */}
                        </div>
                         )}
-                    
                     </div>
                 </div>
                 <div>
-                    <h2>User's Images</h2>
+                    <h2>Attach Images</h2>
                     {this.state.images.map((image, idx) =>
                         <div key={idx}>
-                            <ImageCard
+                            <AttachImageCard
                                 image={image}
+                                projectID={projectID}
+                                project={this.state.project}
+                                handleAttachImage={this.handleAttachImage}
+                                handleRemoveImage={this.handleRemoveImage}
                             />
-                            <button type="submit" onClick={() => this.handleAttachImage(image._id, projectID)}>
-                                Add Image to Project
-                            </button>
+                            
 
                         </div>
                     )}
