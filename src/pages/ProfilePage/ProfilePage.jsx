@@ -19,7 +19,7 @@ class ProfilePage extends Component {
       <>
         {/* <h1>Welcome, {this.props.user.name}</h1> */}
         <div className="profile-div">
-          <img src={this.state.user.icon} alt="User Icon" width="150"></img>
+          <img src={this.state.user.icon} alt="User Icon" width="150" className="profile"></img>
           <p>Name: {this.state.user.name}</p>
           <p>Member Since: {this.state.user.createdAt}</p>
           <div className='profile-button-div'>

@@ -7,3 +7,7 @@
   justify-content: space-evenly;
   padding-top: 20px;
 }
+
+.profile {
+  border-radius: 50%;
+}
