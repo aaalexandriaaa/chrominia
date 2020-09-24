@@ -5,7 +5,7 @@ import './ProfilePage.css'
 
 class ProfilePage extends Component {
   state = {
-    user: {}
+    user: { createdAt: '' }
   }
 
   async componentDidMount() {
@@ -21,7 +21,7 @@ class ProfilePage extends Component {
         <div className="profile-div">
           <img src={this.state.user.icon} alt="User Icon" width="150" className="profile"></img>
           <p>Name: {this.state.user.name}</p>
-          <p>Member Since: {this.state.user.createdAt}</p>
+          <p>Member Since: {this.state.user.createdAt.slice(0, 10)}</p>
           <div className='profile-button-div'>
             {user && (user._id === this.state.user._id) &&
               <Link
