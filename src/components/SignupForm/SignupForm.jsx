@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import authService from "../../services/authService";
 import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 import '../../pages/Signup/Signup.css'
 
 class SignupForm extends Component {
@@ -55,7 +56,7 @@ class SignupForm extends Component {
           </Form.Group>
           <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Group controlId="email" >
-            <input
+            <Form.Control
               type="text"
               autoComplete="off"
               value={email}
@@ -65,7 +66,7 @@ class SignupForm extends Component {
           </Form.Group>
           <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Group controlId="password" >
-            <input
+            <Form.Control
               type="password"
               autoComplete="off"
               value={password}
@@ -75,7 +76,7 @@ class SignupForm extends Component {
           </Form.Group>
           <Form.Label htmlFor="confirm">Confirm Password</Form.Label>
           <Form.Group controlId="confirm" >
-            <input
+            <Form.Control
               type="password"
               autoComplete="off"
               value={passwordConf}
@@ -83,7 +84,7 @@ class SignupForm extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <button class="btn btn-primary" disabled={this.isFormInvalid()}>Sign Up</button>
+          <Button class="btn btn-primary" disabled={this.isFormInvalid()}>Sign Up</Button>
           &nbsp;&nbsp;
           <Link to="/">Cancel</Link>
         </Form>

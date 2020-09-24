@@ -76,8 +76,8 @@ class SupplyDetails extends Component {
                   }
                   <td>{supply.size}</td>
                   <td>{supply.brand}</td>
-                  <td id='irisbutton-td'><button onClick={() => this.handleWishListSupply(supply)} className='irisButton' id='button'>Wish List</button></td>
-                  <td id='redbutton-td'><button onClick={() => this.handleDeleteSupply(supply)} className='redButton' id='button'>Remove</button></td>
+                  <td align='center'><button onClick={() => this.handleWishListSupply(supply)} className='irisButton' id='button'>Wish List</button></td>
+                  <td align='center'><button onClick={() => this.handleDeleteSupply(supply)} className='redButton' id='button'>Remove</button></td>
                 </tr>
               )}
             </tbody>

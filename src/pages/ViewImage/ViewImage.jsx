@@ -45,10 +45,6 @@ class ViewImage extends Component {
                 <Card.Title>{image.title}</Card.Title>
                 <Card.Text><p>{image.description}</p></Card.Text>
                 <div className='button-divs'>
-                  <Button type="submit" onClick={() => this.handleDeleteImage(image._id)} className='redButton' id='button'>
-                    Delete Image
-                            </Button>
-
                   <Link
                     className='purpleButton'
                     id='button'
@@ -59,6 +55,9 @@ class ViewImage extends Component {
                   >
                     Edit Image
                             </Link>
+                  <Button type="submit" onClick={() => this.handleDeleteImage(image._id)} className='redButton' id='button'>
+                    Delete Image
+                            </Button>
                 </div>
               </Card.Body>
             </Card>

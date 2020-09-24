@@ -64,8 +64,8 @@ class ViewWishList extends Component {
                   <td>{supply.color}</td>
                   <td>{supply.size}</td>
                   <td>{supply.brand}</td>
-                  <td id='irisbutton-td'><Button onClick={() => this.handleOwnSupply(supply)} className='irisButton' id='button'>Own Supply</Button></td>
-                  <td id='redbutton-td'><Button onClick={() => this.handleDeleteSupply(supply)} className='redButton' id='button'>Remove</Button></td>
+                  <td align='center'><Button onClick={() => this.handleOwnSupply(supply)} className='irisButton' id='button'>Own Supply</Button></td>
+                  <td align='center'><Button onClick={() => this.handleDeleteSupply(supply)} className='redButton' id='button'>Remove</Button></td>
                 </tr>
               )}
             </tbody>
