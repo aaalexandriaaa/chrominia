@@ -36,6 +36,7 @@ class ProfilePage extends Component {
             </Link>
             }
             <Link to={`/projects/${this.state.user._id}`} className='yellowButton' id='button'>Projects</Link>
+            <Link to={`/gallery/${this.state.user._id}`} className='yellowButton' id='button'>Gallery</Link>
 
           </div>
         </div>
