@@ -8,7 +8,8 @@ module.exports = {
   update,
   delete: deleteProject,
   addImage,
-  addSupply
+  addSupply,
+  removeSupply
 }
 
 function index(req, res) {
@@ -72,3 +73,15 @@ function addSupply(req, res) {
     .catch(err => { res.json(err) })
 }
 
+function removeSupply(req, res) {
+  Project.findById(req.params.id)
+    .then((project) => {
+      let idx = project.supplies.indexOf(req.body.boop)
+      if (idx > -1) {
+        project.supplies.splice(idx, 1)
+        project.save()
+        res.json(project)
+      }
+    })
+    .catch(err => { res.json(err) })
+}
