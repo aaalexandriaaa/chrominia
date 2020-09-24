@@ -11,7 +11,7 @@ const projectSchema = new mongoose.Schema({
   description: String,
   hobby: String,
   dateStarted: String,
-  targetDate: Date,
+  targetDate: String,
   completed: Boolean,
   notes: [noteSchema],
   supplies: [{

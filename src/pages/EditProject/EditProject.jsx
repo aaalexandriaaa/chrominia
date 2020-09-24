@@ -7,7 +7,7 @@ import AttachImageCard from '../../components/AttachImageCard/AttachImageCard'
 import './EditProject.css'
 
 const types = [
-    ['paint', 'Paints'], ['brush', 'Brushes'], ['model', 'Modeles'], ['paintacc', 'Paint Accessories'], ['other', 'Other Supplies'], ['tool', 'Tools'], ['material', 'Materials']
+    ['paint', 'Paints'], ['brush', 'Brushes'], ['model', 'Models'], ['paintacc', 'Paint Accessories'], ['other', 'Other Supplies'], ['tool', 'Tools'], ['material', 'Materials']
 ]
 
 class EditProject extends Component {
@@ -49,7 +49,7 @@ class EditProject extends Component {
     handleAttachImage = async (id, project) => {
         const imageID = { boop: id }
         await projectAPI.attachImage(imageID, project)
-            // .then(() => this.props.history.push(`projectdetails/${project}`))
+        // .then(() => this.props.history.push(`projectdetails/${project}`))
         const image = this.state.images.find(i => i._id === id)
         const updatedProject = this.state.project
         updatedProject.images.push(image)
@@ -59,14 +59,14 @@ class EditProject extends Component {
     handleRemoveImage = async (id, project) => {
         const supplyID = { boop: id }
         await projectAPI.removeImage(supplyID, project)
-            // .then(() => this.props.history.push(`/projectdetails/${project}`))
+        // .then(() => this.props.history.push(`/projectdetails/${project}`))
         const updatedProject = this.state.project
-        const idx = updatedProject.images.findIndex(i=> i._id === id)
+        const idx = updatedProject.images.findIndex(i => i._id === id)
         updatedProject.images.splice(idx, 1)
         this.setState({ project: updatedProject })
     }
 
-    handleAttachSupply = async (id, project) =>{
+    handleAttachSupply = async (id, project) => {
         const supplyID = { boop: id }
         await projectAPI.attachSupply(supplyID, project)
         //     .then(() => this.props.history.push(`projectdetails/${project}`))
@@ -83,14 +83,14 @@ class EditProject extends Component {
         await projectAPI.removeSupply(supplyID, project)
         // .then(() => this.props.history.push(`/projectdetails/${project}`))
         const updatedProject = this.state.project
-        const idx = updatedProject.supplies.findIndex(s=> s._id === id)
+        const idx = updatedProject.supplies.findIndex(s => s._id === id)
         updatedProject.supplies.splice(idx, 1)
         this.setState({ project: updatedProject })
     }
 
     hasSupply = (supplies, supID) => {
         let result = false
-        supplies.forEach(s =>{
+        supplies.forEach(s => {
             if (s._id === supID) {
                 result = true
             }
@@ -157,17 +157,17 @@ class EditProject extends Component {
                 <h2>Attach Supplies</h2>
                 <div className="attatch-supplies-container">
                     <div>
-                    {types.map((type, idx) => 
-                        <div key={idx}>
-                            <SupplyTable 
-                                type={type[1]}
-                                supplies={this.pullSupply(type[0])}
-                                projectID={projectID}
-                                project={this.state.project}
-                                handleAttachSupply={this.handleAttachSupply}
-                                handleRemoveSupply={this.handleRemoveSupply}
-                            />
-                       </div>
+                        {types.map((type, idx) =>
+                            <div key={idx}>
+                                <SupplyTable
+                                    type={type[1]}
+                                    supplies={this.pullSupply(type[0])}
+                                    projectID={projectID}
+                                    project={this.state.project}
+                                    handleAttachSupply={this.handleAttachSupply}
+                                    handleRemoveSupply={this.handleRemoveSupply}
+                                />
+                            </div>
                         )}
                     </div>
                 </div>
@@ -182,7 +182,7 @@ class EditProject extends Component {
                                 handleAttachImage={this.handleAttachImage}
                                 handleRemoveImage={this.handleRemoveImage}
                             />
-                            
+
 
                         </div>
                     )}
