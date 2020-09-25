@@ -1,5 +1,5 @@
 ![chrominia](public/images/chrominialogodraft2black.png)
-# A Social App for Miniature Painters
+# A Social App and Project Tracker for Miniature Painters
 
 ## Not like, painters who are miniature.
 
@@ -12,7 +12,10 @@
 Cem Ayteac; Jam Wheat; Alexandria Stephenson
 <br/><br/>
 # About Chrominia
+Chrominia was conceived as a miniature project tracker for people who build and paint miniatures figures for tabletop games, such as tabletop war games (e.g., WarHammer), tabletop RPGS (e.g., Dungeons & Dragons), and board games (e.g., Scythe). 
+
 Chrominia was built in Unit 3 of our Software Engineering Immersive at General Assembly. Unit 3 was primarily focused on learning React and its role in a MERN-stack application. An additional requirement was implementing token-based authentication.
+
 <br/><br/>
 # Getting Started
 [Chrominia is currently hosted by Heroku](https://chrominia.herokuapp.com/) <br />
