@@ -29,7 +29,7 @@ class AllSupplies extends Component {
               pathname: '/supplydetails/brush'
             }}
           >
-            <img style={{ width: "100px", height: "100px" }} src="/images/brush.svg" alt="brush logo" />
+            <img style={{ width: "100px", height: "100px" }} src="/images/brush.png" alt="brush logo" />
             <h4>View All Brushes</h4>
           </Link>
           <Link
@@ -37,7 +37,7 @@ class AllSupplies extends Component {
               pathname: '/supplydetails/material'
             }}
           >
-            <img style={{ width: "100px", height: "100px" }} src="/images/material.svg" alt="materials logo" />
+            <img style={{ width: "100px", height: "100px" }} src="/images/material.png" alt="materials logo" />
             <h4>View All Materials</h4>
           </Link>
           <Link
@@ -45,7 +45,7 @@ class AllSupplies extends Component {
               pathname: '/supplydetails/model'
             }}
           >
-            <img style={{ width: "100px", height: "100px" }} src="/images/model.svg" alt="models logo" />
+            <img style={{ width: "100px", height: "100px" }} src="/images/model.png" alt="models logo" />
             <h4>View All Models</h4>
           </Link>
           <Link
@@ -53,7 +53,7 @@ class AllSupplies extends Component {
               pathname: '/supplydetails/other'
             }}
           >
-            <img style={{ width: "100px", height: "100px" }} src="/images/other.svg" alt="miscellaneous logo" />
+            <img style={{ width: "100px", height: "100px" }} src="/images/other.png" alt="miscellaneous logo" />
             <h4>View Miscellaneous</h4>
           </Link>
           <Link
@@ -61,7 +61,7 @@ class AllSupplies extends Component {
               pathname: '/supplydetails/paintacc'
             }}
           >
-            <img style={{ width: "100px", height: "100px" }} src="/images/paintacc.svg" alt="paint accessories logo" />
+            <img style={{ width: "100px", height: "100px" }} src="/images/paintacc.png" alt="paint accessories logo" />
             <h4>View All Paint Accessories</h4>
           </Link>
           <Link
@@ -69,7 +69,7 @@ class AllSupplies extends Component {
               pathname: '/supplydetails/paint'
             }}
           >
-            <img style={{ width: "100px", height: "100px" }} src="/images/paint.svg" alt="paint logo" />
+            <img style={{ width: "100px", height: "100px" }} src="/images/paint.png" alt="paint logo" />
             <h3>View All Paints</h3>
           </Link>
           <Link
@@ -77,7 +77,7 @@ class AllSupplies extends Component {
               pathname: '/supplydetails/tool'
             }}
           >
-            <img style={{ width: "100px", height: "100px" }} src="/images/tool.svg" alt="tool logo" />
+            <img style={{ width: "100px", height: "100px" }} src="/images/tool.png" alt="tool logo" />
             <h3>View All Tools</h3>
 
           </Link>
