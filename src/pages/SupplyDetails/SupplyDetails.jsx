@@ -48,13 +48,15 @@ class SupplyDetails extends Component {
     return (
       <>
         <h1>{type} Details</h1>
-        <Button
+        <div className='button-div' id='add-supply-button'>
+          <Button
             className="greenButton"
             id='button'
             href={'/addsupply'}
           >
             Add Supply
         </Button>
+        </div>
         <div className='table-div'>
           <Table striped bordered hover size='sm' variant='light'>
             <thead>

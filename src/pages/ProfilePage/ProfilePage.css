@@ -11,3 +11,9 @@
 .profile {
   border-radius: 50%;
 }
+
+#edit-profile-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

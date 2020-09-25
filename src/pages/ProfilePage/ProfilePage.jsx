@@ -23,6 +23,11 @@ class ProfilePage extends Component {
           <p>Name: {this.state.user.name}</p>
           <p>Member Since: {this.state.user.createdAt.slice(0, 10)}</p>
           <div className='profile-button-div'>
+            <Link to={`/projects/${this.state.user._id}`} className='yellowButton' id='button'>Projects</Link>
+            <Link to={`/gallery/${this.state.user._id}`} className='yellowButton' id='button'>Gallery</Link>
+
+          </div>
+          <div id='edit-profile-div'>
             {user && (user._id === this.state.user._id) &&
               <Link
                 id='button'
@@ -35,9 +40,6 @@ class ProfilePage extends Component {
                 Edit Profile
             </Link>
             }
-            <Link to={`/projects/${this.state.user._id}`} className='yellowButton' id='button'>Projects</Link>
-            <Link to={`/gallery/${this.state.user._id}`} className='yellowButton' id='button'>Gallery</Link>
-
           </div>
         </div>
 

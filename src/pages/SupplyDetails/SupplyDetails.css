@@ -4,6 +4,10 @@
   margin: 20px;
 }
 
+#add-supply-button {
+  margin: 0 auto;
+}
+
 .table {
   width: 80%;
 }

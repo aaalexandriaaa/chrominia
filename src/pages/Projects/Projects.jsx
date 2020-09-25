@@ -19,7 +19,7 @@ class Project extends Component {
     return (
       <>
         <h1>My Projects</h1>
-        <div className="button-div">
+        <div className="button-div" id='add-project-div'>
           <Button href="/addproject" className="greenButton" id='button'>
             Add a Project
                 </Button><br />
