@@ -37,9 +37,6 @@ class SupplyTable extends Component {
                 <tr>
                   <th>Name</th>
                   <th>Paint Type</th>
-                  <th>Color</th>
-                  <th>Size</th>
-                  <th>Brand</th>
                   <th>On Wish List?</th>
                   <th>Attatch to Project?</th>
                 </tr>
@@ -49,9 +46,6 @@ class SupplyTable extends Component {
                   <tr key={idx}>
                     <td>{supply.name}</td>
                     <td>{supply.paintType}</td>
-                    <td>{supply.color}</td>
-                    <td>{supply.size}</td>
-                    <td>{supply.brand}</td>
                     <td>{supply.own ? '' : 'Y'}</td>
                     <td>{this.hasSupply(this.props.project.supplies, supply._id) ?
                       <button onClick={() => this.props.handleRemoveSupply(supply._id, this.props.projectID)} className='redButton' id='button'>Detatch</button>
