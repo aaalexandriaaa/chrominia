@@ -34,7 +34,7 @@ class Gallery extends Component {
                 </Button>
             </div>
           </>}
-        <Container>
+        <Container className='gallery-container'>
           {this.state.images.map((image, idx) =>
             <Col key={image.idx}>
               <Link
