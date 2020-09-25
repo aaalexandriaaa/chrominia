@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 class EditProfile extends Component {
   state = {
@@ -25,12 +26,12 @@ class EditProfile extends Component {
   render() {
     return (
       <>
-        <div>
-          <h1>Edit Profile</h1>
-          <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
+        <h1>Edit Profile</h1>
+        <div className='form-div'>
+          <Form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <label>User Name</label>
-              <input
+              <Form.Label>User Name</Form.Label>
+              <Form.Control
                 className="form-control"
                 name="name"
                 value={this.state.formData.name}
@@ -39,28 +40,32 @@ class EditProfile extends Component {
               />
             </div>
             <div className="form-group">
-              <label>User Icon</label>
-              <input
+              <Form.Label>User Icon</Form.Label>
+              <Form.Control
                 id="iconUrl"
                 name="icon"
                 value={this.state.formData.icon}
                 onChange={this.handleChange}
               />
             </div>
-            <button
-              type="submit"
-              disabled={this.state.invalidForm}
-            >
-              Update User
-                    </button>
-            <br />
-
-            <Link
-              to={`/profile/${this.props.location.state._id}`}>
-              CANCEL
-            </Link>
-
-          </form>
+            <div className='editProfile-button-div'>
+              <Button
+                className='purpleButton'
+                id='button'
+                type="submit"
+                disabled={this.state.invalidForm}
+              >
+                Update User
+                    </Button>
+              <br />
+              <Button
+                className='redButton'
+                id='button'
+                href={`/profile/${this.props.location.state._id}`}>
+                CANCEL
+            </Button>
+            </div>
+          </Form>
         </div>
       </>
     )
