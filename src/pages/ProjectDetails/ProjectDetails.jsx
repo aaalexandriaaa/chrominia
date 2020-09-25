@@ -5,6 +5,7 @@ import authService from '../../services/authService'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import './ProjectDetails.css'
 
 class ProjectDetails extends Component {
@@ -34,23 +35,26 @@ class ProjectDetails extends Component {
     const user = this.props.user
     return (
       <>
-        <div className="editProject-container">
-          <h1>{project.name}</h1>
-          <p>Description: {project.description}</p>
-          <p>Hobby: {project.hobby}</p>
-          <p>Date Started: {project.dateStarted}</p>
-          {/* consider adding a function to turn the date string from 2020-10-03 to 10-03-2020 */}
-        </div>
-        <div className="project-supplies-container">
-          <h2>Project Supplies</h2>
+        <h1>{project.name}</h1>
+        <Container className="project-details-container">
+          <Row id='project-row'>
+            <p>Description: {project.description}</p>
+            <p>Hobby: {project.hobby}</p>
+            <p>Date Started: {project.dateStarted}</p>
+            {/* consider adding a function to turn the date string from 2020-10-03 to 10-03-2020 */}
+          </Row>
+        </Container>
+
+        <h2>Project Supplies</h2>
+        <Container className="project-supplies-container">
           {this.state.project.supplies.map((supply, idx) =>
-            <div key={idx} className={supply.own ? 'black' : 'grey'} >
+            <Col key={idx} className={supply.own ? 'black' : 'grey'} >
               <p>Type: {supply.type}< br />
                                 Name: {supply.name}< br />
                                 Brand: {supply.brand}</p>
-            </div>
+            </Col>
           )}
-        </div>
+        </Container>
 
         <h2>Project Images</h2>
         <Container className="project-images-container">
