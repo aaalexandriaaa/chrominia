@@ -13,6 +13,8 @@ Cem Ayteac; Jam Wheat; Alexandria Stephenson
 # About Chrominia
 Chrominia was conceived as a miniature project tracker for people who build and paint miniatures figures for tabletop games, such as tabletop war games (e.g., WarHammer), tabletop RPGS (e.g., Dungeons & Dragons), and board games (e.g., Scythe). 
 
+Users can track their hobby supplies, display images of their work in a gallery, and most importantly create projects to allow them to have a birds-eye view of their projects. Users can attach any of their inventoried supplies to a project to allow them to keep track of which they already have and which they still need to purchase.
+
 Chrominia was built in Unit 3 of our Software Engineering Immersive at General Assembly. Unit 3 was primarily focused on learning React and its role in a MERN-stack application. An additional requirement was implementing token-based authentication.
 <br/><br/>
 # Getting Started

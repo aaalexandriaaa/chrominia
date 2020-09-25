@@ -85,7 +85,7 @@ class SignupForm extends Component {
             />
           </Form.Group>
           <div className='button-div'>
-            <Button className='greenButton' id='button' disabled={this.isFormInvalid()}>Sign Up</Button>
+            <Button type="submit" className='greenButton' id='button' disabled={this.isFormInvalid()}>Sign Up</Button>
           &nbsp;&nbsp;
           <Link to="/" className='redButton' id='button'>Cancel</Link>
           </div>
