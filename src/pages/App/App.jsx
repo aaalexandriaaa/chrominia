@@ -33,7 +33,7 @@ class App extends Component {
     await userService.update(updatedUserData)
     this.setState({ user: authService.getUser() })
     this.props.history.push(`profile/${updatedUserData._id}`)
-      // .then(() => this.props.history.push(`profile/${updatedUserData._id}`))
+    // .then(() => this.props.history.push(`profile/${updatedUserData._id}`))
   }
 
   handleLogout = () => {
@@ -55,7 +55,9 @@ class App extends Component {
             exact
             path="/"
             render={() => (
-              <LandingPage />
+              <LandingPage
+                // user={user}
+              />
             )}
           />
           <Route
@@ -165,8 +167,8 @@ class App extends Component {
           <Route
             exact
             path="/gallery/:id"
-            render={({match}) => (
-              <Gallery 
+            render={({ match }) => (
+              <Gallery
                 match={match}
                 user={this.state.user}
               />
@@ -200,7 +202,7 @@ class App extends Component {
           <Route
             exact
             path="/projects/:id"
-            render={({match}) => (
+            render={({ match }) => (
               <Projects
                 match={match}
               />
@@ -229,7 +231,7 @@ class App extends Component {
               />
             )}
           />
-          
+
           <Route
             exact
             path="/viewwishlist"
