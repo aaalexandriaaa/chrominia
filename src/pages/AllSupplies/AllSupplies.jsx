@@ -70,7 +70,7 @@ class AllSupplies extends Component {
             }}
           >
             <img style={{ width: "100px", height: "100px" }} src="/images/paint.png" alt="paint logo" />
-            <h3>View All Paints</h3>
+            <h4>View All Paints</h4>
           </Link>
           <Link
             to={{
@@ -78,8 +78,7 @@ class AllSupplies extends Component {
             }}
           >
             <img style={{ width: "100px", height: "100px" }} src="/images/tool.png" alt="tool logo" />
-            <h3>View All Tools</h3>
-
+            <h4>View All Tools</h4>
           </Link>
         </div>
         <div className="supply-header">
