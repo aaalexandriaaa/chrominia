@@ -5,12 +5,9 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-h1 {
+h1, h2, h3 {
   padding: 10px;
-  font-weight: 900;
-}
-
-h3 {
+  margin-top: 10px;
   font-weight: 900;
 }
 
@@ -62,6 +59,7 @@ main {
   cursor: pointer;
 }
 
+
 #button:hover {
   border-color: black;
   transform: scale(1.03);
@@ -70,10 +68,33 @@ main {
 
 .button-div {
   display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 10px;
   margin: 10px;
+}
+
+#rows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+
+.projects-container {
+  display: flex;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+
+.attach-supplies-container {
+  margin-left: 20px;
 }
 
 .editProfile-button-div {

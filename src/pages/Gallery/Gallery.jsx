@@ -24,7 +24,7 @@ class Gallery extends Component {
         <h1>Gallery</h1>
         {user && (user._id === this.props.match.params.id) &&
           <>
-            <div className="addImage-div">
+            <div id="add-image-div">
               <Button
                 className="greenButton"
                 id='button'
@@ -34,7 +34,7 @@ class Gallery extends Component {
                 </Button>
             </div>
           </>}
-        <Container>
+        <Container className='gallery-container'>
           {this.state.images.map((image, idx) =>
             <Col key={image.idx}>
               <Link

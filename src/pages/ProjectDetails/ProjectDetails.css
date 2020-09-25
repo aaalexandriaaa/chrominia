@@ -1,16 +1,26 @@
-.editProject-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 48px;
-}
-
 .edit-delete-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin: 20px 0;
+}
+
+
+
+.edit-project-container{
+  display: flex;
+  justify-content: center;
+}
+
+.project-images-container, .project-supplies-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#project-details-buttons {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 
