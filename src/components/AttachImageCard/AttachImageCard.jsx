@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button'
 
 class AttachImageCard extends Component {
   state = {
@@ -18,11 +19,11 @@ class AttachImageCard extends Component {
   render() {
     return (
       <>
-        <img width="180" src={this.props.image.url} alt={this.props.image.title}></img>
+        <img width="200" src={this.props.image.url} alt={this.props.image.title}></img>
         {this.hasImage(this.props.project.images, this.props.image._id) ?
-          <button onClick={() => this.props.handleRemoveImage(this.props.image._id, this.props.projectID)} className='redButton'>Detatch Image</button>
+          <Button onClick={() => this.props.handleRemoveImage(this.props.image._id, this.props.projectID)} className='redButton' id='button'>Detatch Image</Button>
           :
-          <button onClick={() => this.props.handleAttachImage(this.props.image._id, this.props.projectID)} className='greenButton'>Attatch Image</button>
+          <Button onClick={() => this.props.handleAttachImage(this.props.image._id, this.props.projectID)} className='greenButton' id='button'>Attatch Image</Button>
         }
       </>
     );
