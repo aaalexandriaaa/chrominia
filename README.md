@@ -39,7 +39,7 @@ Chrominia was built in Unit 3 of our Software Engineering Immersive at General A
 * Pixelmator
 <br/><br/>
 # Future Goals
-Chrominia was original created as both a project tracker and social app; however, due to the constraints of time, the original social functionality was largely left unimplemented. In the future, we'd like to implement a "friends" feature and a commenting feature. We'd also like to implement a larger "super project" feature, where the user could bundle projects together (e.g., a whole Sister of Battle army could contain a Celestine project, an hospitalier project, a tank project, etc). Finally, we'd like to implment two more schemas - notes & paint recipes - in order to add more features for the user as they are fleshing out their projects. 
+Chrominia was originally created as both a project tracker and social app; however, due to the constraints of time, the original social functionality was largely left unimplemented. In the future, we'd like to implement a "friends" feature and a commenting feature. We'd also like to implement a larger "super project" feature, where the user could bundle projects together (e.g., a whole Sister of Battle army could contain a Celestine project, an hospitalier project, a tank project, etc). Finally, we'd like to implment two more schemas - notes & paint recipes - in order to add more features for the user as they are fleshing out their projects. 
 <br/><br/>
 # Attributions
 Supplies icons were sourced from [The Noun Project](https://thenounproject.com/)<br/>
