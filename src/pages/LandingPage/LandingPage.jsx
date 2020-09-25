@@ -17,11 +17,11 @@ class LandingPage extends Component {
         </p>
         <p>
           Once you've created your profile, head on over to the <a href="/allsupplies">supplies page</a> to keep track of your brushes, paints, and models!<br />
-          Or add supplies to your <a href="/wishlist">wishlist</a>!
+          Or add supplies to your <a href={`/viewwishlist`}> wishlist</a>!
         </p>
         <p>
-          Don't forget to show your favorite work off in your <a href={`/gallery/`}>image gallery</a> - <br />
-          and then attach those images and supplies to a new <a href="/addproject">project</a>!
+          Don't forget to show your favorite work off in your <a href={`/gallery/${this.props.user._id}`}>image gallery</a> - <br />
+          and then attach those images and supplies to a new <a href={`/projects/${this.props.user._id}`}>project</a>!
         </p>
       </>
     );

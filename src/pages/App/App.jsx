@@ -56,7 +56,7 @@ class App extends Component {
             path="/"
             render={() => (
               <LandingPage
-                // user={user}
+                user={this.state.user}
               />
             )}
           />
