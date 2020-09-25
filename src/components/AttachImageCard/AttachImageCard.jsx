@@ -19,12 +19,12 @@ class AttachImageCard extends Component {
   render() {
     return (
       <>
-        <img width="200" src={this.props.image.url} alt={this.props.image.title}></img>
-        {this.hasImage(this.props.project.images, this.props.image._id) ?
+        <div><img width="200" src={this.props.image.url} alt={this.props.image.title}></img></div>
+        <div className="button-div">{this.hasImage(this.props.project.images, this.props.image._id) ?
           <Button onClick={() => this.props.handleRemoveImage(this.props.image._id, this.props.projectID)} className='redButton' id='button'>Detatch Image</Button>
           :
           <Button onClick={() => this.props.handleAttachImage(this.props.image._id, this.props.projectID)} className='greenButton' id='button'>Attatch Image</Button>
-        }
+        }</div>
       </>
     );
   }

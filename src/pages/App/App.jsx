@@ -17,7 +17,7 @@ import LandingPage from '../LandingPage/LandingPage'
 import ProfilePage from '../ProfilePage/ProfilePage'
 import ProjectDetails from '../ProjectDetails/ProjectDetails'
 import Projects from '../Projects/Projects'
-import Users from '../Users/Users'
+// import Users from '../Users/Users'
 import ViewImage from '../ViewImage/ViewImage'
 import ViewWishList from '../ViewWishList/ViewWishList'
 import SupplyDetails from '../SupplyDetails/SupplyDetails'
@@ -81,87 +81,108 @@ class App extends Component {
             )}
           />
           <Route
-
-
             exact
             path="/addimage"
             render={({ history }) => (
-              <AddImage
-                user={this.state.user}
-                history={history}
-              />
+              authService.getUser() ?
+                <AddImage
+                  user={this.state.user}
+                  history={history}
+                />
+                :
+              <Redirect to='/login' />
             )}
-
-
           />
           <Route
             exact
             path="/addproject"
-
             render={({ history }) => (
+              authService.getUser() ?
               <AddProject
                 history={history}
                 user={this.state.user}
               />
-
+              :
+              <Redirect to='/login' />
             )}
           />
           <Route
             exact
             path="/addsupply"
             render={({ history }) => (
+              authService.getUser() ?
               <AddSupply
                 history={history}
               />
+              :
+              <Redirect to='/login' />
             )}
           />
           <Route
             exact
             path="/addwishlist"
             render={({ history }) => (
+              authService.getUser() ?
               <AddWishList
                 history={history}
               />
+              :
+              <Redirect to='/login' />
             )}
           />
           <Route
             exact
             path="/allsupplies"
             render={() => (
+
+              authService.getUser() ?
               <AllSupplies />
+              :
+              <Redirect to='/login' />
             )}
           />
           <Route
             exact
             path="/editimage"
             render={({ location, history }) => (
+
+              authService.getUser() ?
               <EditImage
                 location={location}
                 history={history}
                 user={this.state.user}
               />
+              :
+              <Redirect to='/login' />
             )}
           />
           <Route
             exact
             path="/editprofile"
             render={({ location, history }) => (
+              authService.getUser() ?
+
               <EditProfile
                 history={history}
                 location={location}
                 handleUpdateUser={this.handleUpdateUser}
               />
+              :
+              <Redirect to='/login' />
             )}
           />
           <Route
             exact
             path="/editproject"
             render={({ history, location }) => (
+              authService.getUser() ?
               <EditProject
                 history={history}
                 location={location}
                 user={this.state.user}
               />
+              :
+              <Redirect to='/login' />
             )}
           />
           <Route
@@ -178,20 +199,20 @@ class App extends Component {
             exact
             path="/profile/:id"
 
-            render={({ match }) => authService.getUser() ?
+            render={({ match }) => (
               <ProfilePage
                 user={this.state.user}
                 match={match}
               />
-              :
-              <Redirect to='/login' />
-            }
+             
+            )}
 
           />
           <Route
             exact
             path="/projectdetails/:id"
             render={({ match, history }) => (
+              
               <ProjectDetails
                 match={match}
                 history={history}
@@ -212,9 +233,12 @@ class App extends Component {
             exact
             path="/supplydetails/:supply"
             render={({ match }) => (
+              authService.getUser() ?
               <SupplyDetails
                 match={match}
               />
+              :
+              <Redirect to='/login' />
             )}
           />
           <Route
@@ -236,15 +260,18 @@ class App extends Component {
             exact
             path="/viewwishlist"
             render={() => (
+              authService.getUser() ?
               <ViewWishList />
+              :
+              <Redirect to='/login' />
             )}
           />
-          <Route
+          {/* <Route
             path="/users"
             render={() => (
               <Users />
             )}
-          />
+          /> */}
         </main>
       </>
     );
